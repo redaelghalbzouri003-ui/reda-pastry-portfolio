@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reda El Ghalbzouri – Pastry Chef</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#f9f6f0;--white:#fff;--green:#6aaa6a;--green-light:#e8f3e8;--green-dark:#4a8a4a;--beige:#f2ebe0;--brown:#5c3d2e;--text:#1a1a1a;--muted:#6b6b6b;--red:#c0392b}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+.lang-page{display:none;min-height:100vh}.lang-page.active{display:block}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
+nav.scrolled{background:rgba(249,246,240,.96);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(0,0,0,.06)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:.05em}
+.nav-links{display:flex;gap:30px;align-items:center;list-style:none}
+.nav-links a{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text);text-decoration:none;transition:color .3s;cursor:pointer}
+.nav-links a:hover{color:var(--green-dark)}
+.lang-switcher{display:flex;gap:6px;align-items:center}
+.lang-pill{padding:5px 12px;border:1px solid #ddd;border-radius:20px;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none;color:var(--muted);transition:all .3s}
+.lang-pill.active,.lang-pill:hover{background:var(--green-dark);border-color:var(--green-dark);color:#fff}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.menu-toggle span{width:24px;height:1.5px;background:var(--text);display:block}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(160deg,var(--cream) 0%,var(--beige) 60%,var(--green-light) 100%);overflow:hidden}
+.hero-deco{position:absolute;border-radius:50%;border:1px solid rgba(106,170,106,.15);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-deco:nth-child(1){width:500px;height:500px}.hero-deco:nth-child(2){width:700px;height:700px;border-color:rgba(106,170,106,.08)}.hero-deco:nth-child(3){width:900px;height:900px;border-color:rgba(106,170,106,.05)}
+.hero-content{position:relative;z-index:1}
+.hero-tag{font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--green-dark);margin-bottom:20px;opacity:0;animation:fadeUp .8s .3s forwards}
+h1.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,7rem);font-weight:300;line-height:1.05;opacity:0;animation:fadeUp .8s .5s forwards}
+h1.hero-name em{font-style:italic;color:var(--green-dark)}
+.hero-sub{font-size:clamp(.85rem,1.5vw,1rem);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:18px 0 10px;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.4rem);font-style:italic;color:var(--brown);margin-bottom:40px;opacity:0;animation:fadeUp .8s .9s forwards}
+.btn-primary{display:inline-block;padding:14px 36px;border:1px solid var(--green-dark);color:var(--green-dark);text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;transition:all .4s;opacity:0;animation:fadeUp .8s 1.1s forwards;position:relative;overflow:hidden;background:none;cursor:pointer;font-family:'Jost',sans-serif}
+.btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--green-dark);transition:.4s;z-index:-1}
+.btn-primary:hover{color:#fff}.btn-primary:hover::before{left:0}
+.scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 1.5s forwards}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--green),transparent)}
+.scroll-text{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+section{padding:100px 5%}
+.section-tag{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green-dark);margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:24px}
+.section-title em{font-style:italic;color:var(--green-dark)}
+.divider{width:60px;height:1px;background:var(--green);margin-bottom:30px}
+.story-section{background:var(--white)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
+.story-img-wrap{position:relative}
+.story-img-placeholder{width:100%;aspect-ratio:3/4;border-radius:2px;overflow:hidden;background:#f0ede8}
+.story-img-placeholder img{width:100%;height:100%;object-fit:cover;display:block}
+.story-badge{position:absolute;bottom:-20px;right:-20px;background:var(--green-dark);color:#fff;padding:20px 24px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;line-height:1.3;max-width:180px}
+.story-text p{font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:20px}
+.story-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.highlight-item{border-left:2px solid var(--green);padding-left:14px}
+.highlight-item strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.1rem}
+.highlight-item span{font-size:.8rem;color:var(--muted)}
+.skills-section{background:var(--beige)}
+.skills-header{text-align:center;max-width:600px;margin:0 auto 60px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;max-width:1100px;margin:0 auto}
+.skill-card{background:var(--white);padding:44px 30px;text-align:center;transition:all .4s;cursor:default;position:relative;overflow:hidden}
+.skill-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--green);transition:.4s}
+.skill-card:hover::after{width:100%}
+.skill-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.skill-icon{font-size:2.2rem;margin-bottom:16px;display:block}
+.skill-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin-bottom:8px}
+.skill-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+.gallery-section{background:var(--cream)}
+.gallery-header{max-width:700px;margin-bottom:50px}
+.cat-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.cat-btn{padding:8px 20px;border:1px solid #ddd;background:none;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:20px}
+.cat-btn.active,.cat-btn:hover{background:var(--green-dark);border-color:var(--green-dark);color:#fff}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:3px}
+.gallery-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
+.gallery-item.wide{grid-column:span 2}
+.gallery-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gallery-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:transform .6s}
+.gallery-item:hover .gallery-img-placeholder,.gallery-item:hover .gallery-img{transform:scale(1.06)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%);opacity:0;transition:.4s;display:flex;align-items:flex-end;padding:20px}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-label{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;pointer-events:none;flex:1}
+.food-emoji{font-size:3rem}
+.food-name{font-size:.8rem;color:var(--brown);letter-spacing:.1em;text-transform:uppercase}
+.gal-del-btn{position:absolute;top:10px;right:10px;background:rgba(192,57,43,.88);color:#fff;border:none;border-radius:50%;width:30px;height:30px;font-size:1rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:10;transition:all .2s;line-height:1}
+.gal-del-btn:hover{background:var(--red);transform:scale(1.1)}
+body.admin-active .gal-del-btn{display:flex}
+.philosophy-section{background:var(--green-dark);color:#fff;text-align:center;padding:120px 5%}
+.phil-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-style:italic;font-weight:300;max-width:800px;margin:0 auto 30px;line-height:1.4}
+.phil-line{width:60px;height:1px;background:rgba(255,255,255,.3);margin:30px auto}
+.phil-author{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.game-section{background:var(--beige);padding:100px 5%;text-align:center}
+.game-intro{font-size:.95rem;color:var(--muted);max-width:500px;margin:0 auto 30px;line-height:1.8}
+.game-canvas-wrap{position:relative;display:inline-block;border:1px solid rgba(106,170,106,.3);background:var(--cream);box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.game-ui{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:var(--white);border-top:1px solid var(--green-light)}
+.game-stat{font-family:'Cormorant Garamond',serif;font-size:1.1rem}
+.game-stat span{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;font-family:'Jost',sans-serif}
+.game-controls{margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.game-btn{padding:10px 28px;border:1px solid var(--green-dark);color:var(--green-dark);background:none;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px}
+.game-btn:hover,.game-btn.primary{background:var(--green-dark);color:#fff}
+.game-tip{font-size:.78rem;color:var(--muted);margin-top:14px;letter-spacing:.05em}
+#result-modal{position:fixed;inset:0;background:rgba(10,10,10,.8);z-index:900;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+#result-modal.open{opacity:1;pointer-events:all}
+.result-box{background:var(--white);padding:52px 44px;max-width:480px;width:90%;text-align:center;transform:scale(.92);transition:transform .4s;box-shadow:0 40px 100px rgba(0,0,0,.22);border-radius:2px;position:relative}
+#result-modal.open .result-box{transform:scale(1)}
+.result-close-x{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted);line-height:1;padding:4px 8px}
+.result-icon{font-size:3.2rem;margin-bottom:14px}
+.result-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;margin-bottom:10px;line-height:1.3}
+.result-score{font-size:.85rem;color:var(--muted);letter-spacing:.1em;margin-bottom:14px}
+.result-msg{font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:12px}
+.result-cta{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--green-dark);margin-bottom:28px;line-height:1.5}
+.result-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.r-btn{padding:11px 22px;border:1px solid var(--green-dark);color:var(--green-dark);background:none;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px;text-decoration:none;display:inline-block}
+.r-btn:hover,.r-btn.primary{background:var(--green-dark);color:#fff}
+.contact-section{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1000px;margin:0 auto}
+.contact-items{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;align-items:center;gap:16px}
+.contact-icon{width:44px;height:44px;border:1px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.contact-item a,.contact-item span{font-size:.9rem;text-decoration:none;color:var(--text);transition:color .3s}
+.contact-item a:hover{color:var(--green-dark)}
+.contact-form-side{background:var(--white);padding:40px;box-shadow:0 4px 30px rgba(0,0,0,.05)}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.form-group input,.form-group textarea{width:100%;padding:12px 0;border:none;border-bottom:1px solid #ddd;background:none;font-family:'Jost',sans-serif;font-size:.95rem;color:var(--text);outline:none;transition:border-color .3s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--green-dark)}
+.form-group textarea{height:100px;resize:none}
+.btn-submit{width:100%;padding:14px;background:var(--green-dark);color:#fff;border:none;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.btn-submit:hover{background:var(--green)}.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.form-success{display:none;text-align:center;padding:30px 20px}
+.form-success .si{font-size:2.5rem;margin-bottom:12px}
+.form-success p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--green-dark);font-style:italic}
+.form-note{font-size:.78rem;color:var(--muted);margin-top:10px;line-height:1.6;padding:10px 12px;background:var(--green-light);border-radius:4px;display:none}
+
+/* ── ASK REDA FAB ── */
+#reda-fab{position:fixed;bottom:32px;right:32px;z-index:800;cursor:pointer;border:none;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+#reda-fab:hover .fab-circle{transform:scale(1.08);box-shadow:0 8px 28px rgba(74,138,74,.45)}
+.fab-circle{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#4a8a4a,#6aaa6a);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(74,138,74,.35);transition:all .3s;position:relative}
+.fab-circle-inner{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:#fff;letter-spacing:.02em;line-height:1;text-align:center}
+.fab-circle-inner span{display:block;font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;font-style:normal;opacity:.85;margin-top:2px}
+.fab-ring{position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(106,170,106,.35);animation:fabPulse 2.4s infinite}
+.fab-label-txt{font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dark);background:var(--cream);padding:2px 8px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.08);white-space:nowrap}
+@keyframes fabPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:0;transform:scale(1.35)}}
+
+/* ── ASK REDA POPUP ── */
+#reda-popup{position:fixed;bottom:120px;right:32px;z-index:850;width:390px;max-width:calc(100vw - 40px);background:#1a1a1a;border:1px solid rgba(106,170,106,.22);border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,.4);display:none;flex-direction:column;overflow:hidden}
+#reda-popup.open{display:flex}
+.reda-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(106,170,106,.15)}
+.reda-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4a8a4a,#6aaa6a);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:#fff;flex-shrink:0}
+.reda-header-text .reda-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#fff;font-style:italic}
+.reda-header-text .reda-role{font-size:.65rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-top:1px}
+.reda-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.35);font-size:1.3rem;cursor:pointer;line-height:1;padding:3px 7px;transition:color .2s}
+.reda-close:hover{color:rgba(255,255,255,.7)}
+.reda-messages{height:290px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.reda-bubble{padding:11px 15px;border-radius:8px;font-size:.84rem;line-height:1.75;max-width:92%}
+.reda-bubble.reda{background:rgba(255,255,255,.07);color:rgba(255,255,255,.88);align-self:flex-start;border-left:2px solid var(--green);border-radius:2px 8px 8px 8px}
+.reda-bubble.user{background:var(--green-dark);color:#fff;align-self:flex-end;border-radius:8px 8px 2px 8px}
+.reda-bubble.typing{opacity:.45;font-style:italic;color:rgba(255,255,255,.5);align-self:flex-start}
+.reda-chips-area{border-top:1px solid rgba(255,255,255,.06);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.reda-chips-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+.reda-chips-scroll{display:flex;gap:7px;flex-wrap:wrap}
+.r-chip{padding:6px 12px;border:1px solid rgba(106,170,106,.3);color:rgba(255,255,255,.6);background:none;border-radius:14px;font-family:'Jost',sans-serif;font-size:.69rem;letter-spacing:.04em;cursor:pointer;transition:all .28s;text-align:left;line-height:1.3}
+.r-chip:hover{background:var(--green-dark);border-color:var(--green-dark);color:#fff}
+.reda-input-row{display:flex;border-top:1px solid rgba(106,170,106,.15)}
+.reda-input-row input{flex:1;padding:12px 14px;background:rgba(255,255,255,.04);border:none;color:#fff;font-family:'Jost',sans-serif;font-size:.84rem;outline:none}
+.reda-input-row input::placeholder{color:rgba(255,255,255,.22)}
+.reda-input-row button{padding:12px 16px;background:var(--green-dark);border:none;color:#fff;cursor:pointer;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;transition:background .25s}
+.reda-input-row button:hover{background:var(--green)}
+.reda-input-row button:disabled{opacity:.4;cursor:not-allowed}
+
+/* ADMIN / MODALS */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--white);padding:44px 40px;max-width:520px;width:92%;position:relative;transform:translateY(20px);transition:transform .3s;box-shadow:0 30px 80px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto;border-radius:2px}
+.modal-bg.open .modal-box{transform:translateY(0)}
+.modal-box h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;margin-bottom:6px}
+.modal-sub{font-size:.82rem;color:var(--muted);margin-bottom:24px}
+.modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted);line-height:1;padding:4px 8px}
+.field-group{margin-bottom:16px}
+.field-group label{display:block;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.field-group input,.field-group select,.field-group textarea{width:100%;padding:10px 0;border:none;border-bottom:1px solid #ddd;background:none;font-family:'Jost',sans-serif;font-size:.93rem;color:var(--text);outline:none;transition:border-color .3s}
+.field-group input:focus,.field-group select:focus{border-color:var(--green-dark)}
+.field-group select{cursor:pointer}
+.admin-main-tabs{display:flex;gap:2px;margin-bottom:24px}
+.admin-main-tab{flex:1;padding:10px;border:none;background:var(--beige);font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px}
+.admin-main-tab.active{background:var(--green-dark);color:#fff}
+.tab-row{display:flex;margin-bottom:18px;border:1px solid #ddd;border-radius:2px;overflow:hidden}
+.tab-btn{flex:1;padding:9px;border:none;background:none;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.tab-btn.active{background:var(--green-dark);color:#fff}
+.gal-admin-list{display:flex;flex-direction:column;gap:8px;max-height:240px;overflow-y:auto;margin-bottom:20px;padding-right:4px}
+.gal-admin-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--beige);border-radius:2px;font-size:.83rem}
+.gal-admin-name{flex:1;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gal-admin-cat{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark);background:var(--green-light);padding:2px 8px;border-radius:10px;flex-shrink:0}
+.gal-admin-del{background:none;border:1px solid rgba(192,57,43,.35);color:var(--red);padding:4px 8px;border-radius:2px;cursor:pointer;font-size:.8rem;transition:all .2s;flex-shrink:0}
+.gal-admin-del:hover{background:var(--red);color:#fff}
+.add-item-toggle{width:100%;padding:11px;border:1px dashed var(--green);background:none;color:var(--green-dark);font-family:'Jost',sans-serif;font-size:.77rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px;margin-bottom:14px}
+.add-item-toggle:hover{background:var(--green-light)}
+.add-item-form{display:none;border-top:1px solid #eee;padding-top:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.content-type-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.type-btn{flex:1;padding:8px;border:1px solid #ddd;background:none;font-family:'Jost',sans-serif;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px}
+.type-btn.active{background:var(--green-dark);border-color:var(--green-dark);color:#fff}
+.drop-zone{border:1.5px dashed #ccc;padding:26px 20px;text-align:center;cursor:pointer;transition:all .3s;border-radius:4px;position:relative}
+.drop-zone:hover,.drop-zone.drag-active{border-color:var(--green-dark);background:var(--green-light)}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.drop-zone .dz-icon{font-size:2rem;margin-bottom:8px}
+.drop-zone p{font-size:.82rem;color:var(--muted)}
+.drop-zone p strong{color:var(--green-dark)}
+.preview-thumb{width:100%;height:110px;object-fit:cover;margin-top:12px;border-radius:2px;display:none}
+.btn-modal-primary{width:100%;padding:13px;background:var(--green-dark);color:#fff;border:none;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-top:8px;border-radius:2px}
+.btn-modal-primary:hover{background:var(--green)}
+#passModal .modal-box{max-width:360px}
+.pass-error{color:var(--red);font-size:.8rem;margin-top:8px;display:none}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.stat-card{background:var(--beige);border-radius:4px;padding:18px 14px;text-align:center}
+.stat-card .sv{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--green-dark)}
+.stat-card .sl{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.stats-section-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin:20px 0 10px;color:var(--text)}
+.stats-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.82rem}
+.stats-bar-label{width:90px;color:var(--muted);flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stats-bar-track{flex:1;background:#eee;border-radius:20px;height:7px;overflow:hidden}
+.stats-bar-fill{height:100%;background:var(--green-dark);border-radius:20px;transition:width .6s}
+.stats-bar-val{width:32px;text-align:right;color:var(--text);flex-shrink:0}
+.stats-lang-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.stats-lang-pill{padding:5px 14px;border-radius:20px;font-size:.75rem;letter-spacing:.08em;background:var(--green-light);color:var(--green-dark)}
+.stats-refresh{width:100%;padding:10px;border:1px solid var(--green);background:none;color:var(--green-dark);font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:16px}
+.stats-refresh:hover{background:var(--green-light)}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+#lightbox.active{opacity:1;pointer-events:all}
+#lightbox-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:2px;transform:scale(.92);transition:transform .35s}
+#lightbox.active #lightbox-img{transform:scale(1)}
+#lightbox-close{position:absolute;top:24px;right:32px;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#lightbox-caption{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;white-space:nowrap}
+#lightbox-ph{display:none;flex-direction:column;align-items:center;gap:16px;color:#fff}
+#lightbox-ph .lb-e{font-size:6rem}
+#lightbox-ph .lb-n{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;opacity:.7}
+footer{background:var(--text);color:rgba(255,255,255,.5);text-align:center;padding:30px;font-size:.8rem;letter-spacing:.1em;user-select:none}
+footer span{color:var(--green)}
+.footer-secret{cursor:default}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes redFlash{0%{opacity:.4}100%{opacity:0}}
+.chaos-flash{position:fixed;inset:0;background:#c0392b;pointer-events:none;z-index:800;animation:redFlash .35s forwards}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;gap:30px;z-index:99}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:flex;z-index:101}
+  .story-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .gallery-item.wide{grid-column:span 1}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  #reda-popup{width:calc(100vw - 40px);right:20px;bottom:110px}
+  #reda-fab{bottom:24px;right:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="" style="display:none"/>
+  <div id="lightbox-ph"><span class="lb-e"></span><span class="lb-n"></span></div>
+  <p id="lightbox-caption"></p>
+</div>
+
+<!-- PASSWORD MODAL -->
+<div class="modal-bg" id="passModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closePassModal()">×</button>
+    <h3>Admin Access</h3>
+    <p class="modal-sub">Enter your secret password to continue.</p>
+    <div class="field-group"><label>Password</label><input type="password" id="passInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPass()"/></div>
+    <p class="pass-error" id="passError">❌ Incorrect password. Try again.</p>
+    <button class="btn-modal-primary" onclick="checkPass()">Unlock</button>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="modal-bg" id="adminModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAdmin()">×</button>
+    <h3>Admin Panel</h3>
+    <p class="modal-sub">Manage your portfolio content.</p>
+    <div class="admin-main-tabs">
+      <button class="admin-main-tab active" onclick="switchMainTab('photo',this)">📸 Photo Upload</button>
+      <button class="admin-main-tab" onclick="switchMainTab('gallery',this)">🖼 Gallery</button>
+      <button class="admin-main-tab" onclick="switchMainTab('stats',this)">📊 Statistics</button>
+    </div>
+    <div id="adminPhotoTab">
+      <div class="field-group">
+        <label>Send this photo to</label>
+        <div class="content-type-row" style="margin-top:6px" id="destBtnsA">
+          <button class="type-btn active" onclick="setPhotoDest('story',this)">📖 My Story</button>
+          <button class="type-btn" onclick="setPhotoDest('viennoiserie',this)">🥐 Viennoiserie</button>
+          <button class="type-btn" onclick="setPhotoDest('chocolate',this)">🍫 Chocolate</button>
+        </div>
+        <div class="content-type-row">
+          <button class="type-btn" onclick="setPhotoDest('petitfour',this)">✨ Petit Fours</button>
+          <button class="type-btn" onclick="setPhotoDest('entremets',this)">🎂 Entremets</button>
+          <button class="type-btn" onclick="setPhotoDest('tarts',this)">🍎 Tarts</button>
+        </div>
+      </div>
+      <div id="photoStoryFields"><div class="field-group"><label>Badge Text</label><input type="text" id="adminPhotoName" placeholder="e.g. Reda at Radisson Blu"/></div></div>
+      <div id="photoGalleryFields" style="display:none">
+        <div class="two-col"><div class="field-group"><label>Name (EN)</label><input type="text" id="pgEn" placeholder="Chocolate Tart"/></div><div class="field-group"><label>Name (FR)</label><input type="text" id="pgFr" placeholder="Tarte Chocolat"/></div></div>
+        <div class="two-col"><div class="field-group"><label>Name (DE)</label><input type="text" id="pgDe" placeholder="Schokoladentarte"/></div><div class="field-group"><label>Name (ES)</label><input type="text" id="pgEs" placeholder="Tarta de Chocolate"/></div></div>
+        <div class="field-group" style="display:flex;align-items:center;gap:8px;margin-top:4px"><input type="checkbox" id="pgWide" style="width:auto;padding:0;border:none;accent-color:var(--green-dark)"/><label style="font-size:.8rem;color:var(--muted);letter-spacing:.05em;text-transform:none">Wide item (spans 2 columns)</label></div>
+      </div>
+      <div class="tab-row" style="margin-top:14px">
+        <button class="tab-btn active" onclick="switchAdminTab('url',this)">Paste URL</button>
+        <button class="tab-btn" onclick="switchAdminTab('upload',this)">Upload / Drag</button>
+      </div>
+      <div id="adminTabUrl"><div class="field-group"><label>Image URL</label><input type="url" id="adminUrl" placeholder="https://…" oninput="previewAdminUrl()"/></div></div>
+      <div id="adminTabUpload" style="display:none"><div class="drop-zone" id="dropZone"><input type="file" accept="image/*" id="adminFile"/><div class="dz-icon">📂</div><p><strong>Drag & drop</strong> your photo here<br>or click to browse</p></div></div>
+      <img id="adminPreview" class="preview-thumb" alt="preview"/>
+      <button class="btn-modal-primary" onclick="savePhoto()" style="margin-top:16px" id="savePhotoBtn">Save to My Story</button>
+    </div>
+    <div id="adminGalleryTab" style="display:none">
+      <p style="font-size:.8rem;color:var(--muted);margin-bottom:14px">All gallery items — click 🗑 to delete.</p>
+      <div class="gal-admin-list" id="galleryAdminList"></div>
+      <button class="add-item-toggle" onclick="toggleAddForm()" id="addToggleBtn">＋ Add New Item</button>
+      <div class="add-item-form" id="addItemForm">
+        <div class="two-col"><div class="field-group"><label>Name (EN)</label><input type="text" id="newEn" placeholder="Chocolate Tart"/></div><div class="field-group"><label>Name (FR)</label><input type="text" id="newFr" placeholder="Tarte Chocolat"/></div></div>
+        <div class="two-col"><div class="field-group"><label>Name (DE)</label><input type="text" id="newDe" placeholder="Schokoladentarte"/></div><div class="field-group"><label>Name (ES)</label><input type="text" id="newEs" placeholder="Tarta de Chocolate"/></div></div>
+        <div class="two-col">
+          <div class="field-group"><label>Category</label><select id="newCat"><option value="viennoiserie">Viennoiserie</option><option value="chocolate">Chocolate</option><option value="petitfour">Petit Fours</option><option value="entremets">Entremets</option><option value="tarts">Tarts</option></select></div>
+          <div class="field-group" style="display:flex;flex-direction:column;justify-content:flex-end"><label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input type="checkbox" id="newWide" style="width:auto;padding:0;border:none;accent-color:var(--green-dark)"/> Wide (2 cols)</label></div>
+        </div>
+        <div class="field-group"><label>Content Type</label><div class="content-type-row"><button class="type-btn active" onclick="switchNewType('emoji',this)">Emoji</button><button class="type-btn" onclick="switchNewType('url',this)">Image URL</button><button class="type-btn" onclick="switchNewType('upload',this)">Upload</button></div></div>
+        <div id="newTypeEmoji"><div class="two-col"><div class="field-group"><label>Emoji</label><input type="text" id="newEmoji" placeholder="🍫" maxlength="4"/></div><div class="field-group"><label>BG Color</label><input type="color" id="newBg" value="#f0ede8" style="height:40px;cursor:pointer"/></div></div><div class="field-group"><label><input type="checkbox" id="newLight" style="width:auto;padding:0;border:none;accent-color:var(--green-dark)"/> Light text on dark bg</label></div></div>
+        <div id="newTypeUrl" style="display:none"><div class="field-group"><label>Image URL</label><input type="url" id="newImgUrl" placeholder="https://…"/></div></div>
+        <div id="newTypeUpload" style="display:none"><div class="drop-zone" id="dropZoneNew"><input type="file" accept="image/*" id="newImgFile"/><div class="dz-icon">📂</div><p><strong>Drag & drop</strong> or click to browse</p></div><img id="newImgPreview" class="preview-thumb" alt="preview"/></div>
+        <button class="btn-modal-primary" onclick="addGalleryItem()">Add to Gallery</button>
+      </div>
+    </div>
+    <div id="adminStatsTab" style="display:none">
+      <div class="stats-grid" id="statsGrid"></div>
+      <p class="stats-section-title">Gallery views by category</p><div id="statsCatBars"></div>
+      <p class="stats-section-title">Language usage</p><div class="stats-lang-row" id="statsLangRow"></div>
+      <p class="stats-section-title">Game high scores</p><div id="statsGameBars"></div>
+      <p class="stats-section-title">Contact form submissions</p><div id="statsFormBars"></div>
+      <button class="stats-refresh" onclick="renderStats()">↻ Refresh Stats</button>
+      <button class="stats-refresh" style="margin-top:8px;border-color:var(--red);color:var(--red)" onclick="resetStats()">🗑 Reset All Stats</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT MODAL -->
+<div id="result-modal">
+  <div class="result-box">
+    <button class="result-close-x" onclick="closeResult()">✕</button>
+    <div class="result-icon" id="res-icon"></div>
+    <h3 class="result-title" id="res-title"></h3>
+    <p class="result-score" id="res-score"></p>
+    <p class="result-msg" id="res-msg"></p>
+    <p class="result-cta" id="res-cta"></p>
+    <div class="result-btns" id="res-btns"></div>
+  </div>
+</div>
+
+<!-- ═══ ASK REDA FAB ═══ -->
+<button id="reda-fab" onclick="toggleReda()" title="Ask Reda">
+  <div class="fab-circle">
+    <div class="fab-ring"></div>
+    <div class="fab-circle-inner">R<span>Ask Me</span></div>
+  </div>
+  <span class="fab-label-txt">Ask Reda</span>
+</button>
+
+<!-- ═══ ASK REDA POPUP ═══ -->
+<div id="reda-popup">
+  <div class="reda-header">
+    <div class="reda-avatar">R</div>
+    <div class="reda-header-text">
+      <div class="reda-name">Reda El Ghalbzouri</div>
+      <div class="reda-role">Commis Pastry Chef · Morocco</div>
+    </div>
+    <button class="reda-close" onclick="toggleReda()">×</button>
+  </div>
+  <div class="reda-messages" id="redaMessages">
+    <div class="reda-bubble reda">Bonjour! 👨‍🍳 I'm Reda. Feel free to ask me anything — about my craft, my experience, or why I'd be the right person for your team.</div>
+  </div>
+  <div class="reda-chips-area" id="redaChipsArea">
+    <div class="reda-chips-label">Quick Questions</div>
+    <div class="reda-chips-scroll" id="redaChips"></div>
+  </div>
+  <div class="reda-input-row">
+    <input type="text" id="redaInput" placeholder="Ask Reda anything…" onkeydown="if(event.key==='Enter')sendReda()"/>
+    <button id="redaSendBtn" onclick="sendReda()">Send</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Reda El Ghalbzouri</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="scrollToSection('story')">Story</a></li>
+    <li><a onclick="scrollToSection('skills')">Craft</a></li>
+    <li><a onclick="scrollToSection('gallery')">Creations</a></li>
+    <li><a onclick="scrollToSection('game')">Game</a></li>
+    <li><a onclick="scrollToSection('contact')">Contact</a></li>
+    <li><div class="lang-switcher">
+      <button class="lang-pill active" onclick="switchLang('en',this)">EN</button>
+      <button class="lang-pill" onclick="switchLang('fr',this)">FR</button>
+      <button class="lang-pill" onclick="switchLang('de',this)">DE</button>
+      <button class="lang-pill" onclick="switchLang('es',this)">ES</button>
+    </div></li>
+  </ul>
+  <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- GAME TEMPLATE -->
+<template id="gameTpl">
+  <section class="game-section" id="game-LANG">
+    <div class="reveal">
+      <p class="section-tag" id="gTag-LANG">Chef Challenge</p>
+      <h2 class="section-title" id="gTitle-LANG">Catch the <em>Chocolates</em></h2>
+      <div class="divider" style="margin:0 auto 20px"></div>
+      <p class="game-intro" id="gIntro-LANG">Think you can survive a real pastry kitchen? Catch the sweets, dodge the hazards. 😈</p>
+      <div class="game-canvas-wrap" id="gcw-LANG">
+        <canvas width="480" height="420" id="gc-LANG"></canvas>
+        <div class="game-ui">
+          <div class="game-stat"><span>Score</span><strong id="gs-LANG">0</strong></div>
+          <div class="game-stat" style="text-align:center"><span>Level</span><strong id="gl-LANG">1</strong></div>
+          <div class="game-stat" style="text-align:right"><span>Lives</span><strong id="gv-LANG">❤️❤️❤️</strong></div>
+        </div>
+      </div>
+      <div class="game-controls">
+        <button class="game-btn primary" id="gStart-LANG" onclick="startGame('LANG')">Start Game</button>
+        <button class="game-btn" id="gPause-LANG" onclick="togglePause('LANG')" style="display:none">Pause</button>
+      </div>
+      <p class="game-tip" id="gTip-LANG">🖱 Mouse or finger to move · Red = danger · Good luck!</p>
+    </div>
+  </section>
+</template>
+
+<!-- EN PAGE -->
+<div class="lang-page active" id="page-en">
+  <section class="hero"><div class="hero-deco"></div><div class="hero-deco"></div><div class="hero-deco"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Commis Pastry Chef · Morocco</p>
+      <h1 class="hero-name">Reda<br><em>El Ghalbzouri</em></h1>
+      <p class="hero-sub">Commis Pastry Chef & Chocolate Creator</p>
+      <p class="hero-tagline">Where passion, creativity, and flavor meet.</p>
+      <button class="btn-primary" onclick="scrollToSection('story')">Explore My World</button>
+    </div>
+    <div class="scroll-indicator"><span class="scroll-text">Scroll</span><div class="scroll-line"></div></div>
+  </section>
+  <section class="story-section" id="story-en"><div class="story-grid">
+    <div class="story-img-wrap reveal"><div class="story-img-placeholder"><img id="storyImg" src="https://drive.google.com/uc?export=view&id=1tkhqslgCzyrJ5Z4NdsN9T1CsLN0pQDZy" alt="Reda"/></div><div class="story-badge" id="storyBadge">Pâtisserie & Chocolaterie</div></div>
+    <div class="story-text reveal"><p class="section-tag">My Story</p><h2 class="section-title">Born from <em>Passion</em>,<br>Trained by <em>Excellence</em></h2><div class="divider"></div><p>My journey began in Morocco, where I discovered that pastry was not just food — it was art. Driven by curiosity and a deep love for flavor and form, I dedicated myself to mastering the craft.</p><p>Trained across Radisson Blu and Mercure/Accor Group kitchens, I refined my technique in viennoiserie, chocolate art, and artistic desserts.</p><div class="story-highlights"><div class="highlight-item"><strong>Radisson Blu</strong><span>5-Star Luxury Hotel</span></div><div class="highlight-item"><strong>Mercure Accor</strong><span>4-Star International</span></div><div class="highlight-item"><strong>Expert in</strong><span>Chocolate & Artistic Desserts</span></div><div class="highlight-item"><strong>Mindset</strong><span>Bold & Innovative</span></div></div></div>
+  </div></section>
+  <section class="skills-section" id="skills-en"><div class="skills-header reveal"><p class="section-tag">My Craft</p><h2 class="section-title">Skills &amp; <em>Specialties</em></h2><div class="divider" style="margin:0 auto"></div></div><div class="skills-grid"><div class="skill-card reveal"><span class="skill-icon">🥐</span><h3>Viennoiserie</h3><p>Croissants, pain au chocolat, Danish pastries — laminated dough mastered to perfection.</p></div><div class="skill-card reveal"><span class="skill-icon">🍫</span><h3>Chocolate Art</h3><p>Sculpting chocolate into edible masterpieces with bold flavors.</p></div><div class="skill-card reveal"><span class="skill-icon">🍰</span><h3>Pastry Creations</h3><p>Tarts, fondants, Paris-Brest — classics elevated with creative expression.</p></div><div class="skill-card reveal"><span class="skill-icon">🎂</span><h3>Entremets</h3><p>Multi-layered mousse cakes combining textures, flavors, and mirror glazes.</p></div><div class="skill-card reveal"><span class="skill-icon">✨</span><h3>Petit Fours</h3><p>Delicate bite-sized confections crafted for elegance and celebration.</p></div><div class="skill-card reveal"><span class="skill-icon">🌹</span><h3>Artistic Desserts</h3><p>Plated desserts that blur the line between culinary art and fine dining.</p></div></div></section>
+  <section class="gallery-section" id="gallery-en"><div class="gallery-header reveal"><p class="section-tag">Portfolio</p><h2 class="section-title">Signature <em>Creations</em></h2><div class="divider"></div><p style="color:var(--muted);font-size:.95rem;max-width:500px;margin-bottom:20px">Beyond recipes, pâtisserie requires art, courage, and emotion.</p></div><div class="cat-filters" id="filters-en"><button class="cat-btn active" onclick="filterGallery('all',this,'en')">All</button><button class="cat-btn" onclick="filterGallery('viennoiserie',this,'en')">Viennoiserie</button><button class="cat-btn" onclick="filterGallery('chocolate',this,'en')">Chocolate</button><button class="cat-btn" onclick="filterGallery('petitfour',this,'en')">Petit Fours</button><button class="cat-btn" onclick="filterGallery('entremets',this,'en')">Entremets</button><button class="cat-btn" onclick="filterGallery('tarts',this,'en')">Tarts</button></div><div class="gallery-grid" id="galleryGrid-en"></div></section>
+  <section class="philosophy-section"><div class="reveal"><p style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px">My Philosophy</p><p class="phil-quote">"Pastry is not only about taste, it is about emotion."</p><div class="phil-line"></div><p class="phil-author">Reda El Ghalbzouri — Commis Pastry Chef, Morocco</p></div></section>
+  <div id="gameSlot-en"></div>
+  <section class="contact-section" id="contact-en"><div class="contact-grid"><div class="reveal"><p class="section-tag">Let's Connect</p><h2 class="section-title">Create Something <em>Unforgettable</em></h2><div class="divider"></div><p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:30px">Available for international collaborations worldwide.</p><div class="contact-items"><div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+212666310794">+212 666 310 794</a></div><div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:redaelghalbzouri003@gmail.com">redaelghalbzouri003@gmail.com</a></div><div class="contact-item"><div class="contact-icon">💼</div><a href="https://linkedin.com/in/reda-el-ghalbzouri-818395345" target="_blank">LinkedIn Profile</a></div><div class="contact-item"><div class="contact-icon">📍</div><span>Al Hoceima, Morocco</span></div></div></div>
+  <div class="reveal"><div class="contact-form-side"><p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:24px">Send a Message</p>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event,'en')">
+      <input type="hidden" name="access_key" value="b7fc9d3e-a962-4a6e-9f0e-79d0a984adfe"/>
+      <input type="hidden" name="subject" value="Portfolio Contact (EN)"/>
+      <input type="hidden" name="redirect" value="false"/>
+      <div class="form-group"><label>Your Name</label><input type="text" name="name" required/></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" required/></div>
+      <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
+      <button class="btn-submit" type="submit" id="submitBtn-en">Send Message</button>
+      <div class="form-note" id="formNote-en"></div>
+    </form>
+    <div class="form-success" id="formSuccess-en"><div class="si">✉️</div><p>Message sent successfully.</p></div>
+  </div></div></div></section>
+  <footer><p class="footer-secret" id="footer-en">© 2025 <span>Reda El Ghalbzouri</span> · <span>Commis Pastry Chef</span> · Morocco</p></footer>
+</div>
+
+<!-- FR PAGE -->
+<div class="lang-page" id="page-fr">
+  <section class="hero"><div class="hero-deco"></div><div class="hero-deco"></div><div class="hero-deco"></div>
+    <div class="hero-content"><p class="hero-tag">Commis Chef Pâtissier · Maroc</p><h1 class="hero-name">Reda<br><em>El Ghalbzouri</em></h1><p class="hero-sub">Commis Chef Pâtissier & Créateur Chocolat</p><p class="hero-tagline">Là où la passion, la créativité et la saveur se rencontrent.</p><button class="btn-primary" onclick="scrollToSection('story')">Explorer Mon Univers</button></div>
+    <div class="scroll-indicator"><span class="scroll-text">Défiler</span><div class="scroll-line"></div></div>
+  </section>
+  <section class="story-section" id="story-fr"><div class="story-grid"><div class="story-img-wrap reveal"><div class="story-img-placeholder"><img src="https://drive.google.com/uc?export=view&id=1tkhqslgCzyrJ5Z4NdsN9T1CsLN0pQDZy" alt="Reda"/></div><div class="story-badge">Pâtisserie & Chocolaterie</div></div><div class="story-text reveal"><p class="section-tag">Mon Histoire</p><h2 class="section-title">Né de la <em>Passion</em>,<br>Formé par l'<em>Excellence</em></h2><div class="divider"></div><p>Mon parcours a débuté au Maroc, où j'ai découvert que la pâtisserie n'était pas seulement de la nourriture — c'était de l'art.</p><p>Formé chez Radisson Blu et Mercure/Accor, j'ai affiné ma technique en viennoiserie, art chocolatier et desserts artistiques.</p><div class="story-highlights"><div class="highlight-item"><strong>Radisson Blu</strong><span>Hôtel 5 Étoiles</span></div><div class="highlight-item"><strong>Mercure Accor</strong><span>International 4 Étoiles</span></div><div class="highlight-item"><strong>Expert en</strong><span>Chocolat & Desserts Artistiques</span></div><div class="highlight-item"><strong>Esprit</strong><span>Audacieux & Innovant</span></div></div></div></div></section>
+  <section class="skills-section" id="skills-fr"><div class="skills-header reveal"><p class="section-tag">Mon Savoir-Faire</p><h2 class="section-title">Compétences &amp; <em>Spécialités</em></h2><div class="divider" style="margin:0 auto"></div></div><div class="skills-grid"><div class="skill-card reveal"><span class="skill-icon">🥐</span><h3>Viennoiserie</h3><p>Croissants, pains au chocolat — la pâte feuilletée maîtrisée.</p></div><div class="skill-card reveal"><span class="skill-icon">🍫</span><h3>Art Chocolatier</h3><p>Sculpter le chocolat en chefs-d'œuvre comestibles.</p></div><div class="skill-card reveal"><span class="skill-icon">🍰</span><h3>Créations Pâtissières</h3><p>Tartes, fondants, Paris-Brest — bases classiques élevées.</p></div><div class="skill-card reveal"><span class="skill-icon">🎂</span><h3>Entremets</h3><p>Gâteaux mousse à plusieurs couches et glaçages miroir.</p></div><div class="skill-card reveal"><span class="skill-icon">✨</span><h3>Petits Fours</h3><p>Délicates confiseries pour l'élégance et la célébration.</p></div><div class="skill-card reveal"><span class="skill-icon">🌹</span><h3>Desserts Artistiques</h3><p>Desserts à l'assiette entre art culinaire et gastronomie.</p></div></div></section>
+  <section class="gallery-section" id="gallery-fr"><div class="gallery-header reveal"><p class="section-tag">Portfolio</p><h2 class="section-title">Créations <em>Signatures</em></h2><div class="divider"></div><p style="color:var(--muted);font-size:.95rem;max-width:500px;margin-bottom:20px">Au-delà des recettes, la pâtisserie requiert art, courage et émotion.</p></div><div class="cat-filters" id="filters-fr"><button class="cat-btn active" onclick="filterGallery('all',this,'fr')">Tout</button><button class="cat-btn" onclick="filterGallery('viennoiserie',this,'fr')">Viennoiserie</button><button class="cat-btn" onclick="filterGallery('chocolate',this,'fr')">Chocolat</button><button class="cat-btn" onclick="filterGallery('petitfour',this,'fr')">Petits Fours</button><button class="cat-btn" onclick="filterGallery('entremets',this,'fr')">Entremets</button><button class="cat-btn" onclick="filterGallery('tarts',this,'fr')">Tartes</button></div><div class="gallery-grid" id="galleryGrid-fr"></div></section>
+  <section class="philosophy-section"><div class="reveal"><p style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px">Ma Philosophie</p><p class="phil-quote">« La pâtisserie ne parle pas seulement au goût, elle parle à l'émotion. »</p><div class="phil-line"></div><p class="phil-author">Reda El Ghalbzouri — Commis Chef Pâtissier, Maroc</p></div></section>
+  <div id="gameSlot-fr"></div>
+  <section class="contact-section" id="contact-fr"><div class="contact-grid"><div class="reveal"><p class="section-tag">Contactez-Moi</p><h2 class="section-title">Créons Quelque Chose <em>d'Inoubliable</em></h2><div class="divider"></div><p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:30px">Disponible pour des collaborations internationales.</p><div class="contact-items"><div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+212666310794">+212 666 310 794</a></div><div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:redaelghalbzouri003@gmail.com">redaelghalbzouri003@gmail.com</a></div><div class="contact-item"><div class="contact-icon">💼</div><a href="https://linkedin.com/in/reda-el-ghalbzouri-818395345" target="_blank">Profil LinkedIn</a></div><div class="contact-item"><div class="contact-icon">📍</div><span>Al Hoceima, Maroc</span></div></div></div>
+  <div class="reveal"><div class="contact-form-side"><p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:24px">Envoyer un Message</p>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event,'fr')">
+      <input type="hidden" name="access_key" value="b7fc9d3e-a962-4a6e-9f0e-79d0a984adfe"/>
+      <input type="hidden" name="subject" value="Portfolio Contact (FR)"/>
+      <input type="hidden" name="redirect" value="false"/>
+      <div class="form-group"><label>Votre Nom</label><input type="text" name="name" required/></div>
+      <div class="form-group"><label>E-mail</label><input type="email" name="email" required/></div>
+      <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
+      <button class="btn-submit" type="submit" id="submitBtn-fr">Envoyer</button>
+      <div class="form-note" id="formNote-fr"></div>
+    </form>
+    <div class="form-success" id="formSuccess-fr"><div class="si">✉️</div><p>Message envoyé avec succès.</p></div>
+  </div></div></div></section>
+  <footer><p>© 2025 <span>Reda El Ghalbzouri</span> · <span>Commis Chef Pâtissier</span> · Maroc</p></footer>
+</div>
+
+<!-- DE PAGE -->
+<div class="lang-page" id="page-de">
+  <section class="hero"><div class="hero-deco"></div><div class="hero-deco"></div><div class="hero-deco"></div>
+    <div class="hero-content"><p class="hero-tag">Commis-Konditor · Marokko</p><h1 class="hero-name">Reda<br><em>El Ghalbzouri</em></h1><p class="hero-sub">Commis-Konditor & Schokoladenkünstler</p><p class="hero-tagline">Wo Leidenschaft, Kreativität und Geschmack aufeinandertreffen.</p><button class="btn-primary" onclick="scrollToSection('story')">Meine Welt Entdecken</button></div>
+    <div class="scroll-indicator"><span class="scroll-text">Scrollen</span><div class="scroll-line"></div></div>
+  </section>
+  <section class="story-section" id="story-de"><div class="story-grid"><div class="story-img-wrap reveal"><div class="story-img-placeholder"><img src="https://drive.google.com/uc?export=view&id=1tkhqslgCzyrJ5Z4NdsN9T1CsLN0pQDZy" alt="Reda"/></div><div class="story-badge">Pâtisserie & Chocolaterie</div></div><div class="story-text reveal"><p class="section-tag">Meine Geschichte</p><h2 class="section-title">Geboren aus <em>Leidenschaft</em>,<br>geformt durch <em>Exzellenz</em></h2><div class="divider"></div><p>Mein Weg begann in Marokko, wo ich entdeckte, dass Konditorei nicht nur Essen ist — sondern Kunst.</p><p>In den Küchen des Radisson Blu und der Mercure/Accor-Gruppe verfeinerte ich meine Techniken.</p><div class="story-highlights"><div class="highlight-item"><strong>Radisson Blu</strong><span>5-Sterne Luxushotel</span></div><div class="highlight-item"><strong>Mercure Accor</strong><span>4-Sterne International</span></div><div class="highlight-item"><strong>Experte für</strong><span>Schokolade & Künstlerische Desserts</span></div><div class="highlight-item"><strong>Denkweise</strong><span>Mutig & Innovativ</span></div></div></div></div></section>
+  <section class="skills-section" id="skills-de"><div class="skills-header reveal"><p class="section-tag">Mein Handwerk</p><h2 class="section-title">Fähigkeiten &amp; <em>Spezialitäten</em></h2><div class="divider" style="margin:0 auto"></div></div><div class="skills-grid"><div class="skill-card reveal"><span class="skill-icon">🥐</span><h3>Viennoiserie</h3><p>Croissants, Pains au chocolat — Blätterteig auf Perfektion gebracht.</p></div><div class="skill-card reveal"><span class="skill-icon">🍫</span><h3>Schokoladenkunst</h3><p>Schokolade zu essbaren Meisterwerken formen.</p></div><div class="skill-card reveal"><span class="skill-icon">🍰</span><h3>Konditoreikreationen</h3><p>Torten, Fondants, Paris-Brest — Klassiker veredelt.</p></div><div class="skill-card reveal"><span class="skill-icon">🎂</span><h3>Entremets</h3><p>Mehrschichtige Mousse-Törtchen mit Spiegelglasuren.</p></div><div class="skill-card reveal"><span class="skill-icon">✨</span><h3>Petits Fours</h3><p>Zarte Häppchen für Eleganz und Feierlichkeiten.</p></div><div class="skill-card reveal"><span class="skill-icon">🌹</span><h3>Künstlerische Desserts</h3><p>Angerichtete Desserts zwischen Kunst und Fine Dining.</p></div></div></section>
+  <section class="gallery-section" id="gallery-de"><div class="gallery-header reveal"><p class="section-tag">Portfolio</p><h2 class="section-title">Signature <em>Kreationen</em></h2><div class="divider"></div><p style="color:var(--muted);font-size:.95rem;max-width:500px;margin-bottom:20px">Über Rezepte hinaus erfordert Pâtisserie Kunst, Mut und Emotion.</p></div><div class="cat-filters" id="filters-de"><button class="cat-btn active" onclick="filterGallery('all',this,'de')">Alle</button><button class="cat-btn" onclick="filterGallery('viennoiserie',this,'de')">Viennoiserie</button><button class="cat-btn" onclick="filterGallery('chocolate',this,'de')">Schokolade</button><button class="cat-btn" onclick="filterGallery('petitfour',this,'de')">Petits Fours</button><button class="cat-btn" onclick="filterGallery('entremets',this,'de')">Entremets</button><button class="cat-btn" onclick="filterGallery('tarts',this,'de')">Torten</button></div><div class="gallery-grid" id="galleryGrid-de"></div></section>
+  <section class="philosophy-section"><div class="reveal"><p style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px">Meine Philosophie</p><p class="phil-quote">„Konditorei handelt nicht nur vom Geschmack, sondern von der Emotion."</p><div class="phil-line"></div><p class="phil-author">Reda El Ghalbzouri — Commis-Konditor, Marokko</p></div></section>
+  <div id="gameSlot-de"></div>
+  <section class="contact-section" id="contact-de"><div class="contact-grid"><div class="reveal"><p class="section-tag">Kontakt</p><h2 class="section-title">Etwas <em>Unvergessliches</em> Erschaffen</h2><div class="divider"></div><p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:30px">Verfügbar für internationale Kooperationen weltweit.</p><div class="contact-items"><div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+212666310794">+212 666 310 794</a></div><div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:redaelghalbzouri003@gmail.com">redaelghalbzouri003@gmail.com</a></div><div class="contact-item"><div class="contact-icon">💼</div><a href="https://linkedin.com/in/reda-el-ghalbzouri-818395345" target="_blank">LinkedIn-Profil</a></div><div class="contact-item"><div class="contact-icon">📍</div><span>Al Hoceima, Marokko</span></div></div></div>
+  <div class="reveal"><div class="contact-form-side"><p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:24px">Nachricht Senden</p>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event,'de')">
+      <input type="hidden" name="access_key" value="b7fc9d3e-a962-4a6e-9f0e-79d0a984adfe"/>
+      <input type="hidden" name="subject" value="Portfolio Contact (DE)"/>
+      <input type="hidden" name="redirect" value="false"/>
+      <div class="form-group"><label>Ihr Name</label><input type="text" name="name" required/></div>
+      <div class="form-group"><label>E-Mail</label><input type="email" name="email" required/></div>
+      <div class="form-group"><label>Nachricht</label><textarea name="message" required></textarea></div>
+      <button class="btn-submit" type="submit" id="submitBtn-de">Nachricht Senden</button>
+      <div class="form-note" id="formNote-de"></div>
+    </form>
+    <div class="form-success" id="formSuccess-de"><div class="si">✉️</div><p>Nachricht erfolgreich gesendet.</p></div>
+  </div></div></div></section>
+  <footer><p>© 2025 <span>Reda El Ghalbzouri</span> · <span>Commis-Konditor</span> · Marokko</p></footer>
+</div>
+
+<!-- ES PAGE -->
+<div class="lang-page" id="page-es">
+  <section class="hero"><div class="hero-deco"></div><div class="hero-deco"></div><div class="hero-deco"></div>
+    <div class="hero-content"><p class="hero-tag">Commis Pastelero · Marruecos</p><h1 class="hero-name">Reda<br><em>El Ghalbzouri</em></h1><p class="hero-sub">Commis Pastelero & Creador de Chocolate</p><p class="hero-tagline">Donde el arte de vivir se saborea.</p><button class="btn-primary" onclick="scrollToSection('story')">Descubre mi mundo</button></div>
+    <div class="scroll-indicator"><span class="scroll-text">Desplazar</span><div class="scroll-line"></div></div>
+  </section>
+  <section class="story-section" id="story-es"><div class="story-grid"><div class="story-img-wrap reveal"><div class="story-img-placeholder"><img src="https://drive.google.com/uc?export=view&id=1tkhqslgCzyrJ5Z4NdsN9T1CsLN0pQDZy" alt="Reda"/></div><div class="story-badge">Pâtisserie & Chocolaterie</div></div><div class="story-text reveal"><p class="section-tag">Mi Historia</p><h2 class="section-title">Nacido de la <em>Pasión</em>,<br>forjado por la <em>Excelencia</em></h2><div class="divider"></div><p>Mi viaje comenzó en Marruecos, donde comprendí que la pastelería es un lenguaje del alma.</p><p>Formado en las cocinas del Radisson Blu y del grupo Mercure/Accor, perfeccioné mis técnicas.</p><div class="story-highlights"><div class="highlight-item"><strong>Radisson Blu</strong><span>Hotel 5 Estrellas</span></div><div class="highlight-item"><strong>Mercure Accor</strong><span>Internacional 4 Estrellas</span></div><div class="highlight-item"><strong>Experto en</strong><span>Chocolate & Postres Artísticos</span></div><div class="highlight-item"><strong>Mentalidad</strong><span>Audaz & Innovadora</span></div></div></div></div></section>
+  <section class="skills-section" id="skills-es"><div class="skills-header reveal"><p class="section-tag">Mi Arte</p><h2 class="section-title">Habilidades &amp; <em>Especialidades</em></h2><div class="divider" style="margin:0 auto"></div></div><div class="skills-grid"><div class="skill-card reveal"><span class="skill-icon">🥐</span><h3>Viennoiserie</h3><p>Croissants, bollería danesa — masa hojaldrada dominada.</p></div><div class="skill-card reveal"><span class="skill-icon">🍫</span><h3>Arte del Chocolate</h3><p>Esculpir el chocolate en obras maestras comestibles.</p></div><div class="skill-card reveal"><span class="skill-icon">🍰</span><h3>Creaciones Pasteleras</h3><p>Tartas, fondants, Paris-Brest — clásicos elevados.</p></div><div class="skill-card reveal"><span class="skill-icon">🎂</span><h3>Entremets</h3><p>Pasteles mousse multicapa con glasas espejo.</p></div><div class="skill-card reveal"><span class="skill-icon">✨</span><h3>Petit Fours</h3><p>Delicados bocados para la elegancia y la celebración.</p></div><div class="skill-card reveal"><span class="skill-icon">🌹</span><h3>Postres Artísticos</h3><p>Postres emplatados entre arte culinario y alta cocina.</p></div></div></section>
+  <section class="gallery-section" id="gallery-es"><div class="gallery-header reveal"><p class="section-tag">Portfolio</p><h2 class="section-title">Creaciones <em>Exclusivas</em></h2><div class="divider"></div><p style="color:var(--muted);font-size:.95rem;max-width:500px;margin-bottom:20px">Más allá de las recetas, la pastelería requiere arte, valor y emoción.</p></div><div class="cat-filters" id="filters-es"><button class="cat-btn active" onclick="filterGallery('all',this,'es')">Todo</button><button class="cat-btn" onclick="filterGallery('viennoiserie',this,'es')">Viennoiserie</button><button class="cat-btn" onclick="filterGallery('chocolate',this,'es')">Chocolate</button><button class="cat-btn" onclick="filterGallery('petitfour',this,'es')">Petit Fours</button><button class="cat-btn" onclick="filterGallery('entremets',this,'es')">Entremets</button><button class="cat-btn" onclick="filterGallery('tarts',this,'es')">Tartas</button></div><div class="gallery-grid" id="galleryGrid-es"></div></section>
+  <section class="philosophy-section"><div class="reveal"><p style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px">Mi Filosofía</p><p class="phil-quote">«La pastelería no habla solo al paladar, sino al alma.»</p><div class="phil-line"></div><p class="phil-author">Reda El Ghalbzouri — Commis Pastelero, Marruecos</p></div></section>
+  <div id="gameSlot-es"></div>
+  <section class="contact-section" id="contact-es"><div class="contact-grid"><div class="reveal"><p class="section-tag">Conectemos</p><h2 class="section-title">Creemos Algo <em>Inolvidable</em></h2><div class="divider"></div><p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:30px">Disponible para colaboraciones internacionales.</p><div class="contact-items"><div class="contact-item"><div class="contact-icon">📞</div><a href="tel:+212666310794">+212 666 310 794</a></div><div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:redaelghalbzouri003@gmail.com">redaelghalbzouri003@gmail.com</a></div><div class="contact-item"><div class="contact-icon">💼</div><a href="https://linkedin.com/in/reda-el-ghalbzouri-818395345" target="_blank">Perfil de LinkedIn</a></div><div class="contact-item"><div class="contact-icon">📍</div><span>Al Hoceima, Marruecos</span></div></div></div>
+  <div class="reveal"><div class="contact-form-side"><p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:24px">Enviar un Mensaje</p>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event,'es')">
+      <input type="hidden" name="access_key" value="b7fc9d3e-a962-4a6e-9f0e-79d0a984adfe"/>
+      <input type="hidden" name="subject" value="Portfolio Contact (ES)"/>
+      <input type="hidden" name="redirect" value="false"/>
+      <div class="form-group"><label>Su Nombre</label><input type="text" name="name" required/></div>
+      <div class="form-group"><label>Correo Electrónico</label><input type="email" name="email" required/></div>
+      <div class="form-group"><label>Mensaje</label><textarea name="message" required></textarea></div>
+      <button class="btn-submit" type="submit" id="submitBtn-es">Enviar Mensaje</button>
+      <div class="form-note" id="formNote-es"></div>
+    </form>
+    <div class="form-success" id="formSuccess-es"><div class="si">✉️</div><p>Mensaje enviado con éxito.</p></div>
+  </div></div></div></section>
+  <footer><p>© 2025 <span>Reda El Ghalbzouri</span> · <span>Commis Pastelero</span> · Marruecos</p></footer>
+</div>
+
+<script>
+const stats={pageViews:{en:0,fr:0,de:0,es:0},galleryViews:{viennoiserie:0,chocolate:0,petitfour:0,entremets:0,tarts:0},contactSubmissions:{en:0,fr:0,de:0,es:0},gameScores:[],gamePlays:0,langSwitches:{en:1,fr:0,de:0,es:0}};
+stats.pageViews.en++;
+
+const GALLERY_DEFAULTS=[
+  {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1775861539/92d95cd0-d284-4cdb-a817-9ea6c9f89bda_vfmu3p.jpg',en:'Croissants',fr:'Croissants',de:'Croissants',es:'Cruasanes',wide:true},
+  {cat:'viennoiserie',emoji:'🧁',en:'Viennoiserie Assortment',fr:'Assortiment Viennoiserie',de:'Viennoiserie-Sortiment',es:'Surtido de Viennoiserie',bg:'#fde8c0'},
+  {cat:'chocolate',emoji:'🍫',en:'Ferroche Cake',fr:'Gâteau Ferroché',de:'Ferroche-Torte',es:'Pastel Ferroché',bg:'#3d2b1f',light:true,wide:true},
+  {cat:'chocolate',emoji:'🍮',en:'Chocolate Fondant',fr:'Fondant au Chocolat',de:'Schokoladenfondant',es:'Fondant de Chocolate',bg:'#4a3728',light:true},
+  {cat:'chocolate',emoji:'🎯',en:'Chocolate Tart',fr:'Tarte au Chocolat',de:'Schokoladentarte',es:'Tarta de Chocolate',bg:'#2d1b0e',light:true},
+  {cat:'petitfour',emoji:'✨',en:'Petit Fours Collection',fr:'Collection Petits Fours',de:'Petits-Fours-Kollektion',es:'Colección de Petit Fours',bg:'#f9e8d0',wide:true},
+  {cat:'petitfour',emoji:'🫐',en:'Chocolate Petit Fours',fr:'Petits Fours Chocolat',de:'Schokoladen-Petits-Fours',es:'Petit Fours de Chocolate',bg:'#e8d5c0'},
+  {cat:'entremets',emoji:'🌸',en:'Rose Entremet',fr:'Entremet Rose',de:'Rosen-Entremet',es:'Entremet de Rosa',bg:'#f2d5d5'},
+  {cat:'entremets',emoji:'🤍',en:'Vanilla Entremet',fr:'Entremet Vanille',de:'Vanille-Entremet',es:'Entremet de Vainilla',bg:'#f0ede8',wide:true},
+  {cat:'tarts',emoji:'🍎',en:'Apple Tart',fr:'Tarte aux Pommes',de:'Apfeltarte',es:'Tarta de Manzana',bg:'#d4a858',light:true},
+  {cat:'tarts',emoji:'🌰',en:'Frangipane',fr:'Frangipane',de:'Frangipane',es:'Frangipane',bg:'#c8914a',light:true},
+  {cat:'tarts',emoji:'🍓',en:'Custard Tart',fr:'Tarte Custard',de:'Puddingtarte',es:'Tarta de Natillas',bg:'#8b4513',light:true},
+  {cat:'chocolate',emoji:'🍰',en:'Chocolate Brownie',fr:'Brownie au Chocolat',de:'Schokoladen-Brownie',es:'Brownie de Chocolate',bg:'#3a2215',light:true},
+  {cat:'viennoiserie',emoji:'🌀',en:'Paris-Brest',fr:'Paris-Brest',de:'Paris-Brest',es:'Paris-Brest',bg:'#d4a855'},
+  {cat:'petitfour',emoji:'🎂',en:'Swiss Roll',fr:'Roulé Suisse',de:'Biskuitrolle',es:'Brazo de Gitano',bg:'#c8a0a0'},
+];
+let galleryItems=GALLERY_DEFAULTS.map(d=>({...d}));
+const galCats={en:'all',fr:'all',de:'all',es:'all'};
+function renderGallery(lang){const cat=galCats[lang]||'all';const visible=cat==='all'?galleryItems:galleryItems.filter(i=>i.cat===cat);const grid=document.getElementById('galleryGrid-'+lang);if(!grid)return;grid.innerHTML=visible.map(item=>{const ri=galleryItems.indexOf(item);const label=item[lang]||item.en;return`<div class="gallery-item${item.wide?' wide':''}" tabindex="0">${item.img?`<img class="gallery-img" src="${item.img}" alt="${label}" onclick="openLightbox(${ri},'${lang}')"/>`:`<div class="gallery-img-placeholder" style="background:${item.bg||'#e8d5c0'}" onclick="openLightbox(${ri},'${lang}')"><span class="food-emoji">${item.emoji||'🍰'}</span><span class="food-name" style="color:${item.light?'rgba(255,255,255,.6)':'var(--brown)'}">${label}</span></div>`}<div class="gallery-overlay" onclick="openLightbox(${ri},'${lang}')"><span class="gallery-label">${label}</span></div><button class="gal-del-btn" onclick="event.stopPropagation();deleteGalleryItemDirect(${ri})" title="Delete">✕</button></div>`;}).join('');}
+function renderAllGalleries(){['en','fr','de','es'].forEach(l=>renderGallery(l));}
+function filterGallery(cat,btn,lang){galCats[lang]=cat;const fc=document.getElementById('filters-'+lang);if(fc)fc.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b===btn));if(cat!=='all')stats.galleryViews[cat]=(stats.galleryViews[cat]||0)+1;renderGallery(lang);}
+function deleteGalleryItemDirect(ri){if(!confirm(`Delete "${galleryItems[ri].en}"?`))return;galleryItems.splice(ri,1);renderAllGalleries();if(document.getElementById('adminModal').classList.contains('open'))renderGalleryAdmin();}
+
+const GAME_LABELS={en:{tag:'Chef Challenge',title:'Catch the <em>Chocolates</em>',intro:'Think you can survive a real pastry kitchen? Catch the sweets, dodge the hazards. 😈',tip:'🖱 Mouse or finger · Red = danger · Good luck!',start:'Start Game',pause:'Pause',resume:'Resume'},fr:{tag:'Défi du Chef',title:'Attrapez les <em>Chocolats</em>',intro:'Pensez-vous survivre dans une cuisine pâtissière ? Attrapez les douceurs, esquivez les dangers. 😈',tip:'🖱 Souris ou doigt · Rouge = danger · Bonne chance !',start:'Commencer',pause:'Pause',resume:'Reprendre'},de:{tag:'Chef-Challenge',title:'Fang die <em>Schokoladen</em>',intro:'Können Sie in einer echten Konditoreiküche überleben? Süßes fangen, Gefahren ausweichen. 😈',tip:'🖱 Maus oder Finger · Rot = Gefahr · Viel Glück!',start:'Spiel Starten',pause:'Pause',resume:'Fortsetzen'},es:{tag:'Desafío del Chef',title:'Atrapa los <em>Chocolates</em>',intro:'¿Crees que puedes sobrevivir en una cocina de pastelería? Atrapa los dulces, esquiva los peligros. 😈',tip:'🖱 Ratón o dedo · Rojo = peligro · ¡Buena suerte!',start:'Iniciar Juego',pause:'Pausa',resume:'Reanudar'}};
+['en','fr','de','es'].forEach(lang=>{const tpl=document.getElementById('gameTpl').innerHTML.replace(/LANG/g,lang);const slot=document.getElementById('gameSlot-'+lang);if(slot)slot.innerHTML=tpl;requestAnimationFrame(()=>{const L=GAME_LABELS[lang];const gt=document.getElementById('gTag-'+lang);if(gt)gt.textContent=L.tag;const gti=document.getElementById('gTitle-'+lang);if(gti)gti.innerHTML=L.title;const gi=document.getElementById('gIntro-'+lang);if(gi)gi.textContent=L.intro;const gtp=document.getElementById('gTip-'+lang);if(gtp)gtp.textContent=L.tip;const gs=document.getElementById('gStart-'+lang);if(gs)gs.textContent=L.start;const cv=document.getElementById('gc-'+lang);if(cv){const c=cv.getContext('2d');drawIdleCanvas(c,cv.width,cv.height);}});});
+const LVLS=[{thresh:0,spd:7,intv:500,bad:.28,pw:58,burst:.28},{thresh:20,spd:9,intv:400,bad:.35,pw:52,burst:.35},{thresh:50,spd:12,intv:310,bad:.42,pw:46,burst:.42},{thresh:90,spd:15,intv:240,bad:.48,pw:40,burst:.48},{thresh:140,spd:19,intv:190,bad:.53,pw:34,burst:.54},{thresh:200,spd:23,intv:150,bad:.57,pw:29,burst:.60},{thresh:270,spd:28,intv:118,bad:.61,pw:24,burst:.65},{thresh:360,spd:34,intv:90,bad:.65,pw:20,burst:.70}];
+const WIN=500,GOOD=['🍫','🧁','🍰','🥐','🍮','🌹','🫐'],BAD=['🧂','🔥','💧','⚡','🌶️'];
+const LOSS=[
+  {icon:'😵',title:{en:'Kitchen: 1. You: 0.',fr:'Cuisine : 1. Vous : 0.',de:'Küche: 1. Du: 0.',es:'Cocina: 1. Tú: 0.'},msg:{en:'You dropped croissants and caught fire hazards.',fr:'Vous avez lâché des croissants et attrapé des dangers.',de:'Du hast Croissants fallen lassen und Gefahren erwischt.',es:'Dejaste caer los cruasanes y atrapaste peligros.'},cta:{en:'Hire someone trained for this. His name is at the top of this page.',fr:'Engagez quelqu\'un formé pour ça. Son nom est en haut de cette page.',de:'Stell jemanden ein, der dafür ausgebildet ist. Sein Name steht oben auf dieser Seite.',es:'Contrata a alguien entrenado para esto. Su nombre está en la parte superior de esta página.'}},
+  {icon:'🔥',title:{en:'Everything is on fire.',fr:'Tout est en feu.',de:'Alles brennt.',es:'Todo está en llamas.'},msg:{en:'The petit fours are gone. The chocolate is burnt.',fr:'Les petits fours ont disparu. Le chocolat est brûlé.',de:'Die Petits Fours sind weg. Die Schokolade ist verbrannt.',es:'Los petit fours desaparecieron. El chocolate está quemado.'},cta:{en:'Your kitchen needs a professional pastry chef. One is available right now.',fr:'Votre cuisine a besoin d\'un chef pâtissier professionnel. Il en existe un disponible maintenant.',de:'Deine Küche braucht einen professionellen Konditor. Einer ist gerade verfügbar.',es:'Tu cocina necesita un pastelero profesional. Hay uno disponible ahora mismo.'}}
+];
+const WIN_POOL=[
+  {icon:'🏆',title:{en:'Unbelievable. You actually won.',fr:'Incroyable. Vous avez vraiment gagné.',de:'Unglaublich. Du hast tatsächlich gewonnen.',es:'Increíble. Realmente ganaste.'},msg:{en:'You survived the heat, caught the goods, dodged the hazards.',fr:'Vous avez survécu à la chaleur, attrapé les bons produits, esquivé les dangers.',de:'Du hast die Hitze überlebt, die Waren gefangen und Gefahren ausgewichen.',es:'Sobreviviste el calor, atrapaste los dulces y esquivaste los peligros.'},cta:{en:'Now imagine someone who does this every service. Every day. That someone is Reda.',fr:'Imaginez maintenant quelqu\'un qui fait ça à chaque service. Chaque jour. Cette personne, c\'est Reda.',de:'Stell dir jetzt jemanden vor, der das bei jedem Service macht. Jeden Tag. Diese Person ist Reda.',es:'Ahora imagina a alguien que hace esto en cada servicio. Cada día. Esa persona es Reda.'}}
+];
+let games={},particles={},lastTs={};
+function getDiff(g){for(let i=LVLS.length-1;i>=0;i--)if(g.score>=LVLS[i].thresh)return LVLS[i];return LVLS[0];}
+function drawIdleCanvas(ctx,W,H){ctx.clearRect(0,0,W,H);ctx.fillStyle='#f9f6f0';ctx.fillRect(0,0,W,H);ctx.fillStyle='rgba(106,170,106,.07)';for(let x=20;x<W;x+=30)for(let y=20;y<H;y+=30){ctx.beginPath();ctx.arc(x,y,1,0,Math.PI*2);ctx.fill();}ctx.font='3rem serif';ctx.textAlign='center';ctx.fillText('🍫',W/2,H/2-22);ctx.font='500 12px sans-serif';ctx.fillStyle='#8a8a8a';ctx.fillText('Catch 🍫  Avoid 🔥🧂',W/2,H/2+26);}
+function startGame(lang){const cv=document.getElementById('gc-'+lang);if(!cv)return;const W=cv.width,H=cv.height;games[lang]={running:true,paused:false,score:0,lives:3,level:1,raf:null,items:[],lastSpawn:0,plateX:W/2,plateW:LVLS[0].pw,plateY:H-44,missedFlash:0,W,H,ctx:cv.getContext('2d')};particles[lang]=[];lastTs[lang]=0;stats.gamePlays++;updateGameUI(lang);document.getElementById('gStart-'+lang).style.display='none';const pb=document.getElementById('gPause-'+lang);pb.style.display='inline-block';pb.textContent=GAME_LABELS[lang].pause;gameLoop(lang,performance.now());cv.onmousemove=e=>{const r=cv.getBoundingClientRect(),sc=W/r.width,g=games[lang];if(g)g.plateX=Math.max(g.plateW/2,Math.min(W-g.plateW/2,(e.clientX-r.left)*sc));};cv.ontouchmove=e=>{e.preventDefault();const r=cv.getBoundingClientRect(),sc=W/r.width,g=games[lang];if(g)g.plateX=Math.max(g.plateW/2,Math.min(W-g.plateW/2,(e.touches[0].clientX-r.left)*sc));};}
+function togglePause(lang){const g=games[lang];if(!g||!g.running)return;g.paused=!g.paused;const pb=document.getElementById('gPause-'+lang);pb.textContent=g.paused?GAME_LABELS[lang].resume:GAME_LABELS[lang].pause;if(!g.paused)gameLoop(lang,performance.now());}
+function gameLoop(lang,ts){const g=games[lang];if(!g||!g.running||g.paused)return;const dt=Math.min(ts-(lastTs[lang]||ts),50);lastTs[lang]=ts;const{ctx,W,H}=g;ctx.clearRect(0,0,W,H);drawBg(g);spawnItems(g,ts);moveItems(g,dt);updateParticlesLang(lang,ctx);drawPlate(g);drawItems(g);checkCollisions(g,lang);g.raf=requestAnimationFrame(t=>gameLoop(lang,t));}
+function drawBg(g){const{ctx,W,H,missedFlash,level}=g;ctx.fillStyle='#f9f6f0';ctx.fillRect(0,0,W,H);ctx.fillStyle='rgba(106,170,106,.07)';for(let x=20;x<W;x+=30)for(let y=20;y<H;y+=30){ctx.beginPath();ctx.arc(x,y,1,0,Math.PI*2);ctx.fill();}ctx.strokeStyle=missedFlash>0?'rgba(192,57,43,.7)':'rgba(106,170,106,.2)';ctx.lineWidth=1.5;ctx.setLineDash([5,5]);ctx.beginPath();ctx.moveTo(0,H-26);ctx.lineTo(W,H-26);ctx.stroke();ctx.setLineDash([]);if(g.missedFlash>0)g.missedFlash--;ctx.font='600 11px sans-serif';ctx.fillStyle='rgba(74,138,74,.4)';ctx.textAlign='right';ctx.fillText('LVL '+level,W-12,18);ctx.textAlign='left';}
+function spawnItems(g,ts){const d=getDiff(g);g.plateW=d.pw;if(ts-g.lastSpawn>d.intv*(0.82+Math.random()*.36)){spawnOne(g,d,0);if(Math.random()<d.burst)spawnOne(g,d,-32-Math.random()*32);g.lastSpawn=ts;}}
+function spawnOne(g,d,yOff){const bad=Math.random()<d.bad;const pool=bad?BAD:GOOD;const size=bad?19:23+Math.random()*8;g.items.push({x:size+Math.random()*(g.W-size*2),y:(-size)+(yOff||0),emoji:pool[Math.floor(Math.random()*pool.length)],size,bad,speed:d.spd+(bad?2:0)+Math.random()*3.5,rot:0,rotV:(Math.random()-.5)*.15});}
+function moveItems(g,dt){const s=dt/16;g.items.forEach(it=>{it.y+=it.speed*s;it.rot+=it.rotV;});}
+function drawPlate(g){const{ctx,plateX,plateW,plateY,missedFlash}=g;const x=plateX-plateW/2,y=plateY;const gr=ctx.createLinearGradient(x,y,x+plateW,y+14);gr.addColorStop(0,'#3d7a3d');gr.addColorStop(1,'#6aaa6a');ctx.fillStyle=gr;ctx.beginPath();ctx.roundRect(x,y,plateW,14,7);ctx.fill();ctx.fillStyle='rgba(255,255,255,.22)';ctx.beginPath();ctx.roundRect(x+5,y+3,plateW-10,4,3);ctx.fill();if(missedFlash>0){ctx.strokeStyle='rgba(192,57,43,.7)';ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(x-2,y-2,plateW+4,18,8);ctx.stroke();}}
+function drawItems(g){g.items.forEach(it=>{const{ctx}=g;ctx.save();ctx.translate(it.x,it.y);ctx.rotate(it.rot);ctx.globalAlpha=it.bad?.88:1;ctx.font=`${it.size}px serif`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(it.emoji,0,0);ctx.restore();});}
+function spawnParticlesLang(lang,x,y,good){if(!particles[lang])particles[lang]=[];for(let i=0;i<10;i++){const a=Math.random()*Math.PI*2,s=2+Math.random()*4;particles[lang].push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1,life:1,good});}}
+function updateParticlesLang(lang,ctx){if(!particles[lang])return;particles[lang]=particles[lang].filter(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.2;p.life-=.06;ctx.save();ctx.globalAlpha=p.life;ctx.fillStyle=p.good?'#4a8a4a':'#c0392b';ctx.beginPath();ctx.arc(p.x,p.y,3,0,Math.PI*2);ctx.fill();ctx.restore();return p.life>0;});}
+function checkCollisions(g,lang){const{plateY,plateW,plateX}=g;g.items=g.items.filter(it=>{const hit=it.y+it.size*.4>=plateY&&it.y-it.size*.4<=plateY+14&&it.x>=plateX-plateW/2-6&&it.x<=plateX+plateW/2+6;if(hit){if(it.bad){g.lives--;g.missedFlash=14;triggerFlash();spawnParticlesLang(lang,it.x,plateY,false);updateGameUI(lang);if(g.lives<=0)endGame(lang,false);}else{g.score+=it.size>30?15:10;spawnParticlesLang(lang,it.x,plateY,true);const d=getDiff(g);const lv=LVLS.indexOf(d)+1;if(lv>g.level)g.level=lv;updateGameUI(lang);if(g.score>=WIN)endGame(lang,true);}return false;}if(it.y>g.H+20){if(!it.bad){g.lives--;g.missedFlash=14;triggerFlash();updateGameUI(lang);if(g.lives<=0)endGame(lang,false);}return false;}return true;});}
+function updateGameUI(lang){const g=games[lang];if(!g)return;const s=document.getElementById('gs-'+lang);if(s)s.textContent=g.score;const l=document.getElementById('gl-'+lang);if(l)l.textContent=g.level;const v=document.getElementById('gv-'+lang);if(v)v.textContent='❤️'.repeat(Math.max(0,g.lives))+'🖤'.repeat(Math.max(0,3-g.lives));}
+function triggerFlash(){const f=document.createElement('div');f.className='chaos-flash';document.body.appendChild(f);setTimeout(()=>f.remove(),380);}
+function endGame(lang,won){const g=games[lang];if(!g)return;g.running=false;cancelAnimationFrame(g.raf);if(won||g.score>0)stats.gameScores.push({lang,score:g.score,won});const sb=document.getElementById('gStart-'+lang);if(sb){sb.style.display='inline-block';sb.textContent=GAME_LABELS[lang].start;}const pb=document.getElementById('gPause-'+lang);if(pb)pb.style.display='none';showResult(lang,won,g.score);}
+function showResult(lang,won,score){const pool=won?WIN_POOL:LOSS;const m=pool[Math.floor(Math.random()*pool.length)];const L=lang||'en';const btns={playAgain:{en:'Play Again',fr:'Rejouer',de:'Nochmal spielen',es:'Jugar de nuevo'},tryAgain:{en:'Try Again',fr:'Réessayer',de:'Nochmal versuchen',es:'Intentar de nuevo'},contact:{en:'Contact Reda',fr:'Contacter Reda',de:'Reda kontaktieren',es:'Contactar a Reda'},hire:{en:'Hire Me',fr:'Me recruter',de:'Mich einstellen',es:'Contratarme'}};
+document.getElementById('res-icon').textContent=m.icon;document.getElementById('res-title').textContent=m.title[L]||m.title.en;document.getElementById('res-score').textContent='Score: '+score;document.getElementById('res-msg').textContent=m.msg[L]||m.msg.en;document.getElementById('res-cta').textContent=m.cta[L]||m.cta.en;document.getElementById('res-btns').innerHTML=won?`<button class="r-btn primary" onclick="closeResult();startGame('${lang}')">${btns.playAgain[L]}</button><a class="r-btn" href="https://linkedin.com/in/reda-el-ghalbzouri-818395345" target="_blank">LinkedIn</a><a class="r-btn" href="mailto:redaelghalbzouri003@gmail.com">${btns.hire[L]}</a>`:`<button class="r-btn primary" onclick="closeResult();startGame('${lang}')">${btns.tryAgain[L]}</button><a class="r-btn" href="#" onclick="scrollToSection('contact');closeResult()">${btns.contact[L]}</a>`;document.getElementById('result-modal').classList.add('open');document.body.style.overflow='hidden';}
+function closeResult(){document.getElementById('result-modal').classList.remove('open');document.body.style.overflow='';}
+
+let currentLang='en';
+function switchLang(lang,btn){document.querySelectorAll('.lang-page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+lang).classList.add('active');document.querySelectorAll('.lang-pill').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');currentLang=lang;stats.pageViews[lang]=(stats.pageViews[lang]||0)+1;stats.langSwitches[lang]=(stats.langSwitches[lang]||0)+1;window.scrollTo(0,0);renderGallery(lang);buildChips(lang);setTimeout(()=>window.dispatchEvent(new Event('scroll')),100);}
+function scrollToSection(id){const el=document.getElementById(id+'-'+currentLang);if(el)el.scrollIntoView({behavior:'smooth'});document.getElementById('navLinks').classList.remove('open');return false;}
+
+function openLightbox(idx,lang){const item=galleryItems[idx];if(!item)return;const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightbox-img'),lbPh=document.getElementById('lightbox-ph');const label=item[lang]||item.en;if(item.img){lbImg.src=item.img;lbImg.alt=label;lbImg.style.display='block';lbPh.style.display='none';}else{lbImg.style.display='none';lbPh.style.display='flex';lbPh.querySelector('.lb-e').textContent=item.emoji||'🍰';lbPh.querySelector('.lb-n').textContent=label;}document.getElementById('lightbox-caption').textContent=label;lb.classList.add('active');document.body.style.overflow='hidden';}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';setTimeout(()=>document.getElementById('lightbox-img').src='',350);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>50);document.querySelectorAll('.lang-page.active .reveal').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight-80)el.classList.add('visible');});});
+
+const ADMIN_PASS='YRFGHU75+*£ze';
+let footerClicks=0,footerTimer=null,adminTab='url',uploadedDataURL='',newItemUploadedURL='',newItemType='emoji',photoDest='story';
+document.getElementById('footer-en').addEventListener('click',()=>{footerClicks++;clearTimeout(footerTimer);footerTimer=setTimeout(()=>footerClicks=0,2000);if(footerClicks>=5){footerClicks=0;openPassModal();}});
+function openPassModal(){document.getElementById('passInput').value='';document.getElementById('passError').style.display='none';document.getElementById('passModal').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('passInput').focus(),300);}
+function closePassModal(){document.getElementById('passModal').classList.remove('open');document.body.style.overflow='';}
+function checkPass(){if(document.getElementById('passInput').value===ADMIN_PASS){closePassModal();openAdmin();}else{document.getElementById('passError').style.display='block';document.getElementById('passInput').value='';document.getElementById('passInput').focus();}}
+function openAdmin(){adminTab='url';uploadedDataURL='';photoDest='story';document.querySelectorAll('.admin-main-tab').forEach((b,i)=>b.classList.toggle('active',i===0));document.getElementById('adminPhotoTab').style.display='block';document.getElementById('adminGalleryTab').style.display='none';document.getElementById('adminStatsTab').style.display='none';document.getElementById('adminTabUrl').style.display='block';document.getElementById('adminTabUpload').style.display='none';document.getElementById('adminUrl').value='';document.getElementById('adminPreview').style.display='none';document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===0));document.getElementById('photoStoryFields').style.display='block';document.getElementById('photoGalleryFields').style.display='none';document.getElementById('savePhotoBtn').textContent='Save to My Story';document.querySelectorAll('#destBtnsA .type-btn').forEach((b,i)=>b.classList.toggle('active',i===0));document.getElementById('adminModal').classList.add('open');document.body.style.overflow='hidden';document.body.classList.add('admin-active');renderGalleryAdmin();}
+function closeAdmin(){document.getElementById('adminModal').classList.remove('open');document.body.style.overflow='';}
+function switchMainTab(tab,btn){document.querySelectorAll('.admin-main-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('adminPhotoTab').style.display=tab==='photo'?'block':'none';document.getElementById('adminGalleryTab').style.display=tab==='gallery'?'block':'none';document.getElementById('adminStatsTab').style.display=tab==='stats'?'block':'none';if(tab==='stats')renderStats();}
+function setPhotoDest(dest,btn){photoDest=dest;document.querySelectorAll('#adminPhotoTab .type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const isStory=dest==='story';document.getElementById('photoStoryFields').style.display=isStory?'block':'none';document.getElementById('photoGalleryFields').style.display=isStory?'none':'block';const labels={story:'Save to My Story',viennoiserie:'Add to Viennoiserie',chocolate:'Add to Chocolate',petitfour:'Add to Petit Fours',entremets:'Add to Entremets',tarts:'Add to Tarts'};document.getElementById('savePhotoBtn').textContent=labels[dest]||'Save';}
+function switchAdminTab(tab,btn){adminTab=tab;uploadedDataURL='';document.getElementById('adminPreview').style.display='none';document.getElementById('adminUrl').value='';document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('adminTabUrl').style.display=tab==='url'?'block':'none';document.getElementById('adminTabUpload').style.display=tab==='upload'?'block':'none';}
+function previewAdminUrl(){const u=document.getElementById('adminUrl').value.trim();const p=document.getElementById('adminPreview');p.src=u;p.style.display=u?'block':'none';}
+function previewAdminFile(file){if(!file)return;const r=new FileReader();r.onload=e=>{uploadedDataURL=e.target.result;const p=document.getElementById('adminPreview');p.src=uploadedDataURL;p.style.display='block';};r.readAsDataURL(file);}
+const dz=document.getElementById('dropZone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-active');});dz.addEventListener('dragleave',()=>dz.classList.remove('drag-active'));dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-active');const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/'))previewAdminFile(f);});document.getElementById('adminFile').addEventListener('change',function(){previewAdminFile(this.files[0]);});
+function savePhoto(){const url=adminTab==='url'?document.getElementById('adminUrl').value.trim():uploadedDataURL;if(!url){alert('Please provide an image URL or upload a file.');return;}if(photoDest==='story'){const name=document.getElementById('adminPhotoName').value.trim()||'Pâtisserie & Chocolaterie';document.getElementById('storyImg').src=url;document.getElementById('storyBadge').textContent=name;closeAdmin();document.getElementById('story-en').scrollIntoView({behavior:'smooth'});}else{const en=document.getElementById('pgEn').value.trim();if(!en){alert('Please enter a name (EN).');return;}const fr=document.getElementById('pgFr').value.trim()||en,de=document.getElementById('pgDe').value.trim()||en,es=document.getElementById('pgEs').value.trim()||en;const wide=document.getElementById('pgWide').checked;galleryItems.push({cat:photoDest,en,fr,de,es,wide,img:url});renderAllGalleries();closeAdmin();alert(`✅ "${en}" added!`);}}
+function renderGalleryAdmin(){const list=document.getElementById('galleryAdminList');if(!galleryItems.length){list.innerHTML='<p style="font-size:.82rem;color:var(--muted);padding:8px">No items yet.</p>';return;}list.innerHTML=galleryItems.map((item,i)=>`<div class="gal-admin-row"><span style="font-size:1.2rem;width:28px;text-align:center;flex-shrink:0">${item.img?'🖼':(item.emoji||'🍰')}</span><span class="gal-admin-name">${item.en}</span><span class="gal-admin-cat">${item.cat}</span><button class="gal-admin-del" onclick="deleteGalleryItem(${i})">🗑</button></div>`).join('');}
+function deleteGalleryItem(idx){if(!confirm(`Delete "${galleryItems[idx].en}"?`))return;galleryItems.splice(idx,1);renderAllGalleries();renderGalleryAdmin();}
+let addFormOpen=false;
+function toggleAddForm(){addFormOpen=!addFormOpen;document.getElementById('addItemForm').style.display=addFormOpen?'block':'none';document.getElementById('addToggleBtn').textContent=addFormOpen?'✕ Cancel':'＋ Add New Item';}
+function switchNewType(type,btn){newItemType=type;newItemUploadedURL='';document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('newTypeEmoji').style.display=type==='emoji'?'block':'none';document.getElementById('newTypeUrl').style.display=type==='url'?'block':'none';document.getElementById('newTypeUpload').style.display=type==='upload'?'block':'none';}
+function previewNewFile(file){if(!file)return;const r=new FileReader();r.onload=e=>{newItemUploadedURL=e.target.result;const p=document.getElementById('newImgPreview');p.src=newItemUploadedURL;p.style.display='block';};r.readAsDataURL(file);}
+const dzNew=document.getElementById('dropZoneNew');
+dzNew.addEventListener('dragover',e=>{e.preventDefault();dzNew.classList.add('drag-active');});dzNew.addEventListener('dragleave',()=>dzNew.classList.remove('drag-active'));dzNew.addEventListener('drop',e=>{e.preventDefault();dzNew.classList.remove('drag-active');const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/'))previewNewFile(f);});document.getElementById('newImgFile').addEventListener('change',function(){previewNewFile(this.files[0]);});
+function addGalleryItem(){const en=document.getElementById('newEn').value.trim();if(!en){alert('Please enter a name (EN).');return;}const fr=document.getElementById('newFr').value.trim()||en,de=document.getElementById('newDe').value.trim()||en,es=document.getElementById('newEs').value.trim()||en;const cat=document.getElementById('newCat').value,wide=document.getElementById('newWide').checked;let item={cat,en,fr,de,es,wide};if(newItemType==='emoji'){item.emoji=document.getElementById('newEmoji').value.trim()||'🍰';item.bg=document.getElementById('newBg').value||'#f0ede8';item.light=document.getElementById('newLight').checked;}else if(newItemType==='url'){item.img=document.getElementById('newImgUrl').value.trim();if(!item.img){alert('Please enter an image URL.');return;}}else{item.img=newItemUploadedURL;if(!item.img){alert('Please upload an image.');return;}}galleryItems.push(item);renderAllGalleries();renderGalleryAdmin();['newEn','newFr','newDe','newEs','newEmoji','newImgUrl'].forEach(id=>document.getElementById(id).value='');newItemUploadedURL='';document.getElementById('newImgPreview').style.display='none';toggleAddForm();alert(`✅ "${en}" added!`);}
+function renderStats(){const tv=Object.values(stats.pageViews).reduce((a,b)=>a+b,0);const ts=stats.gameScores.length?Math.max(...stats.gameScores.map(s=>s.score)):0;const tc=Object.values(stats.contactSubmissions).reduce((a,b)=>a+b,0);document.getElementById('statsGrid').innerHTML=`<div class="stat-card"><div class="sv">${tv}</div><div class="sl">Page Views</div></div><div class="stat-card"><div class="sv">${stats.gamePlays}</div><div class="sl">Game Plays</div></div><div class="stat-card"><div class="sv">${ts}</div><div class="sl">Top Score</div></div><div class="stat-card"><div class="sv">${tc}</div><div class="sl">Messages</div></div><div class="stat-card"><div class="sv">${galleryItems.length}</div><div class="sl">Gallery Items</div></div><div class="stat-card"><div class="sv">${stats.gameScores.filter(s=>s.won).length}</div><div class="sl">Game Wins</div></div>`;const cm=Math.max(1,...Object.values(stats.galleryViews));document.getElementById('statsCatBars').innerHTML=Object.entries(stats.galleryViews).map(([k,v])=>`<div class="stats-bar-row"><span class="stats-bar-label">${k}</span><div class="stats-bar-track"><div class="stats-bar-fill" style="width:${Math.round(v/cm*100)}%"></div></div><span class="stats-bar-val">${v}</span></div>`).join('');document.getElementById('statsLangRow').innerHTML=Object.entries(stats.langSwitches).map(([k,v])=>`<span class="stats-lang-pill">${k.toUpperCase()} · ${v}</span>`).join('');const rec=stats.gameScores.slice(-5).reverse();document.getElementById('statsGameBars').innerHTML=rec.length?rec.map(s=>`<div class="stats-bar-row"><span class="stats-bar-label">${s.lang.toUpperCase()} ${s.won?'🏆':''}</span><div class="stats-bar-track"><div class="stats-bar-fill" style="width:${Math.round(s.score/WIN*100)}%"></div></div><span class="stats-bar-val">${s.score}</span></div>`).join(''):'<p style="font-size:.82rem;color:var(--muted)">No games yet.</p>';document.getElementById('statsFormBars').innerHTML=Object.entries(stats.contactSubmissions).map(([k,v])=>`<div class="stats-bar-row"><span class="stats-bar-label">${k.toUpperCase()}</span><div class="stats-bar-track"><div class="stats-bar-fill" style="width:${Math.round(v/Math.max(1,Object.values(stats.contactSubmissions).reduce((a,b)=>a+b,0))*100)}%"></div></div><span class="stats-bar-val">${v}</span></div>`).join('');}
+function resetStats(){if(!confirm('Reset all statistics?'))return;Object.keys(stats.pageViews).forEach(k=>stats.pageViews[k]=0);Object.keys(stats.galleryViews).forEach(k=>stats.galleryViews[k]=0);Object.keys(stats.contactSubmissions).forEach(k=>stats.contactSubmissions[k]=0);Object.keys(stats.langSwitches).forEach(k=>stats.langSwitches[k]=0);stats.gameScores=[];stats.gamePlays=0;renderStats();}
+
+async function handleSubmit(e,lang){e.preventDefault();const form=e.target;const btn=document.getElementById('submitBtn-'+lang);const note=document.getElementById('formNote-'+lang);btn.disabled=true;btn.textContent='Sending…';note.style.display='none';try{const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form)});const data=await res.json();if(data.success){form.style.display='none';document.getElementById('formSuccess-'+lang).style.display='block';stats.contactSubmissions[lang]=(stats.contactSubmissions[lang]||0)+1;}else throw new Error();}catch{btn.disabled=false;btn.textContent='Send Message';note.innerHTML='⚠️ Could not send. Please email: <a href="mailto:redaelghalbzouri003@gmail.com">redaelghalbzouri003@gmail.com</a>';note.style.display='block';}}
+
+const REDA_QA=[{q:{en:"Why Reda? 🎯",fr:"Pourquoi Reda ? 🎯",de:"Warum Reda? 🎯",es:"¿Por qué Reda? 🎯"},a:{en:"Because I don't just make pastries — I focus on creating consistent, high-quality desserts shaped by real experience in professional hotel kitchens.",fr:"Parce que je ne me contente pas de faire des pâtisseries — je me concentre sur des desserts de haute qualité façonnés par une vraie expérience en cuisine hôtelière.",de:"Weil ich nicht nur Gebäck herstelle — ich konzentriere mich auf konsistente, hochwertige Desserts aus echter Erfahrung in professionellen Hotelküchen.",es:"Porque no me limito a hacer pasteles — me concentro en crear postres de alta calidad formados por experiencia real en cocinas hoteleras profesionales."}},{q:{en:"What makes him unique? ✨",fr:"Ce qui le rend unique ? ✨",de:"Was macht ihn besonders? ✨",es:"¿Qué lo hace único? ✨"},a:{en:"I combine classical French technique with a modern artistic approach, always aiming for strong visual presentation and balanced flavors.",fr:"Je combine la technique française classique avec une approche artistique moderne, en visant toujours une présentation visuelle forte et des saveurs équilibrées.",de:"Ich kombiniere klassische französische Technik mit einem modernen künstlerischen Ansatz und strebe immer nach starker Präsentation und ausgewogenen Aromen.",es:"Combino la técnica francesa clásica con un enfoque artístico moderno, buscando siempre una fuerte presentación visual y sabores equilibrados."}},{q:{en:"Where was he trained? 🏨",fr:"Où a-t-il été formé ? 🏨",de:"Wo wurde er ausgebildet? 🏨",es:"¿Dónde se formó? 🏨"},a:{en:"I trained in professional hotel kitchens in Morocco, including Radisson Blu (5-star luxury) and Mercure/Accor Group (4-star international), which built my discipline and speed.",fr:"J'ai été formé dans des cuisines hôtelières au Maroc, dont le Radisson Blu (5 étoiles) et le groupe Mercure/Accor (4 étoiles international), qui m'ont apporté discipline et rapidité.",de:"Ich wurde in professionellen Hotelküchen in Marokko ausgebildet, darunter Radisson Blu (5-Sterne) und Mercure/Accor Group (4-Sterne), was mir Disziplin und Schnelligkeit beibrachte.",es:"Me formé en cocinas hoteleras en Marruecos, incluyendo Radisson Blu (5 estrellas) y Mercure/Accor Group (4 estrellas internacional), lo que me dio disciplina y rapidez."}},{q:{en:"What are his specialties? 🍫",fr:"Quelles sont ses spécialités ? 🍫",de:"Was sind seine Spezialitäten? 🍫",es:"¿Cuáles son sus especialidades? 🍫"},a:{en:"My main focus is chocolate work, viennoiserie, entremets, petit fours, plated desserts, and tarts — all based on solid classical foundations.",fr:"Je me concentre principalement sur le travail du chocolat, la viennoiserie, les entremets, les petits fours, les desserts à l'assiette et les tartes.",de:"Mein Hauptfokus liegt auf Schokoladenarbeit, Viennoiserie, Entremets, Petits Fours, Tellerdesserts und Torten — alles auf klassischen Grundlagen.",es:"Mi enfoque principal es el trabajo con chocolate, viennoiserie, entremets, petit fours, postres emplatados y tartas, todo sobre bases clásicas sólidas."}},{q:{en:"How does he handle pressure? ⚡",fr:"Comment gère-t-il la pression ? ⚡",de:"Wie geht er mit Druck um? ⚡",es:"¿Cómo maneja la presión? ⚡"},a:{en:"I stay focused and organized during service, prioritizing consistency and quality even in high-pressure kitchen environments.",fr:"Je reste concentré et organisé pendant le service, en prioritisant la cohérence et la qualité même dans des cuisines sous haute pression.",de:"Ich bleibe konzentriert und organisiert während des Services und priorisiere Konsistenz und Qualität auch unter hohem Küchendruck.",es:"Me mantengo concentrado y organizado durante el servicio, priorizando la consistencia y la calidad incluso en entornos de alta presión."}},{q:{en:"What's his philosophy? 💭",fr:"Quelle est sa philosophie ? 💭",de:"Was ist seine Philosophie? 💭",es:"¿Cuál es su filosofía? 💭"},a:{en:"For me, pastry is about emotion, precision, and consistency in every detail of the final product.",fr:"Pour moi, la pâtisserie c'est l'émotion, la précision et la constance dans chaque détail du produit final.",de:"Für mich ist Konditorei Emotion, Präzision und Konsistenz in jedem Detail des Endprodukts.",es:"Para mí, la pastelería trata sobre la emoción, la precisión y la consistencia en cada detalle del producto final."}},{q:{en:"Is he open to relocate? 🌍",fr:"Est-il ouvert à la mobilité ? 🌍",de:"Ist er umzugsbereit? 🌍",es:"¿Está abierto a reubicarse? 🌍"},a:{en:"Yes, I am open to international opportunities and adapting to different professional kitchen environments.",fr:"Oui, je suis ouvert aux opportunités internationales et à m'adapter à différents environnements de cuisine professionnelle.",de:"Ja, ich bin offen für internationale Möglichkeiten und passe mich verschiedenen professionellen Küchenumgebungen an.",es:"Sí, estoy abierto a oportunidades internacionales y a adaptarme a diferentes entornos de cocina profesional."}},{q:{en:"What's his chocolate expertise? 🍫",fr:"Son expertise en chocolat ? 🍫",de:"Seine Schokoladenexpertise? 🍫",es:"¿Su experiencia en chocolate? 🍫"},a:{en:"I work with tempering, molding, and artistic chocolate pieces, with a strong focus on technique and clean execution.",fr:"Je travaille le tempérage, le moulage et les pièces artistiques en chocolat, avec un fort accent sur la technique et une exécution nette.",de:"Ich arbeite mit Temperieren, Formen und künstlerischen Schokoladenstücken, mit starkem Fokus auf Technik und saubere Ausführung.",es:"Trabajo con templado, moldeado y piezas artísticas de chocolate, con un fuerte enfoque en la técnica y la ejecución limpia."}},{q:{en:"How creative is he? 🎨",fr:"Quelle est sa créativité ? 🎨",de:"Wie kreativ ist er? 🎨",es:"¿Qué tan creativo es? 🎨"},a:{en:"I like to explore modern presentation ideas while respecting classical pastry techniques and structure.",fr:"J'aime explorer des idées de présentation modernes tout en respectant les techniques et la structure classiques de la pâtisserie.",de:"Ich erkunde gerne moderne Präsentationsideen und respektiere dabei klassische Konditortechniken und Strukturen.",es:"Me gusta explorar ideas de presentación modernas respetando las técnicas y la estructura clásicas de la pastelería."}},{q:{en:"How to contact Reda? 📩",fr:"Comment contacter Reda ? 📩",de:"Wie Reda kontaktieren? 📩",es:"¿Cómo contactar a Reda? 📩"},a:{en:"You can reach me via email at redaelghalbzouri003@gmail.com, phone at +212 666 310 794, or LinkedIn. I respond professionally and quickly.",fr:"Vous pouvez me joindre par e-mail à redaelghalbzouri003@gmail.com, par téléphone au +212 666 310 794, ou sur LinkedIn. Je réponds rapidement.",de:"Sie erreichen mich per E-Mail unter redaelghalbzouri003@gmail.com, Telefon +212 666 310 794 oder LinkedIn. Ich antworte schnell und professionell.",es:"Puede contactarme por correo a redaelghalbzouri003@gmail.com, teléfono +212 666 310 794 o LinkedIn. Respondo rápido y profesionalmente."}}];
+const REDA_SYSTEM=`You are Reda El Ghalbzouri, a Moroccan Commis Pastry Chef. Answer every question in the first person as Reda himself — confidently, warmly, and professionally. Keep answers to 2-4 sentences.\n\nKey facts:\n- Trained at Radisson Blu (5-star) and Mercure/Accor (4-star) in Morocco\n- Specialties: viennoiserie, chocolate art, entremets, petit fours, artistic plated desserts, tarts\n- Philosophy: "Pastry is not only about taste, it is about emotion."\n- Open to international relocation worldwide\n- Contact: redaelghalbzouri003@gmail.com | +212 666 310 794 | LinkedIn\n- Mindset: bold, innovative, passionate, precise\n\nAlways respond in the SAME language the user writes in. Never mention being an AI or a language model.`;
+let redaOpen=false,redaLoading=false,redaHistory=[];
+function toggleReda(){redaOpen=!redaOpen;document.getElementById('reda-popup').classList.toggle('open',redaOpen);if(redaOpen)setTimeout(()=>document.getElementById('redaInput').focus(),200);}
+function buildChips(lang){const wrap=document.getElementById('redaChips');wrap.innerHTML='';REDA_QA.forEach(item=>{const q=item.q[lang]||item.q.en;const a=item.a[lang]||item.a.en;const btn=document.createElement('button');btn.className='r-chip';btn.textContent=q;btn.onclick=()=>answerChip(q,a);wrap.appendChild(btn);});}
+buildChips('en');
+function addRedaBubble(text,role){const msgs=document.getElementById('redaMessages');const div=document.createElement('div');div.className='reda-bubble '+role;div.textContent=text;msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;return div;}
+function answerChip(question,answer){addRedaBubble(question,'user');setTimeout(()=>{addRedaBubble(answer,'reda');document.getElementById('redaMessages').scrollTop=9999;},320);}
+async function sendReda(){const input=document.getElementById('redaInput');const msg=input.value.trim();if(!msg||redaLoading)return;input.value='';redaLoading=true;document.getElementById('redaSendBtn').disabled=true;const lower=msg.toLowerCase();const clean=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');const match=REDA_QA.find(item=>Object.values(item.q).some(qv=>clean(qv).includes(clean(lower).slice(0,10))));addRedaBubble(msg,'user');if(match){setTimeout(()=>{addRedaBubble(match.a[currentLang]||match.a.en,'reda');document.getElementById('redaMessages').scrollTop=9999;redaLoading=false;document.getElementById('redaSendBtn').disabled=false;},350);return;}redaHistory.push({role:'user',content:msg});const typingEl=addRedaBubble('…','reda typing');try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,system:REDA_SYSTEM,messages:redaHistory})});const data=await res.json();const reply=data.content?.[0]?.text||'Please reach out to me directly — redaelghalbzouri003@gmail.com';redaHistory.push({role:'assistant',content:reply});if(redaHistory.length>16)redaHistory=redaHistory.slice(-16);typingEl.textContent=reply;typingEl.className='reda-bubble reda';}catch{redaHistory.pop();typingEl.textContent='Feel free to reach me at redaelghalbzouri003@gmail.com — I\'ll respond promptly.';typingEl.className='reda-bubble reda';}document.getElementById('redaMessages').scrollTop=9999;redaLoading=false;document.getElementById('redaSendBtn').disabled=false;}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();closeResult();closeAdmin();closePassModal();if(redaOpen)toggleReda();}});
+renderAllGalleries();
+setTimeout(()=>window.dispatchEvent(new Event('scroll')),100);
+</script>
+</body>
+</html>
