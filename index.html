@@ -570,7 +570,7 @@ const GALLERY_DEFAULTS=[
 ];
 
 // Load persisted gallery or use defaults — version bump forces cache refresh
-const GALLERY_VERSION = '3';
+const GALLERY_VERSION = '4';
 if(store.get('galleryVersion') !== GALLERY_VERSION){
   store.set('galleryVersion', GALLERY_VERSION);
   store.set('galleryItems', null);
