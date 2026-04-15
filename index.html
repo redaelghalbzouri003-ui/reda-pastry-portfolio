@@ -70,7 +70,9 @@ section{padding:100px 5%}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:3px}
 .gallery-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
 .gallery-item.wide{grid-column:span 2}
-.gallery-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gallery-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;background:#ede9e2}
+.gallery-img-skeleton{width:100%;height:100%;background:linear-gradient(90deg,#ede9e2 25%,#e2ddd6 50%,#ede9e2 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .gallery-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:transform .6s}
 .gallery-item:hover .gallery-img-placeholder,.gallery-item:hover .gallery-img{transform:scale(1.06)}
 .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%);opacity:0;transition:.4s;display:flex;align-items:flex-end;padding:20px}
@@ -551,10 +553,14 @@ const stats={pageViews:{en:0,fr:0,de:0,es:0},galleryViews:{viennoiserie:0,chocol
 stats.pageViews.en++;
 
 // ── Gallery defaults ──
-// Optimize Cloudinary URLs: auto format, auto quality, max width 700px
-function cdnOpt(url){
+// Cloudinary: small thumbnail for grid, full for lightbox
+function cdnThumb(url){
   if(!url||!url.includes('cloudinary.com'))return url;
-  return url.replace('/upload/','/upload/w_700,q_auto,f_auto/');
+  return url.replace('/upload/','/upload/w_480,h_480,c_fill,q_60,f_auto/');
+}
+function cdnFull(url){
+  if(!url||!url.includes('cloudinary.com'))return url;
+  return url.replace('/upload/','/upload/w_1200,q_auto,f_auto/');
 }
 
 const GALLERY_DEFAULTS=[
@@ -611,7 +617,7 @@ function renderGallery(lang){
     const ri=galleryItems.indexOf(item);
     const label=item[lang]||item.en;
     return`<div class="gallery-item${item.wide?' wide':''}" tabindex="0">${item.img
-      ?`<img class="gallery-img" src="${item.img}" alt="${label}" onclick="openLightbox(${ri},'${lang}')"/>`
+      ?`<div class="gallery-img-skeleton" id="sk-${ri}"></div><img class="gallery-img" style="position:absolute;inset:0;opacity:0;transition:opacity .4s" src="${cdnThumb(item.img)}" alt="${label}" loading="lazy" decoding="async" onload="this.style.opacity=1;const sk=document.getElementById('sk-${ri}');if(sk)sk.remove()" onclick="openLightbox(${ri},'${lang}')"/>`
       :`<div class="gallery-img-placeholder" style="background:${item.bg||'#e8d5c0'}" onclick="openLightbox(${ri},'${lang}')"><span class="food-emoji">${item.emoji||'🍰'}</span><span class="food-name" style="color:${item.light?'rgba(255,255,255,.6)':'var(--brown)'}">${label}</span></div>`
     }<div class="gallery-overlay" onclick="openLightbox(${ri},'${lang}')"><span class="gallery-label">${label}</span></div><button class="gal-del-btn" onclick="event.stopPropagation();deleteGalleryItemDirect(${ri})" title="Delete">✕</button></div>`;
   }).join('');
