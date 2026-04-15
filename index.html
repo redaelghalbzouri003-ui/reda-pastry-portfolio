@@ -551,26 +551,47 @@ const stats={pageViews:{en:0,fr:0,de:0,es:0},galleryViews:{viennoiserie:0,chocol
 stats.pageViews.en++;
 
 // ── Gallery defaults ──
+// Optimize Cloudinary URLs: auto format, auto quality, max width 700px
+function cdnOpt(url){
+  if(!url||!url.includes('cloudinary.com'))return url;
+  return url.replace('/upload/','/upload/w_700,q_auto,f_auto/');
+}
+
 const GALLERY_DEFAULTS=[
   {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1775914535/20250418_205726_tpgp68.jpg',en:'Croissants',fr:'Croissants',de:'Croissants',es:'Cruasanes',wide:true},
   {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1775914688/IMG-20241129-WA0012_vjodk3.jpg',en:'Viennoiserie Assortment',fr:'Assortiment Viennoiserie',de:'Viennoiserie-Sortiment',es:'Surtido de Viennoiserie'},
+  {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180905/20250420_123112_av2u2a.jpg',en:'Choux Pastry',fr:'Pâte à Choux',de:'Brandteiggebäck',es:'Pasta Choux'},
+  {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180359/IMG-20251101-WA0019_nunejl.jpg',en:'Éclair',fr:'Éclair',de:'Éclair',es:'Éclair'},
+  {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130031/20250420_125120_rfgnu8.jpg',en:'Paris-Brest',fr:'Paris-Brest',de:'Paris-Brest',es:'Paris-Brest'},
   {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1775915350/IMG-20250225-WA0008_y0dvt6.jpg',en:'Ferroche Cake',fr:'Gâteau Ferroché',de:'Ferroche-Torte',es:'Pastel Ferroché',wide:true},
   {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1775915501/20250625_224551_a1rvaw.jpg',en:'Chocolate Fondant',fr:'Fondant au Chocolat',de:'Schokoladenfondant',es:'Fondant de Chocolate'},
   {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776129778/20250417_150218_yyhali.jpg',en:'Chocolate Tart',fr:'Tarte au Chocolat',de:'Schokoladentarte',es:'Tarta de Chocolate'},
-  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776129861/20250417_150238_cluvrz.jpg',en:'Petit Fours Collection',fr:'Collection Petits Fours',de:'Petits-Fours-Kollektion',es:'Colección de Petit Fours',wide:true},
-  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130171/20251108_123811_h6gywa.jpg',en:'Chocolate Petit Fours',fr:'Petits Fours Chocolat',de:'Schokoladen-Petits-Fours',es:'Petit Fours de Chocolate'},
+  {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130545/20251114_111504_x5nd0j.jpg',en:'Chocolate Brownie',fr:'Brownie au Chocolat',de:'Schokoladen-Brownie',es:'Brownie de Chocolate'},
+  {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180568/20250420_123022_wztptc.jpg',en:'White Chocolate Snickers',fr:'Snickers Chocolat Blanc',de:'Weiße Schokolade Snickers',es:'Snickers de Chocolate Blanco'},
+  {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180352/IMG-20241217-WA0005_zgrxqd.jpg',en:'Chocolate Ganache Brownies',fr:'Brownies Ganache Chocolat',de:'Schokoladen-Ganache-Brownies',es:'Brownies de Ganache de Chocolate',wide:true},
   {cat:'entremets',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776129908/20250417_150149_ed5vpr.jpg',en:'Rose Entremet',fr:'Entremet Rose',de:'Rosen-Entremet',es:'Entremet de Rosa'},
   {cat:'entremets',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776129914/20250417_150138_ns80zk.jpg',en:'Vanilla Entremet',fr:'Entremet Vanille',de:'Vanille-Entremet',es:'Entremet de Vainilla',wide:true},
+  {cat:'entremets',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180451/20240130_154108_pllmqx.jpg',en:'Strawberry Cheesecake',fr:'Cheesecake aux Fraises',de:'Erdbeer-Käsekuchen',es:'Tarta de Queso con Fresas'},
+  {cat:'entremets',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180451/20240130_154151_op1l4t.jpg',en:'Lemon Cheesecake',fr:'Cheesecake au Citron',de:'Zitronen-Käsekuchen',es:'Tarta de Queso con Limón'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776129861/20250417_150238_cluvrz.jpg',en:'Petit Fours Collection',fr:'Collection Petits Fours',de:'Petits-Fours-Kollektion',es:'Colección de Petit Fours',wide:true},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130171/20251108_123811_h6gywa.jpg',en:'Chocolate Petit Fours',fr:'Petits Fours Chocolat',de:'Schokoladen-Petits-Fours',es:'Petit Fours de Chocolate'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130058/IMG-20241231-WA0009_xen01g.jpg',en:'Swiss Roll',fr:'Roulé Suisse',de:'Biskuitrolle',es:'Brazo de Gitano'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180444/20241112_155136_lowgva.jpg',en:'Financiers',fr:'Financiers',de:'Financiers',es:'Financiers'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180424/20251111_124210_b5uvq1.jpg',en:'Petit Fours',fr:'Petits Fours',de:'Petits Fours',es:'Petit Fours'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180420/20251110_122937_gkuodk.jpg',en:'Tiger Financiers',fr:'Financiers Tigrés',de:'Tiger-Financiers',es:'Financiers Tigre'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180379/20241112_155547_k4nwgy.jpg',en:'Cookies',fr:'Cookies',de:'Cookies',es:'Cookies'},
+  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180376/20241112_155203_gbfotl.jpg',en:'Madeleine',fr:'Madeleine',de:'Madeleine',es:'Madeleine'},
   {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130288/20250129_135132_dfcode.jpg',en:'Apple Tart',fr:'Tarte aux Pommes',de:'Apfeltarte',es:'Tarta de Manzana'},
   {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776129982/20241107_154346_av9hfy.jpg',en:'Frangipane',fr:'Frangipane',de:'Frangipane',es:'Frangipane'},
   {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130425/20250420_123345_g9ihs9.jpg',en:'Custard Tart',fr:'Tarte Custard',de:'Puddingtarte',es:'Tarta de Natillas'},
-  {cat:'chocolate',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130545/20251114_111504_x5nd0j.jpg',en:'Chocolate Brownie',fr:'Brownie au Chocolat',de:'Schokoladen-Brownie',es:'Brownie de Chocolate'},
-  {cat:'viennoiserie',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130031/20250420_125120_rfgnu8.jpg',en:'Paris-Brest',fr:'Paris-Brest',de:'Paris-Brest',es:'Paris-Brest'},
-  {cat:'petitfour',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776130058/IMG-20241231-WA0009_xen01g.jpg',en:'Swiss Roll',fr:'Roulé Suisse',de:'Biskuitrolle',es:'Brazo de Gitano'},
+  {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180389/20251110_122828_ntttua.jpg',en:'Mini Lemon Tarts',fr:'Mini Tartes au Citron',de:'Mini-Zitronentörtchen',es:'Mini Tartas de Limón'},
+  {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180392/20251110_140638_exmmht.jpg',en:'Tarte Tatin Revisitée',fr:'Tarte Tatin Revisitée',de:'Überarbeitete Tarte Tatin',es:'Tarta Tatín Revisitada'},
+  {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180359/IMG-20251101-WA0018_xcch1z.jpg',en:'Mango Tart',fr:'Tarte à la Mangue',de:'Mangotarte',es:'Tarta de Mango'},
+  {cat:'tarts',img:'https://res.cloudinary.com/dq88xwhfz/image/upload/v1776180381/20250129_135118_dvs157.jpg',en:'Apple Tart',fr:'Tarte aux Pommes',de:'Apfeltarte',es:'Tarta de Manzana',wide:true},
 ];
 
 // Load persisted gallery or use defaults — version bump forces cache refresh
-const GALLERY_VERSION = '5';
+const GALLERY_VERSION = '3';
 if(store.get('galleryVersion') !== GALLERY_VERSION){
   store.set('galleryVersion', GALLERY_VERSION);
   store.set('galleryItems', null);
