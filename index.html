@@ -84,7 +84,7 @@ nav{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:cen
 .pastry:hover .p-lbl{opacity:1;color:var(--ca)}
 .p-course{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:.62rem;font-style:italic;color:var(--ca);opacity:0;transition:opacity .28s;white-space:nowrap}
 .pastry:hover .p-course{opacity:1}
-.platter-hint{margin-top:2.8rem;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);opacity:.32;z-index:2}
+.platter-hint{margin-top:2.8rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ca);opacity:.65;z-index:2;font-family:'Cormorant Garamond',serif;font-style:italic}
 
 /* PORTFOLIO */
 #portfolio{background:var(--co);padding:80px 36px}
@@ -243,14 +243,15 @@ footer{background:var(--dk);padding:50px 56px 32px}
 .td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
 @keyframes bl{0%,100%{opacity:.16}50%{opacity:.8}}
 
-/* CHIPS — always visible list */
+/* CHIPS — grid layout */
 .chips-wrap{flex-shrink:0;border-top:1px solid rgba(201,160,106,.07)}
-.chips-lbl{font-size:.42rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(201,160,106,.26);padding:7px 12px 3px;display:block}
-.chips-list{display:flex;flex-direction:column}
-.chip{display:block;width:100%;text-align:left;font-size:.68rem;padding:7px 12px;background:transparent;border:none;border-bottom:1px solid rgba(201,160,106,.06);color:rgba(234,217,186,.52);cursor:pointer;font-family:'Inter',sans-serif;font-weight:200;transition:all .16s;line-height:1.45}
-.chip:last-child{border-bottom:none}
-.chip:hover{background:rgba(201,160,106,.07);color:var(--ca);padding-left:16px}
-.chip::before{content:'— ';color:rgba(201,160,106,.3);font-size:.58rem}
+.chips-lbl{font-size:.42rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(201,160,106,.26);padding:7px 12px 5px;display:block}
+.chips-list{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.chip{display:block;width:100%;text-align:left;font-size:.62rem;padding:6px 10px;background:transparent;border:none;border-right:1px solid rgba(201,160,106,.06);border-bottom:1px solid rgba(201,160,106,.06);color:rgba(234,217,186,.5);cursor:pointer;font-family:'Inter',sans-serif;font-weight:200;transition:all .16s;line-height:1.4}
+.chip:nth-child(2n){border-right:none}
+.chip:nth-last-child(-n+2){border-bottom:none}
+.chip:hover{background:rgba(201,160,106,.07);color:var(--ca)}
+.chip::before{content:'— ';color:rgba(201,160,106,.28);font-size:.54rem}
 
 .ap-inp{padding:8px 10px;border-top:1px solid rgba(201,160,106,.07);display:flex;gap:6px;flex-shrink:0}
 #askIn{flex:1;background:rgba(201,160,106,.04);border:1px solid rgba(201,160,106,.1);color:var(--ch);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:200;padding:7px 8px;outline:none;transition:border-color .18s}
@@ -292,7 +293,7 @@ footer{background:var(--dk);padding:50px 56px 32px}
   .platter-hint{display:none}
 }
 @media(max-width:480px){
-  .grid{columns:1}
+  .grid{columns:2}
   .craft-grid{grid-template-columns:1fr}
   .cell:nth-child(n){border-right:none}
   .hero-sub{letter-spacing:.14em;font-size:.46rem}
@@ -373,7 +374,7 @@ footer{background:var(--dk);padding:50px 56px 32px}
   <div class="about-r">
     <div class="about-num">01</div>
     <div class="photo-wrap">
-      <img src="https://res.cloudinary.com/dq88xwhfz/image/upload/w_550,q_auto,f_auto/v1775861539/92d95cd0-d284-4cdb-a817-9ea6c9f89bda_vfmu3p.jpg" alt="Reda El Ghalbzouri" loading="lazy" width="550">
+      <img src="https://res.cloudinary.com/dq88xwhfz/image/upload/v1776564071/gemini-watermark-removed_1_mnukss.png" alt="Reda El Ghalbzouri" loading="lazy" width="550">
     </div>
   </div>
 </section>
@@ -593,6 +594,7 @@ en:{
   ft_sub:'Commis Pastry Chef · Chocolate & Artistic Desserts · Morocco',
   ask_btn:'Ask Reda',ask_status:'Commis Pastry Chef · Morocco',ask_intro:'Bonjour. I am Reda, a young pastry chef from Morocco, trained in 5-star kitchens, seeking my first professional opportunity. Choose a question or ask me anything.',ask_q_lbl:'Select a question',ask_ph:'Ask your own question...',
   chips:['Why should we hire Reda?','What makes Reda stand out?','Where was Reda trained?','What are Reda\'s specialties?','Is Reda open to relocating?','What is Reda\'s philosophy?','How to contact Reda?'],
+  soon_tag:'Coming Soon',soon_main:'The finest is yet to come.',soon_sub:'The next creation is already taking shape — stay close.',
   chip_ans:["Because I pour genuine passion into every creation. My experience in 5-star hotel kitchens taught me precision, consistency, and professionalism from day one. I am looking for a place where I can grow and give everything I have.","I combine a classical French foundation with a bold modern vision. I care deeply about how a dessert looks and how it makes the guest feel — I do not settle for good enough, I aim for memorable.","I trained in professional hotel kitchens: Radisson Blu (5-star luxury) and Mercure under the Accor Group (4-star international). These were real, demanding kitchens — not classrooms.","My focus areas: chocolate work and tempering, viennoiserie such as croissants and pain au chocolat, entremets with mirror glazes, petit fours, artistic plated desserts, and a variety of tarts.","Absolutely. I am fully open to moving anywhere in the world for the right opportunity — internship, training role, or full position. I adapt quickly and I am ready to start.","I believe that pastry is not only about taste — it is about emotion. Every dessert should make the person who eats it feel something. That belief guides every decision I make in the kitchen.","Email: redaelghalbzouri003@gmail.com · Phone: +212 666 310 794 · LinkedIn profile available. I respond quickly and I am always happy to speak."],
   courses:[
     {lbl:'Course I · Why Reda?',title:'Why Reda?',flavor:'Consistent · Passionate · Hotel-kitchen precision',body:"<p>I do not just make pastries — I pour genuine passion into every creation. My experience in 5-star hotel kitchens taught me precision, consistency, and professionalism from day one.</p><p>I am not looking for an easy role. I am looking for a place where I can grow and give everything I have.</p>"},
@@ -636,6 +638,7 @@ fr:{
   ft_sub:'Commis Pâtissier · Chocolat & Desserts Artistiques · Maroc',
   ask_btn:'Demander',ask_status:'Commis Pâtissier · Maroc',ask_intro:"Bonjour. Je suis Reda, jeune pâtissier marocain formé dans des cuisines 5 étoiles, à la recherche de ma première opportunité. Choisissez une question ou posez la vôtre.",ask_q_lbl:'Choisissez une question',ask_ph:'Posez votre propre question...',
   chips:['Pourquoi recruter Reda ?','Qu\'est-ce qui distingue Reda ?','Où Reda a-t-il été formé ?','Quelles sont les spécialités de Reda ?','Reda est-il mobile à l\'international ?','Quelle est la philosophie de Reda ?','Comment contacter Reda ?'],
+  soon_tag:'À venir',soon_main:'Le meilleur reste à venir.',soon_sub:'La prochaine création prend déjà forme — restez proches.',
   chip_ans:["Je verse une passion sincère dans chaque création. Mon expérience dans des cuisines 5 étoiles m'a appris la précision et le professionnalisme dès le premier jour.","Je combine une base classique française avec une vision artistique moderne et audacieuse — je vise toujours le mémorable, jamais le suffisant.","J'ai été formé dans des cuisines d'hôtels au Maroc : Radisson Blu (5 étoiles) et Mercure du groupe Accor (4 étoiles). De vraies cuisines professionnelles, pas des salles de classe.","Mes domaines : chocolat et tempérage, viennoiserie, entremets avec glaçages miroir, petits fours, desserts dressés et tartes variées.","Absolument. Je suis ouvert à m'installer n'importe où dans le monde pour la bonne opportunité. Je m'adapte vite et je suis prêt à commencer.","La pâtisserie n'est pas seulement une question de goût — c'est une question d'émotion. Chaque dessert doit faire ressentir quelque chose.","Email : redaelghalbzouri003@gmail.com · Tél : +212 666 310 794 · Profil LinkedIn disponible."],
   courses:[
     {lbl:'Plat I · Pourquoi Reda ?',title:'Pourquoi Reda ?',flavor:'Constant · Passionné · Précision hôtelière',body:"<p>Je ne fais pas que des pâtisseries — je verse une passion sincère dans chaque création. Mon expérience dans des cuisines 5 étoiles m'a appris précision, constance et professionnalisme.</p><p>Je cherche un endroit où grandir et me donner entièrement.</p>"},
@@ -679,6 +682,7 @@ es:{
   ft_sub:'Commis Pastelero · Chocolate y Postres Artísticos · Marruecos',
   ask_btn:'Preguntar',ask_status:'Commis Pastelero · Marruecos',ask_intro:'Bonjour. Soy Reda, un joven pastelero de Marruecos formado en cocinas de 5 estrellas, buscando mi primera oportunidad. Elige una pregunta o escríbeme la tuya.',ask_q_lbl:'Elige una pregunta',ask_ph:'Escribe tu propia pregunta...',
   chips:['¿Por qué contratar a Reda?','¿Qué distingue a Reda?','¿Dónde se formó Reda?','¿Cuáles son las especialidades de Reda?','¿Reda está abierto a mudarse?','¿Cuál es la filosofía de Reda?','¿Cómo contactar a Reda?'],
+  soon_tag:'Próximamente',soon_main:'Lo mejor está por llegar.',soon_sub:'La próxima creación ya está tomando forma — permanece cerca.',
   chip_ans:["Porque pongo pasión genuina en cada creación. Mi experiencia en cocinas de 5 estrellas me enseñó precisión y profesionalismo desde el primer día.","Combino una base clásica francesa con una visión artística moderna y audaz — siempre busco lo memorable, nunca lo suficiente.","Me formé en cocinas de hoteles en Marruecos: Radisson Blu (5 estrellas) y Mercure del grupo Accor (4 estrellas). Cocinas reales y exigentes.","Mis áreas: chocolate y templado, viennoiserie, entremets con glasados espejo, petit fours, postres emplatados y tartas variadas.","Absolutamente. Estoy abierto a mudarme a cualquier parte del mundo para la oportunidad correcta. Me adapto rápido y estoy listo para empezar.","La repostería no es solo sabor — es emoción. Cada postre debe hacer sentir algo a quien lo come.","Email: redaelghalbzouri003@gmail.com · Tel: +212 666 310 794 · Perfil LinkedIn disponible."],
   courses:[
     {lbl:'Plato I · ¿Por qué Reda?',title:'¿Por qué Reda?',flavor:'Constante · Apasionado · Precisión hotelera',body:"<p>No solo hago pasteles — pongo pasión genuina en cada creación. Mi experiencia en cocinas de 5 estrellas me dio precisión, constancia y profesionalismo.</p>"},
@@ -722,6 +726,7 @@ de:{
   ft_sub:'Commis Konditor · Schokolade & Künstlerische Desserts · Marokko',
   ask_btn:'Fragen',ask_status:'Commis Konditor · Marokko',ask_intro:'Bonjour. Ich bin Reda, ein junger Konditor aus Marokko, ausgebildet in 5-Sterne-Küchen, auf der Suche nach meiner ersten Chance. Wählen Sie eine Frage oder stellen Sie Ihre eigene.',ask_q_lbl:'Frage auswählen',ask_ph:'Eigene Frage stellen...',
   chips:['Warum Reda einstellen?','Was unterscheidet Reda?','Wo wurde Reda ausgebildet?','Was sind Redas Spezialitäten?','Ist Reda bereit umzuziehen?','Was ist Redas Philosophie?','Wie Reda kontaktieren?'],
+  soon_tag:'Demnächst',soon_main:'Das Beste kommt noch.',soon_sub:'Die nächste Kreation nimmt bereits Gestalt an — bleib dabei.',
   chip_ans:["Weil ich echte Leidenschaft in jede Kreation stecke. Meine Erfahrung in 5-Sterne-Küchen lehrte mich Präzision und Professionalität vom ersten Tag an.","Ich kombiniere ein klassisches französisches Fundament mit einer modernen, kühnen Vision — ich strebe immer nach Unvergesslichem, nie nach Ausreichend.","Ich wurde in professionellen Hotelküchen in Marokko ausgebildet: Radisson Blu (5 Sterne) und Mercure der Accor Gruppe (4 Sterne). Echte, anspruchsvolle Küchen.","Meine Bereiche: Schokolade und Temperieren, Viennoiserie, Entremets mit Spiegelglasur, Petits Fours, angerichtete Desserts und verschiedene Tartes.","Absolut. Ich bin bereit überall auf der Welt hinzuziehen — Praktikum, Ausbildung oder Vollzeitstelle. Ich passe mich schnell an.","Patisserie handelt nicht nur von Geschmack — sie handelt von Emotion. Jedes Dessert soll etwas fühlen lassen.","E-Mail: redaelghalbzouri003@gmail.com · Tel: +212 666 310 794 · LinkedIn-Profil verfügbar."],
   courses:[
     {lbl:'Gang I · Warum Reda?',title:'Warum Reda?',flavor:'Konstant · Leidenschaftlich · Hotelküchen-Präzision',body:"<p>Ich mache nicht nur Gebäck — ich bringe echte Leidenschaft in jede Kreation. Meine Erfahrung in 5-Sterne-Küchen lehrte mich Präzision und Konstanz.</p>"},
@@ -801,12 +806,38 @@ const gridEl=document.getElementById('grid');
 let vis=[],curIdx=0;
 function buildGrid(cat){
   gridEl.innerHTML='';
-  vis=cat==='all'?[...ITEMS]:ITEMS.filter(d=>d.cat===cat);
+  const regular=cat==='all'?ITEMS.filter(d=>d.cat!=='all_end'):ITEMS.filter(d=>d.cat===cat);
+  const soonCard=ITEMS.find(d=>d.cat==='all_end');
+  vis=[...regular];
+  if(cat==='all'&&soonCard)vis.push(soonCard);
   vis.forEach((d,i)=>{
     const c=document.createElement('div');c.className='card';
     const name=d[lang]||d.en;
-    c.innerHTML=`<div class="c-dot" style="background:${dotColor(d.lum)}"></div><div class="c-num">${String(i+1).padStart(2,'0')}</div><img src="${BASE}w_440,h_340,c_fill,q_auto,f_auto/${d.img}" alt="${name}" loading="lazy" width="440" height="340"><div class="card-info"><div class="c-cat">${CATS[d.cat]||d.cat}</div><div class="c-name">${name}</div></div>`;
-    c.addEventListener('click',()=>openPhoto(i));
+    const tr=T[lang];
+    if(d.special==='soon'){
+      c.style.cursor='default';
+      c.innerHTML=`
+        <div class="c-dot" style="background:#1A0808"></div>
+        <div class="c-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="soon-wrap">
+          <div class="soon-inner">
+            <div class="soon-sparkle">✦</div>
+            <div class="soon-text">
+              <div class="soon-tag">${tr.soon_tag}</div>
+              <div class="soon-main">${tr.soon_main}</div>
+              <div class="soon-line"></div>
+              <div class="soon-sub">${tr.soon_sub}</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-info" style="opacity:1;transform:none">
+          <div class="c-cat">Dessert</div>
+          <div class="c-name">${name}</div>
+        </div>`;
+    } else {
+      c.innerHTML=`<div class="c-dot" style="background:${dotColor(d.lum)}"></div><div class="c-num">${String(i+1).padStart(2,'0')}</div><img src="${BASE}w_440,h_340,c_fill,q_auto,f_auto/${d.img}" alt="${name}" loading="lazy" width="440" height="340"><div class="card-info"><div class="c-cat">${CATS[d.cat]||d.cat}</div><div class="c-name">${name}</div></div>`;
+      c.addEventListener('click',()=>openPhoto(i));
+    }
     gridEl.appendChild(c);
   });
 }
