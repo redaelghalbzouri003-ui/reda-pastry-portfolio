@@ -296,25 +296,21 @@ footer{background:var(--dk);padding:50px 56px 32px}
   .grid{columns:2;column-gap:2px}
   .p-foot{flex-direction:column;gap:.8rem;align-items:flex-start;padding:12px 16px}
   .c-head{padding:28px 24px 0}.c-body{padding:1.1rem 24px 28px}.c-flavor{padding:12px 24px}
-  .platter-hint{display:none}
-  /* hero mobile */
   .hero-sub{font-size:.44rem;letter-spacing:.14em}
-  /* platter mobile */
   #platter{padding:72px 16px 60px}
   .platter-hd{margin-bottom:3rem}
-  /* contact mobile */
   #contact{padding:56px 16px}
   .con-intro p{font-size:.82rem}
-  /* philosophy mobile */
   #phil{padding:64px 22px}
   .phil-attr{font-size:.5rem;letter-spacing:.18em}
-  /* craft mobile */
-  .craft-grid{grid-template-columns:1fr 1fr}
-  /* invoice mobile */
   .inv{padding:26px 22px}
-  /* ask panel mobile */
   #askPanel{right:16px;width:calc(100vw - 32px);bottom:80px}
   #askBtn{right:16px;bottom:16px}
+  /* platter labels visible on mobile */
+  .p-lbl{opacity:.7;font-size:.46rem;bottom:-20px}
+  .p-course{opacity:.7;font-size:.58rem;top:-17px}
+  .platter-hint{display:flex;font-size:.58rem;letter-spacing:.18em;margin-top:2.4rem}
+  .platter-hint::before,.platter-hint::after{width:6px;height:6px}
 }
 @media(max-width:480px){
   .grid{columns:2;column-gap:2px}
@@ -326,14 +322,16 @@ footer{background:var(--dk);padding:50px 56px 32px}
   .ft-links{gap:.7rem}
   .hero-title{font-size:clamp(3rem,13vw,5rem)}
   .hero-sub{display:none}
-  /* platter smaller screens */
-  .plate-outer{width:min(380px,90vw);height:min(380px,90vw)}
-  .pastry{width:62px;height:62px}
-  .p-lbl{font-size:.42rem;bottom:-22px}
-  /* portfolio cards on small */
+  /* platter smaller */
+  .plate-outer{width:min(340px,90vw);height:min(340px,90vw)}
+  .pastry{width:58px;height:58px}
+  .p-lbl{font-size:.4rem;bottom:-19px;letter-spacing:.1em}
+  .p-course{font-size:.52rem;top:-16px}
+  .platter-hint{font-size:.52rem;letter-spacing:.14em}
+  /* portfolio */
   .card img{height:auto}
-  .soon-wrap{aspect-ratio:auto;min-height:160px}
-  /* chips panel */
+  .soon-wrap{aspect-ratio:auto;min-height:150px}
+  /* chips */
   .chips-list{grid-template-columns:1fr}
   /* contact */
   #contact{padding:44px 14px}
