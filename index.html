@@ -4,358 +4,270 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reda El Ghalbzouri</title>
-<link rel="icon" type="image/png" href="https://redaelghalbzouri003-ui.github.io/reda-pastry-portfolio/favicon-96x96.png?v=20260420" sizes="96x96">
-<link rel="icon" type="image/svg+xml" href="https://redaelghalbzouri003-ui.github.io/reda-pastry-portfolio/favicon.svg?v=20260420">
-<link rel="shortcut icon" href="https://redaelghalbzouri003-ui.github.io/reda-pastry-portfolio/favicon.ico?v=20260420">
-<link rel="apple-touch-icon" sizes="180x180" href="https://redaelghalbzouri003-ui.github.io/reda-pastry-portfolio/apple-touch-icon.png?v=20260420">
-<link rel="manifest" href="https://redaelghalbzouri003-ui.github.io/reda-pastry-portfolio/site.webmanifest?v=20260420">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPSPXTHBKJ"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-SPSPXTHBKJ');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@200;300&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://res.cloudinary.com/dq88xwhfz/image/upload/w_550,q_auto,f_auto/v1776564071/gemini-watermark-removed_1_mnukss.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--ch:#EAD9BA;--ca:#C9A06A;--co:#3E2C1E;--dk:#130D08;--cr:#FDFAF6;--iv:#F9F6F1}
+:root{--ch:#1C1208;--ca:#9A7030;--co:#5C3E24;--dk:#F8F4EE;--cr:#FFFFFF;--iv:#F0EAE0}
 html{scroll-behavior:smooth}
 body{background:var(--dk);color:var(--ch);font-family:'Inter',sans-serif;overflow-x:hidden}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;z-index:500;background:rgba(19,13,8,.88);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid rgba(201,160,106,.13)}
+nav{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;z-index:500;background:rgba(248,244,238,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(154,112,48,.14)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:.82rem;font-style:italic;letter-spacing:.14em;color:var(--ch);text-decoration:none}
 .nav-right{display:flex;align-items:center;gap:1.4rem}
 .nav-links{display:flex;gap:1.4rem}
 .nav-links a{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);opacity:.4;text-decoration:none;transition:opacity .2s}
 .nav-links a:hover{opacity:1}
 .lang-sel{display:flex;gap:.3rem}
-.lang-btn{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border:1px solid rgba(201,160,106,.2);color:rgba(234,217,186,.38);background:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s}
-.lang-btn.on{background:rgba(201,160,106,.14);color:var(--ca);border-color:rgba(201,160,106,.38)}
+.lang-btn{font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border:1px solid rgba(154,112,48,.22);color:rgba(28,18,8,.35);background:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s}
+.lang-btn.on{background:rgba(154,112,48,.1);color:var(--ca);border-color:rgba(154,112,48,.4)}
 .nav-ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px}
-.nav-ham span{width:20px;height:1px;background:rgba(234,217,186,.65);display:block;transition:all .25s}
-.nav-mob{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(19,13,8,.97);border-bottom:1px solid rgba(201,160,106,.08);flex-direction:column;z-index:499;padding:12px 0 16px}
+.nav-ham span{width:20px;height:1px;background:rgba(28,18,8,.45);display:block}
+.nav-mob{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(248,244,238,.98);border-bottom:1px solid rgba(154,112,48,.1);flex-direction:column;z-index:499;padding:12px 0 16px}
 .nav-mob.open{display:flex}
 .nav-mob a{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ch);opacity:.45;text-decoration:none;padding:12px 28px;display:block}
-.nav-mob a:hover{opacity:1}
-.nav-mob .lang-sel{padding:10px 28px 0;gap:.4rem}
-.nav-mob .lang-btn{font-size:.5rem;padding:4px 9px}
-
-/* HERO */
 #hero{height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dk);position:relative;overflow:hidden;padding-top:52px}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 50% 58%,rgba(201,160,106,.11),transparent 68%),radial-gradient(ellipse 40% 35% at 20% 80%,rgba(201,160,106,.04),transparent 60%),radial-gradient(ellipse 30% 25% at 80% 20%,rgba(201,160,106,.04),transparent 60%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,160,106,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(201,160,106,.055) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 55% 65% at 50% 50%,black 15%,transparent 100%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 50% 58%,rgba(154,112,48,.07),transparent 68%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(154,112,48,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(154,112,48,.09) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 55% 65% at 50% 50%,black 15%,transparent 100%)}
 .hero-inner{text-align:center;z-index:2;display:flex;flex-direction:column;align-items:center;padding:0 24px}
-.hero-act{font-size:.54rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ca);font-weight:200;margin-bottom:1.6rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fUp .8s 1.2s forwards}
+.hero-act{font-size:.54rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ca);margin-bottom:1.6rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fUp .8s 1.2s forwards}
 .hero-act::before,.hero-act::after{content:'';width:18px;height:1px;background:var(--ca)}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,9vw,9rem);font-weight:300;line-height:.88;color:var(--ch);opacity:0;animation:fUp 1s 1.4s forwards;text-shadow:0 2px 40px rgba(201,160,106,.18)}
-.hero-title em{font-style:italic;color:var(--ca);display:block;font-size:.64em;line-height:1.22;text-shadow:0 2px 30px rgba(201,160,106,.22)}
-.hero-sub{margin-top:1.8rem;font-size:clamp(.48rem,.8vw,.62rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(234,217,186,.36);font-weight:200;opacity:0;animation:fUp .8s 1.8s forwards}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,9vw,9rem);font-weight:300;line-height:.88;color:var(--ch);opacity:0;animation:fUp 1s 1.4s forwards}
+.hero-title em{font-style:italic;color:var(--ca);display:block;font-size:.64em;line-height:1.22}
+.hero-sub{margin-top:1.8rem;font-size:clamp(.48rem,.8vw,.62rem);letter-spacing:.24em;text-transform:uppercase;color:rgba(28,18,8,.38);opacity:0;animation:fUp .8s 1.8s forwards}
 .hero-line{margin-top:2.8rem;width:1px;height:48px;background:linear-gradient(var(--ca),transparent);opacity:0;animation:fIn .8s 2.2s both;display:block;text-decoration:none;align-self:center}
-
-/* ABOUT */
-#about{display:grid;grid-template-columns:1fr 1fr;background:var(--cr);color:var(--dk)}
+#about{display:grid;grid-template-columns:1fr 1fr;background:var(--cr)}
 .about-l{padding:90px 56px;display:flex;flex-direction:column;justify-content:center}
 .about-r{background:var(--iv);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:520px}
 .stag{display:flex;align-items:center;gap:.65rem;margin-bottom:1.8rem}
 .stag::before{content:'';width:14px;height:1px;background:var(--ca)}
 .stag span{font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ca)}
-.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.8rem);font-weight:300;line-height:1.1;color:var(--dk)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.8rem);font-weight:300;line-height:1.1;color:var(--ch)}
 .sec-h em{font-style:italic;color:var(--ca)}
-.about-p{margin-top:1.5rem;font-size:.86rem;line-height:1.95;color:rgba(62,44,30,.65);font-weight:300;max-width:400px}
+.about-p{margin-top:1.5rem;font-size:.86rem;line-height:1.95;color:rgba(92,62,36,.6);font-weight:300;max-width:400px}
 .badges{margin-top:1.8rem;display:flex;gap:.6rem;flex-wrap:wrap}
-.badge{padding:6px 12px;border:1px solid rgba(201,160,106,.2);font-size:.52rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ca)}
-.badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:.85rem;text-transform:none;color:var(--dk);margin-top:2px;font-weight:400}
-.stats{margin-top:2.4rem;display:flex;gap:2rem;padding-top:1.8rem;border-top:1px solid rgba(201,160,106,.14)}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--dk)}
+.badge{padding:6px 12px;border:1px solid rgba(154,112,48,.22);font-size:.52rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ca)}
+.badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:.85rem;text-transform:none;color:var(--ch);margin-top:2px;font-weight:400}
+.stats{margin-top:2.4rem;display:flex;gap:2rem;padding-top:1.8rem;border-top:1px solid rgba(154,112,48,.14)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--ch)}
 .stat-l{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ca);margin-top:.2rem}
 .photo-wrap{width:min(360px,52vw);position:relative;z-index:1}
-.photo-wrap::before{content:'';position:absolute;inset:-10px;border:1px solid rgba(201,160,106,.16)}
-.photo-wrap::after{content:'Chef Patissier · Chocolatier';position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.73rem;color:rgba(201,160,106,.44);white-space:nowrap}
-/* photo-wrap img */
-.photo-wrap img{width:100%;display:block;filter:sepia(8%) contrast(1.04);content-visibility:auto}
-.about-num{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:10rem;color:rgba(201,160,106,.045);line-height:1;pointer-events:none}
-
-/* PLATTER */
+.photo-wrap::before{content:'';position:absolute;inset:-10px;border:1px solid rgba(154,112,48,.18)}
+.photo-wrap::after{content:'Chef Patissier · Chocolatier';position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.73rem;color:rgba(154,112,48,.5);white-space:nowrap}
+.photo-wrap img{width:100%;display:block;filter:sepia(5%) contrast(1.02)}
+.about-num{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:10rem;color:rgba(154,112,48,.055);line-height:1;pointer-events:none}
 #platter{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;position:relative;overflow:hidden}
-.platter-bg-word{position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(8rem,20vw,20rem);color:rgba(201,160,106,.032);font-weight:300;pointer-events:none;white-space:nowrap;user-select:none}
+.platter-bg-word{position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(8rem,20vw,20rem);color:rgba(154,112,48,.042);font-weight:300;pointer-events:none;white-space:nowrap;user-select:none}
 .platter-hd{text-align:center;margin-bottom:4rem;z-index:2}
 .platter-hd h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.6rem);font-weight:300;color:var(--ch)}
-.platter-hd p{margin-top:.55rem;font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ca);opacity:.6}
-.plate-scene{position:relative;z-index:2;opacity:0;transform:scale(.9);transition:opacity 1s,transform 1s cubic-bezier(.34,1.1,.64,1)}
-.plate-scene.vis{opacity:1;transform:scale(1)}
-.plate-outer{width:min(460px,82vw);height:min(460px,82vw);border-radius:50%;filter:drop-shadow(0 40px 80px rgba(0,0,0,.8)) drop-shadow(0 0 60px rgba(201,160,106,.08))}
-.plate{width:100%;height:100%;border-radius:50%;position:relative;background:conic-gradient(from 210deg,rgba(255,255,255,.52) 0deg,rgba(255,255,255,.1) 40deg,transparent 90deg,rgba(140,100,35,.16) 170deg,rgba(100,65,15,.25) 230deg,rgba(160,115,45,.12) 290deg,rgba(255,255,255,.36) 330deg,rgba(255,255,255,.52) 360deg),radial-gradient(circle at 32% 26%,#fff 0%,#fdf8f0 12%,#f2e8d5 32%,#e4d0a8 55%,#cca86a 75%,#a07030 100%);box-shadow:inset 0 4px 8px rgba(255,255,255,.8),inset 0 -12px 36px rgba(130,90,22,.32)}
-.plate-well{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 33% 27%,#fff 0%,#fdfcf8 10%,#faf5ea 32%,#f4ebd8 58%,#e6d5b8 100%);box-shadow:0 0 0 1px rgba(200,165,90,.18),inset 0 3px 14px rgba(0,0,0,.04)}
-.plate-hl{position:absolute;top:5%;left:16%;width:35%;height:20%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.68) 0%,rgba(255,255,255,.15) 45%,transparent 70%);transform:rotate(-22deg);pointer-events:none;z-index:5}
-.pastry{position:absolute;width:78px;height:78px;transform:translate(-50%,-50%);cursor:pointer;z-index:10;transition:transform .4s cubic-bezier(.34,1.6,.64,1)}
-.pastry:hover{transform:translate(-50%,-50%) translateY(-11px) scale(1.12)}
-.p-glow{position:absolute;inset:-13px;border-radius:50%;background:radial-gradient(circle,rgba(201,160,106,.24) 0%,transparent 65%);opacity:0;transition:opacity .35s;pointer-events:none}
+.platter-hd p{margin-top:.55rem;font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ca);opacity:.65}
+.plate-scene{position:relative;z-index:2;opacity:0;transform:scale(.9) translateZ(0);transition:opacity 1s,transform 1s cubic-bezier(.34,1.1,.64,1);contain:layout style}
+.plate-scene.vis{opacity:1;transform:scale(1) translateZ(0)}
+.plate-outer{width:min(520px,90vw);height:min(520px,90vw);border-radius:50%;position:relative;transform:translateZ(0)}
+.plate-outer::before{content:'';position:absolute;inset:-10px;border-radius:50%;box-shadow:0 50px 100px rgba(80,45,8,.28),0 20px 50px rgba(154,112,48,.14);pointer-events:none;z-index:-1}
+.plate{width:100%;height:100%;border-radius:50%;position:relative;
+  background:conic-gradient(from 210deg,rgba(255,255,255,.60) 0deg,rgba(255,255,255,.05) 50deg,transparent 100deg,rgba(110,70,15,.22) 180deg,rgba(75,42,8,.32) 240deg,rgba(140,96,30,.16) 300deg,rgba(255,255,255,.42) 340deg,rgba(255,255,255,.60) 360deg),
+  radial-gradient(circle at 30% 24%,#fff 0%,#fdfaf6 8%,#f8eed8 22%,#ecdab4 42%,#d8be84 64%,#bea060 82%,#9a7840 100%);
+  box-shadow:inset 0 8px 18px rgba(255,255,255,.88),inset 0 -20px 60px rgba(110,70,14,.42),inset 0 0 100px rgba(190,148,58,.12)}
+.plate-rim{position:absolute;inset:0;border-radius:50%;border:2.5px solid rgba(215,180,95,.38);pointer-events:none}
+.plate-rim2{position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(215,180,95,.22);pointer-events:none}
+.plate-well{position:absolute;inset:13%;border-radius:50%;background:radial-gradient(circle at 32% 26%,#fff 0%,#fefef9 6%,#faf7ec 20%,#f5eedc 42%,#ede0c4 68%,#e2d0aa 100%);box-shadow:0 0 0 1px rgba(195,158,82,.16),inset 0 6px 24px rgba(0,0,0,.06)}
+.plate-hl{position:absolute;top:4%;left:14%;width:38%;height:22%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.72) 0%,rgba(255,255,255,.22) 40%,transparent 70%);transform:rotate(-24deg);pointer-events:none;z-index:5}
+.plate-hl2{position:absolute;top:8%;right:18%;width:14%;height:9%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.5) 0%,transparent 70%);pointer-events:none;z-index:5}
+.pastry{position:absolute;width:96px;height:96px;transform:translate(-50%,-55%) translateZ(0);cursor:pointer;z-index:10;transition:transform .5s cubic-bezier(.34,1.6,.64,1);will-change:transform;contain:layout style}
+.pastry:hover{transform:translate(-50%,-74%) scale(1.15) translateZ(0)}
+.pastry:hover .bonbon-shadow{opacity:.75;transform:translateX(-50%) scaleX(1.08)}
 .pastry:hover .p-glow{opacity:1}
-.p-lbl{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ch);white-space:nowrap;opacity:.32;transition:opacity .25s,color .25s}
+.bonbon-shadow{position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);width:70px;height:13px;border-radius:50%;background:radial-gradient(ellipse,rgba(50,22,4,.52) 0%,rgba(50,22,4,.18) 55%,transparent 100%);filter:blur(5px);transition:opacity .38s,transform .38s;pointer-events:none;z-index:1}
+.p-glow{position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,rgba(154,112,48,.18) 0%,transparent 65%);opacity:0;transition:opacity .32s;pointer-events:none}
+.p-lbl{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);font-size:.50rem;letter-spacing:.20em;text-transform:uppercase;color:var(--ch);white-space:nowrap;opacity:.38;transition:opacity .22s,color .22s}
 .pastry:hover .p-lbl{opacity:1;color:var(--ca)}
-.p-course{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:.62rem;font-style:italic;color:var(--ca);opacity:0;transition:opacity .28s;white-space:nowrap}
+.p-course{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:.65rem;font-style:italic;color:var(--ca);opacity:0;transition:opacity .25s;white-space:nowrap}
 .pastry:hover .p-course{opacity:1}
-.platter-hint{margin-top:3rem;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);opacity:.9;z-index:2;font-family:'Cormorant Garamond',serif;font-style:italic;display:flex;align-items:center;gap:1.2rem;text-shadow:0 0 18px rgba(201,160,106,.35)}
-.platter-hint::before,.platter-hint::after{content:'';display:block;width:9px;height:9px;border-radius:50%;background:var(--ca);opacity:.85;flex-shrink:0;box-shadow:0 0 8px rgba(201,160,106,.6)}
-
-/* PORTFOLIO */
-#portfolio{background:var(--co);padding:80px 36px}
+.bonbon-svg{position:relative;z-index:2;display:block}
+.platter-hint{margin-top:2.8rem;font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ch);z-index:2;font-family:'Cormorant Garamond',serif;font-style:italic;display:flex;align-items:center;gap:1.2rem;padding:10px 26px;border:1px solid rgba(154,112,48,.28);background:rgba(154,112,48,.06)}
+.platter-hint::before,.platter-hint::after{content:'';display:block;width:9px;height:9px;border-radius:50%;background:var(--ca);flex-shrink:0}
+#portfolio{background:var(--iv);padding:80px 36px}
 .port-hd{margin-bottom:2rem}
 .port-hd h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3.5rem);font-weight:300;color:var(--ch);line-height:1.1}
 .port-hd h2 em{font-style:italic;color:var(--ca)}
-.port-hd p{margin-top:.65rem;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);opacity:.52}
+.port-hd p{margin-top:.65rem;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ca);opacity:.55}
 .tone-bar{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
-.tone-track{width:240px;height:2px;background:linear-gradient(90deg,#F9F6F1,#EAD9BA 25%,#C9A06A 50%,#5C3D2E 75%,#130D08);box-shadow:0 0 8px rgba(201,160,106,.2)}
-.tone-lbl{font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(234,217,186,.26)}
+.tone-track{width:240px;height:2px;background:linear-gradient(90deg,#F9F6F1,#EAD9BA 25%,#C9A06A 50%,#5C3D2E 75%,#130D08)}
+.tone-lbl{font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,18,8,.3)}
 .filters{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem}
-.flt{font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(201,160,106,.18);color:rgba(234,217,186,.4);background:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s}
-.flt:hover,.flt.on{background:rgba(201,160,106,.11);color:var(--ca);border-color:rgba(201,160,106,.36)}
+.flt{font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(154,112,48,.2);color:rgba(28,18,8,.42);background:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s}
+.flt:hover,.flt.on{background:rgba(154,112,48,.1);color:var(--ca);border-color:rgba(154,112,48,.38)}
 .grid{columns:3;column-gap:2px}
-.card{break-inside:avoid;margin-bottom:2px;position:relative;overflow:hidden;cursor:pointer;background:var(--dk)}
-/* img perf */
-.card img{width:100%;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94),filter .3s;filter:brightness(.88);content-visibility:auto}
-.card:hover img{transform:scale(1.05);filter:brightness(1.03)}
-.card-info{position:absolute;bottom:0;left:0;right:0;padding:14px 12px 10px;background:linear-gradient(transparent,rgba(19,13,8,.84));transform:translateY(4px);opacity:0;transition:opacity .25s,transform .25s}
+.card{break-inside:avoid;margin-bottom:2px;position:relative;overflow:hidden;cursor:pointer;background:var(--iv)}
+.card img{width:100%;display:block;transition:transform .5s,filter .3s;filter:brightness(.9)}
+.card:hover img{transform:scale(1.05);filter:brightness(1)}
+.card-info{position:absolute;bottom:0;left:0;right:0;padding:14px 12px 10px;background:linear-gradient(transparent,rgba(18,12,6,.82));transform:translateY(4px);opacity:0;transition:opacity .25s,transform .25s}
 .card:hover .card-info{opacity:1;transform:none}
 .c-cat{font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ca);margin-bottom:.25rem}
 .c-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:#fff}
 .c-num{position:absolute;top:8px;right:8px;font-family:'Cormorant Garamond',serif;font-size:.6rem;font-style:italic;color:rgba(255,255,255,.3);background:rgba(0,0,0,.26);padding:1px 6px}
 .c-dot{position:absolute;top:8px;left:8px;width:7px;height:7px;border-radius:50%;border:1px solid rgba(255,255,255,.18)}
-
-/* CRAFT */
 #craft{background:var(--cr)}
-.craft-band{background:var(--dk);padding:56px 56px 44px}
+.craft-band{background:var(--dk);padding:56px 56px 44px;border-bottom:1px solid rgba(154,112,48,.1)}
 .craft-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.8vw,4.5rem);font-weight:300;color:var(--ch)}
 .craft-band h2 em{font-style:italic;color:var(--ca)}
 .craft-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.cell{padding:40px 36px;border-right:1px solid rgba(201,160,106,.09);border-bottom:1px solid rgba(201,160,106,.09);position:relative;overflow:hidden;transition:background .3s}
-.cell:hover{background:rgba(201,160,106,.03)}
+.cell{padding:40px 36px;border-right:1px solid rgba(154,112,48,.1);border-bottom:1px solid rgba(154,112,48,.1);position:relative;overflow:hidden;transition:background .3s}
+.cell:hover{background:rgba(154,112,48,.04)}
 .cell:nth-child(3n){border-right:none}
-.cc-n{position:absolute;bottom:-12px;right:10px;font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:rgba(201,160,106,.06);line-height:1;transition:color .3s}
-.cell:hover .cc-n{color:rgba(201,160,106,.14)}
+.cc-n{position:absolute;bottom:-12px;right:10px;font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:rgba(154,112,48,.07);line-height:1}
 .cc-tag{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ca);margin-bottom:.8rem}
-.cc-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--dk);line-height:1.2;margin-bottom:.6rem}
-.cc-desc{font-size:.78rem;line-height:1.78;color:rgba(62,44,30,.48);font-weight:300}
-
-/* PHILOSOPHY */
-#phil{min-height:65vh;background:var(--dk);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 36px;text-align:center;position:relative;overflow:hidden}
-.phil-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 18% 50%,rgba(201,160,106,.07),transparent 58%),radial-gradient(ellipse 42% 50% at 82% 50%,rgba(201,160,106,.055),transparent 58%),radial-gradient(ellipse 30% 35% at 50% 80%,rgba(201,160,106,.04),transparent 65%)}
-.phil-q{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.8vw,3.4rem);font-weight:300;font-style:italic;color:var(--ch);line-height:1.4;max-width:780px;z-index:2;text-shadow:0 2px 24px rgba(201,160,106,.12)}
-.phil-q::before{content:'"';display:block;font-size:6rem;color:rgba(201,160,106,.09);line-height:.48;font-family:'Cormorant Garamond',serif}
-.phil-attr{margin-top:1.8rem;font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ca);opacity:.58;display:flex;align-items:center;gap:.8rem;z-index:2}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--ch);line-height:1.2;margin-bottom:.6rem}
+.cc-desc{font-size:.78rem;line-height:1.78;color:rgba(92,62,36,.5);font-weight:300}
+#phil{min-height:65vh;background:var(--iv);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 36px;text-align:center;position:relative;overflow:hidden}
+.phil-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 18% 50%,rgba(154,112,48,.05),transparent 58%)}
+.phil-q{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.8vw,3.4rem);font-weight:300;font-style:italic;color:var(--ch);line-height:1.4;max-width:780px;z-index:2}
+.phil-q::before{content:'"';display:block;font-size:6rem;color:rgba(154,112,48,.12);line-height:.48}
+.phil-attr{margin-top:1.8rem;font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ca);opacity:.62;display:flex;align-items:center;gap:.8rem;z-index:2}
 .phil-attr::before,.phil-attr::after{content:'';width:24px;height:1px;background:var(--ca)}
-.pillars{display:flex;margin-top:4.5rem;width:100%;max-width:860px;border:1px solid rgba(201,160,106,.09);z-index:2}
-.pillar{flex:1;padding:30px 22px;border-right:1px solid rgba(201,160,106,.09);text-align:left;transition:background .3s}
+.pillars{display:flex;margin-top:4.5rem;width:100%;max-width:860px;border:1px solid rgba(154,112,48,.12);z-index:2}
+.pillar{flex:1;padding:30px 22px;border-right:1px solid rgba(154,112,48,.1);text-align:left;transition:background .3s}
 .pillar:last-child{border-right:none}
-.pillar:hover{background:rgba(201,160,106,.03)}
-.pl-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:rgba(201,160,106,.11);font-weight:300;margin-bottom:.5rem}
+.pillar:hover{background:rgba(154,112,48,.04)}
+.pl-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:rgba(154,112,48,.14);font-weight:300;margin-bottom:.5rem}
 .pl-t{font-size:.54rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ca);margin-bottom:.42rem}
-.pl-d{font-size:.76rem;line-height:1.7;color:rgba(234,217,186,.38);font-weight:200}
-
-/* CONTACT */
-#contact{background:var(--iv);padding:72px 20px}
+.pl-d{font-size:.76rem;line-height:1.7;color:rgba(92,62,36,.5);font-weight:200}
+#contact{background:var(--cr);padding:72px 20px}
 .con-wrap{max-width:780px;margin:0 auto}
 .con-intro{margin-bottom:2.5rem}
-.con-intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--dk);line-height:1.15}
+.con-intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--ch);line-height:1.15}
 .con-intro h2 em{font-style:italic;color:var(--ca)}
-.con-intro p{margin-top:.85rem;font-size:.84rem;line-height:1.9;color:rgba(62,44,30,.54);max-width:500px;font-weight:300}
+.con-intro p{margin-top:.85rem;font-size:.84rem;line-height:1.9;color:rgba(92,62,36,.55);max-width:500px;font-weight:300}
 .con-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
 .con-details{display:flex;flex-direction:column;gap:.6rem;margin-top:.4rem}
 .con-details a{font-size:.78rem;color:var(--co);text-decoration:none;font-weight:300;display:flex;align-items:center;gap:.5rem;transition:color .2s}
 .con-details a:hover{color:var(--ca)}
 .con-details a span{font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ca);min-width:50px}
-.inv{background:var(--cr);border:1px solid rgba(201,160,106,.24);padding:32px 28px;position:relative;box-shadow:0 20px 60px rgba(62,44,30,.1),0 2px 8px rgba(201,160,106,.06)}
-.inv::before{content:'';position:absolute;inset:5px;border:1px solid rgba(201,160,106,.07)}
-.inv-eyebrow{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);opacity:.56;margin-bottom:.25rem}
-.inv-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--dk);margin-bottom:.18rem}
-.inv-sub{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ca);opacity:.44;margin-bottom:1.3rem}
-hr.ir{border:none;border-top:1px solid rgba(201,160,106,.12);margin:.7rem 0}
+.inv{background:var(--iv);border:1px solid rgba(154,112,48,.22);padding:32px 28px;position:relative}
+.inv::before{content:'';position:absolute;inset:5px;border:1px solid rgba(154,112,48,.07)}
+.inv-eyebrow{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);opacity:.6;margin-bottom:.25rem}
+.inv-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:var(--ch);margin-bottom:.18rem}
+.inv-sub{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ca);opacity:.5;margin-bottom:1.3rem}
+hr.ir{border:none;border-top:1px solid rgba(154,112,48,.12);margin:.7rem 0}
 .ir-row{display:flex;justify-content:space-between;font-size:.72rem;padding:.26rem 0;color:var(--co);font-weight:300}
-.ir-row span:first-child{color:rgba(62,44,30,.58)}
+.ir-row span:first-child{color:rgba(92,62,36,.6)}
 .ir-row span:last-child{font-style:italic;color:var(--ca)}
 .ir-tot{margin-top:1rem;padding-top:1rem;border-top:1.5px solid var(--ca);text-align:center}
-.ir-tot-l{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);margin-bottom:.28rem;opacity:.6}
-.ir-tot-v{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--dk);line-height:1.3}
-.ir-btn{display:block;margin-top:1.3rem;padding:12px 20px;background:var(--dk);color:var(--ch);text-align:center;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;font-family:'Inter',sans-serif;text-decoration:none;font-weight:300;transition:all .26s;border:1px solid var(--dk)}
-.ir-btn:hover{background:transparent;color:var(--dk)}
-
-footer{background:var(--dk);padding:50px 56px 32px}
-.ft{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:28px;border-bottom:1px solid rgba(201,160,106,.07)}
+.ir-tot-l{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ca);margin-bottom:.28rem;opacity:.65}
+.ir-tot-v{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--ch);line-height:1.3}
+.ir-btn{display:block;margin-top:1.3rem;padding:12px 20px;background:var(--ch);color:var(--cr);text-align:center;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;font-family:'Inter',sans-serif;text-decoration:none;font-weight:300;transition:all .26s;border:1px solid var(--ch)}
+.ir-btn:hover{background:transparent;color:var(--ch)}
+footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154,112,48,.1)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:28px;border-bottom:1px solid rgba(154,112,48,.1)}
 .ft-brand{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:300;font-style:italic;color:var(--ch)}
-.ft-sub{font-size:.5rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ca);opacity:.42;margin-top:.32rem}
+.ft-sub{font-size:.5rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ca);opacity:.5;margin-top:.32rem}
 .ft-links{display:flex;gap:1.4rem;flex-wrap:wrap}
-.ft-links a{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(234,217,186,.26);text-decoration:none;transition:color .2s}
+.ft-links a{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(28,18,8,.3);text-decoration:none;transition:color .2s}
 .ft-links a:hover{color:var(--ca)}
 .ft-bot{margin-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.ft-copy{font-size:.5rem;color:rgba(234,217,186,.15);letter-spacing:.06em}
-
-/* COURSE MODAL */
-.c-overlay{position:fixed;inset:0;z-index:800;background:rgba(8,4,2,.93);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s;padding:16px}
+.ft-copy{font-size:.5rem;color:rgba(28,18,8,.22);letter-spacing:.06em}
+.c-overlay{position:fixed;inset:0;z-index:800;background:rgba(28,18,8,.6);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s;padding:16px}
 .c-overlay.open{opacity:1;pointer-events:all}
-.c-box{background:var(--dk);max-width:600px;width:100%;max-height:90vh;overflow-y:auto;border:1px solid rgba(201,160,106,.2);transform:translateY(36px) scale(.95);transition:transform .42s cubic-bezier(.34,1.1,.64,1);position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 1px rgba(201,160,106,.05)}
+.c-box{background:var(--cr);max-width:600px;width:100%;max-height:90vh;overflow-y:auto;border:1px solid rgba(154,112,48,.18);transform:translateY(36px) scale(.95);transition:transform .42s cubic-bezier(.34,1.1,.64,1);position:relative}
 .c-overlay.open .c-box{transform:none}
 .c-top{height:3px;background:linear-gradient(90deg,transparent,var(--ca),transparent)}
 .c-head{padding:38px 40px 0}
 .c-lbl{font-size:.52rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ca);margin-bottom:.48rem}
 .c-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--ch);line-height:1.1}
 .c-body{padding:1.4rem 40px 36px}
-.c-body p{font-size:.84rem;line-height:1.95;color:rgba(234,217,186,.58);margin-bottom:.85rem;font-weight:200}
+.c-body p{font-size:.84rem;line-height:1.95;color:rgba(92,62,36,.58);margin-bottom:.85rem;font-weight:200}
 .c-body ul{list-style:none;margin:.35rem 0 .85rem}
-.c-body li{font-size:.8rem;color:rgba(234,217,186,.48);padding:.46rem 0;border-bottom:1px solid rgba(201,160,106,.07);display:flex;align-items:center;gap:.65rem;font-weight:200}
+.c-body li{font-size:.8rem;color:rgba(92,62,36,.5);padding:.46rem 0;border-bottom:1px solid rgba(154,112,48,.08);display:flex;align-items:center;gap:.65rem;font-weight:200}
 .c-body li::before{content:'';display:block;width:12px;height:1px;background:var(--ca);flex-shrink:0}
-.c-flavor{padding:14px 40px;border-top:1px solid rgba(201,160,106,.07);font-size:.6rem;letter-spacing:.09em;font-style:italic;color:rgba(201,160,106,.42);font-family:'Cormorant Garamond',serif}
-.c-close{position:absolute;top:12px;right:12px;background:none;border:1px solid rgba(201,160,106,.13);cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:rgba(201,160,106,.4);font-size:.78rem;transition:all .22s}
-.c-close:hover{background:var(--ca);color:var(--dk);border-color:var(--ca)}
-
-/* PHOTO LIGHTBOX */
-.p-overlay{position:fixed;inset:0;z-index:900;background:rgba(4,2,1,.96);backdrop-filter:blur(22px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .34s;padding:12px}
+.c-flavor{padding:14px 40px;border-top:1px solid rgba(154,112,48,.08);font-size:.6rem;letter-spacing:.09em;font-style:italic;color:rgba(154,112,48,.52);font-family:'Cormorant Garamond',serif}
+.c-close{position:absolute;top:12px;right:12px;background:none;border:1px solid rgba(154,112,48,.16);cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:rgba(154,112,48,.5);font-size:.78rem;transition:all .22s}
+.c-close:hover{background:var(--ca);color:var(--cr)}
+.p-overlay{position:fixed;inset:0;z-index:900;background:rgba(18,12,6,.9);backdrop-filter:blur(22px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .34s;padding:12px}
 .p-overlay.open{opacity:1;pointer-events:all}
-.p-box{background:var(--dk);max-width:880px;width:100%;max-height:94vh;overflow:hidden;border:1px solid rgba(201,160,106,.11);transform:scale(.95);transition:transform .36s cubic-bezier(.34,1.1,.64,1);position:relative;display:flex;flex-direction:column}
+.p-box{background:var(--cr);max-width:880px;width:100%;max-height:94vh;overflow:hidden;border:1px solid rgba(154,112,48,.14);transform:scale(.95);transition:transform .36s cubic-bezier(.34,1.1,.64,1);position:relative;display:flex;flex-direction:column}
 .p-overlay.open .p-box{transform:scale(1)}
-.p-img-wrap{flex:1;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000;min-height:0}
+.p-img-wrap{flex:1;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f0ebe2;min-height:0}
 .p-img-wrap img{max-width:100%;max-height:76vh;object-fit:contain;display:block}
-.p-foot{padding:14px 24px;border-top:1px solid rgba(201,160,106,.09);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.p-foot{padding:14px 24px;border-top:1px solid rgba(154,112,48,.1);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .pf-cat{font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ca);margin-bottom:.3rem}
 .pf-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ch)}
-.pf-langs{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.4rem}
-.pf-lang{font-size:.48rem;padding:2px 7px;border:1px solid rgba(201,160,106,.14);color:rgba(234,217,186,.38)}
 .p-nav{display:flex;gap:.35rem;align-items:center}
-.p-nav button{width:36px;height:36px;background:rgba(201,160,106,.05);border:1px solid rgba(201,160,106,.16);color:rgba(201,160,106,.5);cursor:pointer;font-size:1rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
-.p-nav button:hover{background:rgba(201,160,106,.12);color:var(--ca)}
-.p-counter{font-size:.5rem;letter-spacing:.12em;color:rgba(201,160,106,.35);font-family:'Cormorant Garamond',serif;font-style:italic;min-width:36px;text-align:center}
-.p-close{position:absolute;top:10px;right:10px;background:rgba(19,13,8,.75);border:1px solid rgba(201,160,106,.15);cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:rgba(201,160,106,.52);font-size:.76rem;z-index:10;transition:all .2s}
-.p-close:hover{background:var(--ca);color:var(--dk)}
-
-/* ASK PANEL */
-#askBtn{position:fixed;bottom:22px;right:22px;z-index:700;width:50px;height:50px;border-radius:50%;background:var(--dk);border:1px solid rgba(201,160,106,.34);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;box-shadow:0 5px 24px rgba(0,0,0,.4);transition:transform .26s,border-color .2s}
-#askBtn:hover{transform:scale(1.08);border-color:var(--ca)}
-.ab-r{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ca);line-height:1}
-.ab-l{font-size:.32rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,160,106,.46)}
-#askPanel{position:fixed;bottom:84px;right:22px;z-index:700;width:min(330px,calc(100vw - 36px));background:var(--dk);border:1px solid rgba(201,160,106,.16);display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(12px) scale(.96);transition:opacity .32s,transform .32s;box-shadow:0 14px 50px rgba(0,0,0,.5);max-height:min(540px,78vh)}
+.p-nav button{width:36px;height:36px;background:rgba(154,112,48,.06);border:1px solid rgba(154,112,48,.18);color:rgba(154,112,48,.6);cursor:pointer;font-size:1rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.p-nav button:hover{background:rgba(154,112,48,.12);color:var(--ca)}
+.p-counter{font-size:.5rem;letter-spacing:.12em;color:rgba(154,112,48,.45);font-family:'Cormorant Garamond',serif;font-style:italic;min-width:36px;text-align:center}
+.p-close{position:absolute;top:10px;right:10px;background:rgba(248,244,238,.88);border:1px solid rgba(154,112,48,.18);cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:rgba(92,62,36,.65);font-size:.76rem;z-index:10;transition:all .2s}
+.p-close:hover{background:var(--ca);color:var(--cr)}
+#askBtn{position:fixed;bottom:22px;right:22px;z-index:700;width:52px;height:52px;border-radius:50%;background:var(--ch);border:1px solid rgba(154,112,48,.4);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;box-shadow:0 5px 24px rgba(92,62,36,.25);transition:transform .26s}
+#askBtn:hover{transform:scale(1.08)}
+.ab-r{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--ca);line-height:1}
+.ab-l{font-size:.32rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,244,238,.5)}
+#askPanel{position:fixed;bottom:86px;right:22px;z-index:700;width:min(380px,calc(100vw - 36px));background:var(--cr);border:1px solid rgba(154,112,48,.2);display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(14px) scale(.97);transition:opacity .32s,transform .32s;box-shadow:0 20px 60px rgba(92,62,36,.15);max-height:min(600px,80vh)}
 #askPanel.open{opacity:1;pointer-events:all;transform:none}
-.ap-top{height:2px;background:linear-gradient(90deg,transparent,var(--ca) 40%,rgba(255,220,150,.9) 50%,var(--ca) 60%,transparent);flex-shrink:0}
-.ap-head{padding:12px 14px 10px;border-bottom:1px solid rgba(201,160,106,.08);display:flex;align-items:center;gap:8px;flex-shrink:0}
-.ap-av{width:30px;height:30px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,160,106,.22);flex-shrink:0}
+.ap-top{height:3px;background:linear-gradient(90deg,transparent,var(--ca) 30%,rgba(220,176,90,.9) 50%,var(--ca) 70%,transparent);flex-shrink:0}
+.ap-head{padding:14px 16px 12px;border-bottom:1px solid rgba(154,112,48,.1);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.ap-av{width:34px;height:34px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(154,112,48,.3);flex-shrink:0}
 .ap-av img{width:100%;height:100%;object-fit:cover}
-.ap-name{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-style:italic;color:var(--ch)}
-.ap-st{font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,160,106,.38);display:flex;align-items:center;gap:3px;margin-top:2px}
-.ap-dot{width:4px;height:4px;border-radius:50%;background:#5cb85c}
-.ap-x{margin-left:auto;background:none;border:1px solid rgba(201,160,106,.11);cursor:pointer;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:rgba(201,160,106,.32);font-size:.68rem;transition:all .2s}
-.ap-x:hover{background:var(--ca);color:var(--dk)}
-.ap-msgs{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-height:120px}
+.ap-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:var(--ch)}
+.ap-st{font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(92,62,36,.42);display:flex;align-items:center;gap:4px;margin-top:2px}
+.ap-dot{width:5px;height:5px;border-radius:50%;background:#5cb85c;flex-shrink:0}
+.ap-x{margin-left:auto;background:none;border:1px solid rgba(154,112,48,.18);cursor:pointer;width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:rgba(154,112,48,.45);font-size:.72rem;transition:all .2s}
+.ap-x:hover{background:var(--ca);color:var(--cr)}
+.ap-msgs{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:100px}
 .ap-msgs::-webkit-scrollbar{width:2px}
-.ap-msgs::-webkit-scrollbar-thumb{background:rgba(201,160,106,.14)}
-.msg{max-width:88%;font-size:.74rem;line-height:1.62;font-weight:200;animation:mIn .24s ease}
+.ap-msgs::-webkit-scrollbar-thumb{background:rgba(154,112,48,.2)}
+.msg{max-width:90%;font-size:.8rem;line-height:1.65;font-weight:300;animation:mIn .24s ease}
 @keyframes mIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
 .msg.a{align-self:flex-start}.msg.u{align-self:flex-end}
-.mb2{padding:7px 9px;border-radius:2px}
-.msg.a .mb2{background:rgba(201,160,106,.065);border:1px solid rgba(201,160,106,.09);color:rgba(234,217,186,.68)}
-.msg.u .mb2{background:rgba(201,160,106,.15);border:1px solid rgba(201,160,106,.24);color:var(--ch)}
-.mn{font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,160,106,.36);margin-bottom:2px}
+.mb2{padding:9px 12px;border-radius:2px}
+.msg.a .mb2{background:rgba(154,112,48,.07);border:1px solid rgba(154,112,48,.12);color:rgba(52,32,12,.8)}
+.msg.u .mb2{background:rgba(28,18,8,.06);border:1px solid rgba(28,18,8,.1);color:var(--ch)}
+.mn{font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(154,112,48,.5);margin-bottom:3px}
 .td{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--ca);opacity:.4;animation:bl 1.2s infinite}
 .td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
 @keyframes bl{0%,100%{opacity:.16}50%{opacity:.8}}
-
-/* CHIPS — grid layout */
-.chips-wrap{flex-shrink:0;border-top:1px solid rgba(201,160,106,.07)}
-.chips-lbl{font-size:.42rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(201,160,106,.26);padding:7px 12px 5px;display:block}
-.chips-list{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.chip{display:block;width:100%;text-align:left;font-size:.62rem;padding:6px 10px;background:transparent;border:none;border-right:1px solid rgba(201,160,106,.06);border-bottom:1px solid rgba(201,160,106,.06);color:rgba(234,217,186,.5);cursor:pointer;font-family:'Inter',sans-serif;font-weight:200;transition:all .16s;line-height:1.4}
-.chip:nth-child(2n){border-right:none}
-.chip:nth-last-child(-n+2){border-bottom:none}
-.chip:hover{background:rgba(201,160,106,.07);color:var(--ca)}
-.chip::before{content:'— ';color:rgba(201,160,106,.28);font-size:.54rem}
-
-.ap-inp{padding:8px 10px;border-top:1px solid rgba(201,160,106,.07);display:flex;gap:6px;flex-shrink:0}
-#askIn{flex:1;background:rgba(201,160,106,.04);border:1px solid rgba(201,160,106,.1);color:var(--ch);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:200;padding:7px 8px;outline:none;transition:border-color .18s}
-#askIn::placeholder{color:rgba(234,217,186,.15)}
-#askIn:focus{border-color:rgba(201,160,106,.28)}
-#askSend{width:28px;height:28px;background:var(--ca);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .18s}
-#askSend:hover{background:#b88c48}
-#askSend svg{width:10px;height:10px;fill:var(--dk)}
-
-/* UTILS */
+.chips-wrap{flex-shrink:0;border-top:1px solid rgba(154,112,48,.1);background:rgba(248,244,238,.6)}
+.chips-lbl{font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(92,62,36,.4);padding:9px 14px 6px;display:block}
+.chip{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font-size:.76rem;padding:10px 14px;background:transparent;border:none;border-bottom:1px solid rgba(154,112,48,.08);color:rgba(52,32,12,.7);cursor:pointer;font-family:'Inter',sans-serif;font-weight:300;transition:all .16s;line-height:1.3}
+.chip:last-child{border-bottom:none}
+.chip:hover{background:rgba(154,112,48,.07);color:var(--ch)}
+.chip-num{font-family:'Cormorant Garamond',serif;font-size:.75rem;font-style:italic;color:rgba(154,112,48,.45);min-width:18px;flex-shrink:0}
+.chip-text{flex:1}
+.chip-arrow{font-size:.65rem;color:var(--ca);opacity:0;transition:opacity .16s,transform .16s;flex-shrink:0}
+.chip:hover .chip-arrow{opacity:1;transform:translateX(2px)}
+.ap-inp{padding:10px 12px;border-top:1px solid rgba(154,112,48,.1);display:flex;gap:7px;flex-shrink:0;background:var(--cr)}
+#askIn{flex:1;background:rgba(154,112,48,.04);border:1px solid rgba(154,112,48,.14);color:var(--ch);font-family:'Inter',sans-serif;font-size:.76rem;font-weight:300;padding:8px 10px;outline:none;transition:border-color .18s}
+#askIn::placeholder{color:rgba(92,62,36,.28)}
+#askIn:focus{border-color:rgba(154,112,48,.32)}
+#askSend{width:32px;height:32px;background:var(--ca);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .18s}
+#askSend:hover{background:#7A5820}
+#askSend svg{width:11px;height:11px;fill:var(--cr)}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
 .rv.vis{opacity:1;transform:none}
 .d1{transition-delay:.06s}.d2{transition-delay:.14s}.d3{transition-delay:.22s}
 @keyframes fUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fIn{from{opacity:0}to{opacity:1}}
-
-/* MOBILE */
+@keyframes spk{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}15%{opacity:1;transform:scale(1.1) rotate(15deg)}45%{opacity:.7;transform:scale(.8)}65%{opacity:0;transform:scale(0)}}
+@keyframes shimmer{0%,100%{opacity:.55}50%{opacity:1}}
 @media(max-width:860px){
-  nav{padding:0 18px}
-  .nav-links{display:none}
-  .lang-sel{display:none}
-  .nav-ham{display:flex}
-  #about{grid-template-columns:1fr}
-  .about-r{min-height:380px;padding:40px 20px}
-  .photo-wrap{width:min(300px,70vw)}
-  .about-l{padding:56px 24px}
-  .craft-grid{grid-template-columns:1fr 1fr}
-  .cell:nth-child(2n){border-right:none}
-  .craft-band{padding:44px 24px 36px}
+  nav{padding:0 18px}.nav-links,.lang-sel{display:none}.nav-ham{display:flex}
+  #about{grid-template-columns:1fr}.about-r{min-height:380px;padding:40px 20px}.about-l{padding:56px 24px}
+  .craft-grid{grid-template-columns:1fr 1fr}.craft-band{padding:44px 24px 36px}
   .con-grid{grid-template-columns:1fr}
-  footer{padding:38px 20px 28px}
-  .ft{flex-direction:column;align-items:flex-start;gap:1rem}
+  footer{padding:38px 20px 28px}.ft{flex-direction:column;align-items:flex-start;gap:1rem}
   .pillars{flex-direction:column}
-  .pillar{border-right:none;border-bottom:1px solid rgba(201,160,106,.07)}
-  #portfolio{padding:56px 12px}
-  .grid{columns:2;column-gap:2px}
-  .p-foot{flex-direction:column;gap:.8rem;align-items:flex-start;padding:12px 16px}
-  .c-head{padding:28px 24px 0}.c-body{padding:1.1rem 24px 28px}.c-flavor{padding:12px 24px}
-  .hero-sub{font-size:.44rem;letter-spacing:.14em}
+  #portfolio{padding:56px 12px}.grid{columns:2}
   #platter{padding:72px 16px 60px}
-  .platter-hd{margin-bottom:3rem}
-  #contact{padding:56px 16px}
-  .con-intro p{font-size:.82rem}
-  #phil{padding:64px 22px}
-  .phil-attr{font-size:.5rem;letter-spacing:.18em}
-  .inv{padding:26px 22px}
-  #askPanel{right:16px;width:calc(100vw - 32px);bottom:80px}
-  #askBtn{right:16px;bottom:16px}
-  /* platter labels visible on mobile */
-  .p-lbl{opacity:.7;font-size:.46rem;bottom:-20px}
-  .p-course{opacity:.7;font-size:.58rem;top:-17px}
-  .platter-hint{display:flex;font-size:.58rem;letter-spacing:.18em;margin-top:2.4rem}
-  .platter-hint::before,.platter-hint::after{width:6px;height:6px}
 }
 @media(max-width:480px){
-  .grid{columns:2;column-gap:2px}
-  .craft-grid{grid-template-columns:1fr}
-  .cell:nth-child(n){border-right:none}
-  .about-r{min-height:300px}
-  .photo-wrap{width:min(240px,75vw)}
-  footer{padding:28px 14px 22px}
-  .ft-links{gap:.7rem}
-  .hero-title{font-size:clamp(3rem,13vw,5rem)}
-  .hero-sub{display:none}
-  /* platter smaller */
-  .plate-outer{width:min(340px,90vw);height:min(340px,90vw)}
-  .pastry{width:58px;height:58px}
-  .p-lbl{font-size:.4rem;bottom:-19px;letter-spacing:.1em}
-  .p-course{font-size:.52rem;top:-16px}
-  .platter-hint{font-size:.52rem;letter-spacing:.14em}
-  /* portfolio */
-  .card img{height:auto}
-  .soon-wrap{aspect-ratio:auto;min-height:150px}
-  /* chips */
-  .chips-list{grid-template-columns:1fr}
-  /* contact */
-  #contact{padding:44px 14px}
-  .con-intro h2{font-size:1.7rem}
-  .inv{padding:22px 18px}
-  .ir-row{font-size:.68rem}
-  /* philosophy */
-  .pillars{margin-top:3.5rem}
-  .pl-d{font-size:.72rem}
+  .grid{columns:2}.craft-grid{grid-template-columns:1fr}
+  .plate-outer{width:min(360px,92vw);height:min(360px,92vw)}.pastry{width:74px;height:74px}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#" data-t="logo">Reda El Ghalbzouri</a>
+  <a class="nav-logo" href="#">Reda El Ghalbzouri</a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#about" data-t="nav_story">Story</a>
@@ -373,7 +285,6 @@ footer{background:var(--dk);padding:50px 56px 32px}
     <div class="nav-ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
-
 <div class="nav-mob" id="navMob">
   <a href="#about" onclick="closeNav()" data-t="nav_story">Story</a>
   <a href="#platter" onclick="closeNav()" data-t="nav_menu">Menu</a>
@@ -388,7 +299,6 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </div>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-inner">
@@ -399,13 +309,12 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-l">
     <div class="stag rv"><span data-t="about_tag">The Story · Born from Passion</span></div>
     <h2 class="sec-h rv d1" data-t="about_h">Trained by<br><em>Excellence</em></h2>
-    <p class="about-p rv d2" data-t="about_p1">My journey began in Morocco, where I discovered that pastry was not just food — it was art. Driven by curiosity and a deep love for flavor and form, I dedicated myself to mastering the craft.</p>
-    <p class="about-p rv d2" data-t="about_p2">Trained across Radisson Blu and Mercure/Accor Group kitchens, I refined my technique in viennoiserie, chocolate art, and artistic desserts — building a vision rooted in emotion and precision.</p>
+    <p class="about-p rv d2" data-t="about_p1">My journey began in Morocco, where I discovered that pastry was not just food — it was art.</p>
+    <p class="about-p rv d2" data-t="about_p2">Trained across Radisson Blu and Mercure/Accor Group kitchens, I refined my technique in viennoiserie, chocolate art, and artistic desserts.</p>
     <div class="badges rv d3">
       <div class="badge">5-Star<strong>Radisson Blu</strong></div>
       <div class="badge">4-Star International<strong>Mercure · Accor Group</strong></div>
@@ -413,7 +322,7 @@ footer{background:var(--dk);padding:50px 56px 32px}
     <div class="stats rv d3">
       <div><div class="stat-n">6</div><div class="stat-l" data-t="stat_disc">Disciplines</div></div>
       <div><div class="stat-n">2</div><div class="stat-l" data-t="stat_hotels">Hotel Groups</div></div>
-      <div><div class="stat-n">&#8734;</div><div class="stat-l" data-t="stat_passion">Passion</div></div>
+      <div><div class="stat-n">∞</div><div class="stat-l" data-t="stat_passion">Passion</div></div>
     </div>
   </div>
   <div class="about-r">
@@ -424,7 +333,6 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </section>
 
-<!-- PLATTER -->
 <section id="platter">
   <div class="platter-bg-word">Degustation</div>
   <div class="platter-hd rv">
@@ -432,20 +340,385 @@ footer{background:var(--dk);padding:50px 56px 32px}
     <h2 data-t="platter_h">The Tasting Menu</h2>
     <p data-t="platter_sub">Six courses · Six stories · One vision</p>
   </div>
+
   <div class="plate-scene" id="plateScene">
-    <div class="plate-outer"><div class="plate"><div class="plate-well">
-      <div class="pastry" style="left:50%;top:10%" onclick="openCourse(0)"><div class="p-glow"></div><div class="p-course" data-t="ci">Course I</div><svg viewBox="0 0 90 90" width="78" height="78"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DCAA50"/><stop offset="55%" stop-color="#C08A28"/><stop offset="100%" stop-color="#9A6B18"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E0E04"/><stop offset="100%" stop-color="#0C0601"/></linearGradient><radialGradient id="g3" cx="28%" cy="30%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,.6)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><ellipse cx="45" cy="74" rx="28" ry="6" fill="rgba(0,0,0,.22)"/><path d="M14 55 Q12 44 16 37 Q22 30 45 29 Q68 30 74 37 Q78 44 76 55 Q70 64 45 66 Q20 64 14 55Z" fill="url(#g1)"/><path d="M20 50 Q20 36 45 34 Q70 36 70 50 Q68 44 45 42 Q22 44 20 50Z" fill="url(#g2)"/><path d="M20 50 Q22 57 45 59 Q68 57 70 50 Q68 52 45 53 Q22 52 20 50Z" fill="url(#g2)"/><ellipse cx="36" cy="43" rx="11" ry="3.5" fill="url(#g3)" transform="rotate(-8 36 43)"/></svg><div class="p-lbl" data-t="c1_lbl">Why Reda</div></div>
-      <div class="pastry" style="left:83%;top:25%" onclick="openCourse(1)"><div class="p-glow"></div><div class="p-course" data-t="cii">Course II</div><svg viewBox="0 0 90 90" width="78" height="78"><defs><radialGradient id="m1" cx="35%" cy="32%" r="60%"><stop offset="0%" stop-color="#EEC078"/><stop offset="55%" stop-color="#D4983A"/><stop offset="100%" stop-color="#BC7E22"/></radialGradient><radialGradient id="m3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7A4C1C"/><stop offset="100%" stop-color="#4A2C0A"/></radialGradient></defs><ellipse cx="45" cy="78" rx="26" ry="5.5" fill="rgba(0,0,0,.2)"/><ellipse cx="45" cy="70" rx="25" ry="8" fill="url(#m1)"/><ellipse cx="45" cy="57" rx="25" ry="7" fill="url(#m3)"/><ellipse cx="45" cy="38" rx="23" ry="11" fill="url(#m1)"/><ellipse cx="36" cy="29" rx="8" ry="4" fill="rgba(255,255,255,.28)" transform="rotate(-12 36 29)"/></svg><div class="p-lbl" data-t="c2_lbl">Unique</div></div>
-      <div class="pastry" style="left:83%;top:70%" onclick="openCourse(2)"><div class="p-glow"></div><div class="p-course" data-t="ciii">Course III</div><svg viewBox="0 0 90 90" width="78" height="78"><defs><radialGradient id="t1" cx="40%" cy="38%" r="65%"><stop offset="0%" stop-color="#D4A040"/><stop offset="60%" stop-color="#B87A20"/><stop offset="100%" stop-color="#9A6010"/></radialGradient><radialGradient id="t2" cx="38%" cy="35%" r="60%"><stop offset="0%" stop-color="#1C0C04"/><stop offset="100%" stop-color="#0A0401"/></radialGradient></defs><ellipse cx="45" cy="76" rx="27" ry="6" fill="rgba(0,0,0,.22)"/><circle cx="45" cy="46" r="28" fill="url(#t1)"/><circle cx="45" cy="46" r="22" fill="url(#t2)"/><circle cx="38" cy="50" r="4" fill="#8B2252"/><circle cx="52" cy="52" r="3.5" fill="#8B2252"/></svg><div class="p-lbl" data-t="c3_lbl">Specialties</div></div>
-      <div class="pastry" style="left:50%;top:83%" onclick="openCourse(3)"><div class="p-glow"></div><div class="p-course" data-t="civ">Course IV</div><svg viewBox="0 0 90 90" width="78" height="78"><defs><radialGradient id="b1" cx="30%" cy="24%" r="70%"><stop offset="0%" stop-color="#2E1A0C"/><stop offset="100%" stop-color="#0C0602"/></radialGradient><radialGradient id="b2" cx="28%" cy="22%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,.55)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><ellipse cx="45" cy="74" rx="25" ry="7" fill="rgba(0,0,0,.28)"/><path d="M18 55 Q18 28 45 24 Q72 28 72 55 Q70 66 45 68 Q20 66 18 55Z" fill="url(#b1)"/><ellipse cx="32" cy="36" rx="14" ry="8" fill="url(#b2)" transform="rotate(-15 32 36)"/></svg><div class="p-lbl" data-t="c4_lbl">Training</div></div>
-      <div class="pastry" style="left:17%;top:70%" onclick="openCourse(4)"><div class="p-glow"></div><div class="p-course" data-t="cv">Course V</div><svg viewBox="0 0 90 90" width="78" height="78"><defs><linearGradient id="c1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8C060"/><stop offset="40%" stop-color="#C8901E"/><stop offset="100%" stop-color="#9A6808"/></linearGradient></defs><ellipse cx="45" cy="75" rx="30" ry="6" fill="rgba(0,0,0,.2)"/><path d="M12 55 Q8 38 20 26 Q30 16 42 22 Q38 30 34 44 Q32 54 38 60 Q44 66 52 62 Q56 60 58 54 Q60 44 58 34 Q68 28 74 36 Q84 50 78 62 Q70 74 58 72 Q44 74 30 68 Q16 64 12 55Z" fill="url(#c1)"/></svg><div class="p-lbl" data-t="c5_lbl">Mobility</div></div>
-      <div class="pastry" style="left:17%;top:25%" onclick="openCourse(5)"><div class="p-glow"></div><div class="p-course" data-t="cvi">Course VI</div><svg viewBox="0 0 90 90" width="78" height="78"><defs><radialGradient id="e1" cx="32%" cy="25%" r="70%"><stop offset="0%" stop-color="#6B2040"/><stop offset="45%" stop-color="#4A1430"/><stop offset="100%" stop-color="#2A0A1C"/></radialGradient><radialGradient id="e2" cx="30%" cy="22%" r="60%"><stop offset="0%" stop-color="rgba(255,255,255,.6)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><ellipse cx="45" cy="76" rx="26" ry="6.5" fill="rgba(0,0,0,.28)"/><path d="M19 58 Q19 26 45 21 Q71 26 71 58 Q68 70 45 72 Q22 70 19 58Z" fill="url(#e1)"/><ellipse cx="32" cy="36" rx="16" ry="9" fill="url(#e2)" transform="rotate(-18 32 36)"/><path d="M38 24 Q42 20 48 23 Q50 27 47 30 Q44 33 40 31 Q37 28 38 24Z" fill="#C9A06A" opacity=".85"/></svg><div class="p-lbl" data-t="c6_lbl">Contact</div></div>
-    </div><div class="plate-hl"></div></div></div>
+    <div class="plate-outer">
+      <div class="plate">
+        <div class="plate-rim"></div><div class="plate-rim2"></div>
+        <div class="plate-well">
+
+<!-- ══ COURSE I — Dark Obsidian Sphere · Gold leaf center · Animated sparkles ══ -->
+<div class="pastry" style="left:50%;top:9%" onclick="openCourse(0)">
+  <div class="p-glow"></div><div class="p-course" data-t="ci">Course I</div>
+  <div class="bonbon-shadow" style="width:74px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="Ia" cx="32%" cy="24%" r="78%">
+        <stop offset="0%" stop-color="#4A1F0A"/><stop offset="12%" stop-color="#2A0D04"/>
+        <stop offset="30%" stop-color="#150503"/><stop offset="55%" stop-color="#090202"/>
+        <stop offset="100%" stop-color="#010000"/>
+      </radialGradient>
+      <radialGradient id="Ib" cx="60%" cy="68%" r="42%">
+        <stop offset="0%" stop-color="rgba(160,55,12,.32)"/><stop offset="100%" stop-color="rgba(100,18,4,0)"/>
+      </radialGradient>
+      <radialGradient id="Ic" cx="50%" cy="50%" r="50%">
+        <stop offset="62%" stop-color="rgba(0,0,0,0)"/><stop offset="88%" stop-color="rgba(0,0,0,.38)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.60)"/>
+      </radialGradient>
+      <radialGradient id="Id" cx="28%" cy="18%" r="46%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.72)"/><stop offset="22%" stop-color="rgba(255,255,255,.38)"/>
+        <stop offset="55%" stop-color="rgba(255,255,255,.06)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <linearGradient id="Ig1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F9E44A"/><stop offset="30%" stop-color="#E8C832"/>
+        <stop offset="60%" stop-color="#C8A01C"/><stop offset="100%" stop-color="#9A7410"/>
+      </linearGradient>
+      <clipPath id="Ic2"><circle cx="60" cy="62" r="40"/></clipPath>
+      <style>
+        .sI1{animation:spk 2.8s 0s infinite;transform-origin:92px 18px}
+        .sI2{animation:spk 2.8s .7s infinite;transform-origin:16px 52px}
+        .sI3{animation:spk 2.8s 1.4s infinite;transform-origin:98px 78px}
+        .sI4{animation:spk 2.8s 2.1s infinite;transform-origin:38px 106px}
+      </style>
+    </defs>
+    <circle cx="60" cy="62" r="40" fill="url(#Ia)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#Ib)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#Ic)"/>
+    <circle cx="60" cy="62" r="40" fill="none" stroke="rgba(0,0,0,.16)" stroke-width="1.2"/>
+    <ellipse cx="44" cy="44" rx="18" ry="12" fill="url(#Id)" transform="rotate(-24 44 44)" clip-path="url(#Ic2)"/>
+    <ellipse cx="38" cy="38" rx="7" ry="4.5" fill="rgba(255,255,255,.82)" transform="rotate(-22 38 38)" clip-path="url(#Ic2)"/>
+    <circle cx="36" cy="36" r="3.2" fill="rgba(255,255,255,.96)" clip-path="url(#Ic2)"/>
+    <circle cx="34" cy="34" r="1.4" fill="#fff" clip-path="url(#Ic2)"/>
+    <circle cx="80" cy="46" r="1.4" fill="rgba(255,255,255,.20)" clip-path="url(#Ic2)"/>
+    <circle cx="72" cy="44" r="1.0" fill="rgba(190,100,30,.28)" clip-path="url(#Ic2)"/>
+    <circle cx="48" cy="78" r=".9" fill="rgba(180,88,22,.22)" clip-path="url(#Ic2)"/>
+    <circle cx="32" cy="60" r=".8" fill="rgba(175,82,18,.18)" clip-path="url(#Ic2)"/>
+    <!-- Gold leaf — large crinkled teardrop center -->
+    <path d="M50 64 Q60 51 70 64 Q67 76 60 79 Q53 76 50 64Z" fill="url(#Ig1)" clip-path="url(#Ic2)"/>
+    <path d="M50 64 Q60 53 70 64" fill="none" stroke="rgba(255,248,160,.72)" stroke-width="1.1" clip-path="url(#Ic2)"/>
+    <path d="M53 71 L55 78 M61 70 L60 77 M57 62 L59 56" fill="none" stroke="rgba(175,128,16,.45)" stroke-width=".7" clip-path="url(#Ic2)"/>
+    <!-- Second fragment top-right -->
+    <path class="gl_I" d="M70 50 Q76 44 80 48 Q78 54 73 53Z" fill="rgba(252,228,80,.88)" clip-path="url(#Ic2)"/>
+    <g class="sI1"><path d="M92 11L93.5 17L99 18L93.5 19L92 25L90.5 19L85 18L90.5 17Z" fill="rgba(255,242,160,1)"/><circle cx="92" cy="18" r="1.4" fill="white"/></g>
+    <g class="sI2"><path d="M16 45L17.2 51L23 52L17.2 53L16 59L14.8 53L9 52L14.8 51Z" fill="rgba(255,242,160,1)"/><circle cx="16" cy="52" r="1.2" fill="white"/></g>
+    <g class="sI3"><path d="M98 71L99 77L105 78L99 79L98 85L97 79L91 78L97 77Z" fill="rgba(255,242,160,1)"/><circle cx="98" cy="78" r="1.1" fill="white"/></g>
+    <g class="sI4"><path d="M38 99L39 104L44 105L39 106L38 111L37 106L32 105L37 104Z" fill="rgba(255,242,160,1)"/><circle cx="38" cy="105" r="1.0" fill="white"/></g>
+  </svg>
+  <div class="p-lbl" data-t="c1_lbl">Why Reda</div>
+</div>
+
+<!-- ══ COURSE II — Ruby Glossy Rounded Square · Diagonal gold stripe ══ -->
+<div class="pastry" style="left:84%;top:24%" onclick="openCourse(1)">
+  <div class="p-glow"></div><div class="p-course" data-t="cii">Course II</div>
+  <div class="bonbon-shadow" style="width:78px;border-radius:6px;height:11px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 122 114" width="100" height="94" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="IIa" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#7A1412"/><stop offset="25%" stop-color="#420909"/>
+        <stop offset="55%" stop-color="#200505"/><stop offset="100%" stop-color="#040101"/>
+      </linearGradient>
+      <radialGradient id="IIb" cx="35%" cy="28%" r="60%">
+        <stop offset="0%" stop-color="rgba(210,42,20,.40)"/><stop offset="100%" stop-color="rgba(140,10,5,0)"/>
+      </radialGradient>
+      <radialGradient id="IIspec" cx="26%" cy="18%" r="44%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.82)"/><stop offset="20%" stop-color="rgba(255,255,255,.42)"/>
+        <stop offset="55%" stop-color="rgba(255,255,255,.07)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <linearGradient id="IIwin" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(255,255,255,0)"/><stop offset="35%" stop-color="rgba(255,255,255,.55)"/>
+        <stop offset="50%" stop-color="rgba(255,255,255,.70)"/><stop offset="65%" stop-color="rgba(255,255,255,.55)"/>
+        <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </linearGradient>
+      <linearGradient id="IIirid" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(80,160,220,0)"/><stop offset="40%" stop-color="rgba(80,160,220,.10)"/>
+        <stop offset="60%" stop-color="rgba(55,200,180,.14)"/><stop offset="100%" stop-color="rgba(80,160,220,0)"/>
+      </linearGradient>
+      <!-- Diagonal gold band — unique to this bonbon -->
+      <linearGradient id="IIgoldStripe" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(250,220,60,.0)"/><stop offset="30%" stop-color="rgba(255,235,80,.88)"/>
+        <stop offset="50%" stop-color="rgba(255,248,140,.95)"/><stop offset="70%" stop-color="rgba(250,220,60,.88)"/>
+        <stop offset="100%" stop-color="rgba(250,220,60,.0)"/>
+      </linearGradient>
+      <linearGradient id="IIsideR" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1C0505"/><stop offset="100%" stop-color="#0A0202"/>
+      </linearGradient>
+      <linearGradient id="IIsideB" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#2E0808"/><stop offset="100%" stop-color="#0E0303"/>
+      </linearGradient>
+      <clipPath id="IIclip"><rect x="14" y="16" width="80" height="72" rx="10"/></clipPath>
+    </defs>
+    <path d="M94 16 L104 27 L104 88 L94 88Z" fill="url(#IIsideR)"/>
+    <path d="M14 88 L94 88 L104 94 L14 94Z" fill="url(#IIsideB)"/>
+    <rect x="14" y="16" width="80" height="72" rx="10" fill="url(#IIa)"/>
+    <rect x="14" y="16" width="80" height="72" rx="10" fill="url(#IIb)"/>
+    <rect x="14" y="16" width="80" height="72" rx="10" fill="url(#IIirid)"/>
+    <rect x="14" y="16" width="80" height="72" rx="10" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="1.5"/>
+    <!-- Left shadow -->
+    <rect x="14" y="16" width="7" height="72" rx="4" fill="rgba(0,0,0,.20)" clip-path="url(#IIclip)"/>
+    <!-- Specular lobe -->
+    <ellipse cx="32" cy="28" rx="22" ry="13" fill="url(#IIspec)" transform="rotate(-20 32 28)" clip-path="url(#IIclip)"/>
+    <!-- Window strip -->
+    <rect x="20" y="18" width="5.5" height="38" rx="2.7" fill="url(#IIwin)" transform="rotate(-8 20 18)" clip-path="url(#IIclip)" opacity=".88"/>
+    <!-- Hot-spot nucleus -->
+    <ellipse cx="27" cy="24" rx="7" ry="4.2" fill="rgba(255,255,255,.88)" transform="rotate(-20 27 24)" clip-path="url(#IIclip)"/>
+    <circle cx="25" cy="22" r="3.0" fill="rgba(255,255,255,.98)" clip-path="url(#IIclip)"/>
+    <circle cx="23" cy="20" r="1.4" fill="#fff" clip-path="url(#IIclip)"/>
+    <!-- Diagonal gold band instead of leaf — unique treatment -->
+    <path d="M14 58 L58 16 L78 16 L14 78Z" fill="url(#IIgoldStripe)" clip-path="url(#IIclip)" opacity=".72"/>
+    <path d="M14 62 L62 16" fill="none" stroke="rgba(255,252,200,.48)" stroke-width=".9" clip-path="url(#IIclip)"/>
+    <path d="M14 72 L72 16" fill="none" stroke="rgba(255,252,200,.22)" stroke-width=".6" clip-path="url(#IIclip)"/>
+    <!-- Dot matrix -->
+    <g clip-path="url(#IIclip)" opacity=".48">
+      <circle cx="40" cy="52" r=".9" fill="rgba(255,110,70,.42)"/><circle cx="48" cy="52" r=".9" fill="rgba(255,110,70,.40)"/>
+      <circle cx="56" cy="52" r=".9" fill="rgba(255,110,70,.38)"/><circle cx="64" cy="52" r=".9" fill="rgba(255,110,70,.36)"/>
+      <circle cx="72" cy="52" r=".9" fill="rgba(255,110,70,.38)"/><circle cx="80" cy="52" r=".9" fill="rgba(255,110,70,.40)"/>
+      <circle cx="38" cy="61" r=".9" fill="rgba(245,90,55,.34)"/><circle cx="46" cy="61" r=".9" fill="rgba(245,90,55,.32)"/>
+      <circle cx="54" cy="61" r=".9" fill="rgba(245,90,55,.30)"/><circle cx="62" cy="61" r=".9" fill="rgba(245,90,55,.28)"/>
+      <circle cx="70" cy="61" r=".9" fill="rgba(245,90,55,.30)"/><circle cx="78" cy="61" r=".9" fill="rgba(245,90,55,.32)"/>
+      <circle cx="42" cy="70" r=".8" fill="rgba(232,72,42,.22)"/><circle cx="50" cy="70" r=".8" fill="rgba(232,72,42,.20)"/>
+      <circle cx="58" cy="70" r=".8" fill="rgba(232,72,42,.18)"/><circle cx="66" cy="70" r=".8" fill="rgba(232,72,42,.18)"/>
+      <circle cx="74" cy="70" r=".8" fill="rgba(232,72,42,.20)"/><circle cx="82" cy="70" r=".8" fill="rgba(232,72,42,.22)"/>
+    </g>
+    <circle cx="84" cy="30" r="1.3" fill="rgba(255,165,120,.28)" clip-path="url(#IIclip)"/>
+  </svg>
+  <div class="p-lbl" data-t="c2_lbl">Unique</div>
+</div>
+
+<!-- ══ COURSE III — Milk Chocolate Bar · Caramel drizzle · Hazelnuts ══ -->
+<div class="pastry" style="left:84%;top:71%" onclick="openCourse(2)">
+  <div class="p-glow"></div><div class="p-course" data-t="ciii">Course III</div>
+  <div class="bonbon-shadow" style="width:84px;border-radius:6px;height:11px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 124 110" width="104" height="92" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="IIItop" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#D08A48"/><stop offset="28%" stop-color="#9E5E28"/>
+        <stop offset="62%" stop-color="#663014"/><stop offset="100%" stop-color="#3A1808"/>
+      </linearGradient>
+      <radialGradient id="IIIspec" cx="24%" cy="18%" r="50%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.74)"/><stop offset="30%" stop-color="rgba(255,255,255,.28)"/>
+        <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <radialGradient id="IIIhz" cx="32%" cy="24%" r="68%">
+        <stop offset="0%" stop-color="#8A4A22"/><stop offset="48%" stop-color="#4A2010"/><stop offset="100%" stop-color="#200C04"/>
+      </radialGradient>
+      <radialGradient id="IIIhzs" cx="30%" cy="22%" r="55%">
+        <stop offset="0%" stop-color="rgba(200,138,60,.72)"/><stop offset="100%" stop-color="rgba(130,72,22,0)"/>
+      </radialGradient>
+      <linearGradient id="IIIside" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#3C1C0A"/><stop offset="100%" stop-color="#200E04"/>
+      </linearGradient>
+      <linearGradient id="IIIcar" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(248,200,52,.95)"/><stop offset="45%" stop-color="rgba(255,222,88,.85)"/>
+        <stop offset="100%" stop-color="rgba(238,185,44,.78)"/>
+      </linearGradient>
+    </defs>
+    <path d="M88 18 L100 30 L100 80 L88 74Z" fill="url(#IIIside)"/>
+    <path d="M22 74 L88 74 L100 80 L100 86 L88 80 L22 80Z" fill="#160802"/>
+    <rect x="22" y="18" width="66" height="56" rx="4" fill="url(#IIItop)"/>
+    <rect x="22" y="18" width="66" height="56" rx="4" fill="rgba(200,135,45,.10)"/>
+    <rect x="22" y="18" width="5" height="56" rx="2" fill="rgba(0,0,0,.20)"/>
+    <ellipse cx="40" cy="30" rx="28" ry="10" fill="url(#IIIspec)"/>
+    <!-- Dividing line -->
+    <line x1="55" y1="20" x2="55" y2="72" stroke="rgba(22,10,3,.45)" stroke-width="1.6"/>
+    <line x1="56" y1="20" x2="56" y2="72" stroke="rgba(225,165,65,.16)" stroke-width=".8"/>
+    <!-- Caramel drizzle + gloss -->
+    <path d="M26 34 Q33 29 40 33 Q47 37 56 33 Q65 29 73 33 Q80 30 86 31" fill="none" stroke="url(#IIIcar)" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M26 32 Q33 27.5 40 31 Q47 35 56 31 Q65 27.5 73 31 Q80 28 86 29" fill="none" stroke="rgba(255,248,200,.60)" stroke-width="1.0" stroke-linecap="round"/>
+    <path d="M24 47 Q32 43 41 46 Q50 49 59 46 Q67 43 78 46" fill="none" stroke="rgba(248,200,52,.68)" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M28 59 Q38 55 50 58 Q62 61 74 58" fill="none" stroke="rgba(242,186,40,.42)" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- Hazelnuts -->
+    <ellipse cx="34" cy="63" rx="5.5" ry="4.5" fill="url(#IIIhz)" transform="rotate(-8 34 63)"/>
+    <ellipse cx="32.5" cy="61" rx="2.5" ry="1.8" fill="url(#IIIhzs)" transform="rotate(-10 32.5 61)"/>
+    <circle cx="32" cy="60.5" r="1.0" fill="rgba(190,120,48,.55)"/>
+    <ellipse cx="51" cy="64" rx="4.8" ry="3.8" fill="url(#IIIhz)" transform="rotate(5 51 64)"/>
+    <ellipse cx="49.5" cy="62" rx="2.1" ry="1.5" fill="url(#IIIhzs)"/>
+    <circle cx="49" cy="61.5" r=".85" fill="rgba(188,118,45,.52)"/>
+    <ellipse cx="68" cy="63" rx="5.2" ry="4.2" fill="url(#IIIhz)" transform="rotate(-4 68 63)"/>
+    <ellipse cx="66.5" cy="61" rx="2.2" ry="1.6" fill="url(#IIIhzs)"/>
+    <circle cx="66" cy="60.5" r=".9" fill="rgba(186,116,43,.50)"/>
+    <circle cx="80" cy="38" r="1.1" fill="rgba(220,150,36,.50)"/>
+    <circle cx="26" cy="44" r=".9" fill="rgba(215,142,30,.42)"/>
+  </svg>
+  <div class="p-lbl" data-t="c3_lbl">Specialties</div>
+</div>
+
+<!-- ══ COURSE IV — Dark Dome · Gold equator band · Velvet surface ══ -->
+<div class="pastry" style="left:50%;top:84%" onclick="openCourse(3)">
+  <div class="p-glow"></div><div class="p-course" data-t="civ">Course IV</div>
+  <div class="bonbon-shadow" style="width:86px;height:11px;border-radius:40%"></div>
+  <svg class="bonbon-svg" viewBox="0 0 122 112" width="102" height="94" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="IVdome" cx="32%" cy="16%" r="76%">
+        <stop offset="0%" stop-color="#522818"/><stop offset="22%" stop-color="#2A1008"/>
+        <stop offset="48%" stop-color="#140604"/><stop offset="100%" stop-color="#030101"/>
+      </radialGradient>
+      <radialGradient id="IVvelvet" cx="50%" cy="36%" r="55%">
+        <stop offset="0%" stop-color="rgba(192,112,36,.26)"/><stop offset="100%" stop-color="rgba(148,72,18,0)"/>
+      </radialGradient>
+      <radialGradient id="IVenv" cx="68%" cy="78%" r="32%">
+        <stop offset="0%" stop-color="rgba(175,118,40,.28)"/><stop offset="100%" stop-color="rgba(175,118,40,0)"/>
+      </radialGradient>
+      <radialGradient id="IVspec" cx="28%" cy="12%" r="42%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.88)"/><stop offset="20%" stop-color="rgba(255,255,255,.48)"/>
+        <stop offset="55%" stop-color="rgba(255,255,255,.08)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <linearGradient id="IVband" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(175,125,38,.0)"/><stop offset="12%" stop-color="rgba(248,210,68,.80)"/>
+        <stop offset="35%" stop-color="rgba(255,232,88,.96)"/><stop offset="50%" stop-color="rgba(255,245,130,1.0)"/>
+        <stop offset="65%" stop-color="rgba(255,232,88,.96)"/><stop offset="88%" stop-color="rgba(248,210,68,.80)"/>
+        <stop offset="100%" stop-color="rgba(175,125,38,.0)"/>
+      </linearGradient>
+      <linearGradient id="IVbase" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#0C0402"/><stop offset="50%" stop-color="#1E0E06"/><stop offset="100%" stop-color="#0C0402"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="61" cy="86" rx="42" ry="7.5" fill="url(#IVbase)"/>
+    <path d="M19 86 Q19 18 61 16 Q103 18 103 86Z" fill="url(#IVdome)"/>
+    <path d="M19 86 Q19 18 61 16 Q103 18 103 86Z" fill="url(#IVvelvet)"/>
+    <path d="M19 86 Q19 18 61 16 Q103 18 103 86Z" fill="url(#IVenv)"/>
+    <path d="M19 86 Q19 18 61 16 Q103 18 103 86Z" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2.5"/>
+    <path d="M26 72 Q61 66 96 72" fill="none" stroke="rgba(58,30,10,.28)" stroke-width="1.0"/>
+    <path d="M22 58 Q61 52 100 58" fill="none" stroke="rgba(52,26,8,.20)" stroke-width=".8"/>
+    <path d="M22 44 Q61 38 100 44" fill="none" stroke="rgba(48,22,6,.14)" stroke-width=".7"/>
+    <path d="M24 30 Q61 24 98 30" fill="none" stroke="rgba(44,18,5,.10)" stroke-width=".6"/>
+    <ellipse cx="38" cy="32" rx="20" ry="13" fill="url(#IVspec)" transform="rotate(-20 38 32)"/>
+    <ellipse cx="34" cy="27" rx="6" ry="3.8" fill="rgba(255,255,255,.82)" transform="rotate(-22 34 27)"/>
+    <circle cx="32" cy="25" r="2.8" fill="rgba(255,255,255,.96)"/>
+    <circle cx="30.5" cy="23.5" r="1.3" fill="#fff"/>
+    <circle cx="84" cy="40" r="1.4" fill="rgba(255,255,255,.24)"/>
+    <path d="M19 86 Q21 96 61 99 Q101 96 103 86" fill="url(#IVband)"/>
+    <path d="M24 84 Q61 92 98 84" fill="none" stroke="rgba(255,252,200,.50)" stroke-width="1.1"/>
+    <!-- Gold fragment top-right of dome — offset from band -->
+    <path d="M84 30 Q90 24 95 28 Q93 34 87 33Z" fill="rgba(252,228,80,.82)" opacity=".9"/>
+    <path d="M84 30 Q90 25 95 28" fill="none" stroke="rgba(255,248,148,.44)" stroke-width=".8"/>
+    <circle cx="68" cy="26" r="1.1" fill="rgba(215,140,36,.44)"/>
+  </svg>
+  <div class="p-lbl" data-t="c4_lbl">Training</div>
+</div>
+
+<!-- ══ COURSE V — Amber Caramel Egg · Banded refraction · Warm glow ══ -->
+<div class="pastry" style="left:16%;top:71%" onclick="openCourse(4)">
+  <div class="p-glow"></div><div class="p-course" data-t="cv">Course V</div>
+  <div class="bonbon-shadow" style="width:62px;height:11px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 110 122" width="92" height="102" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="Vbase" cx="30%" cy="20%" r="74%">
+        <stop offset="0%" stop-color="#ECA840"/><stop offset="20%" stop-color="#C47C28"/>
+        <stop offset="45%" stop-color="#9A5418"/><stop offset="70%" stop-color="#643010"/>
+        <stop offset="100%" stop-color="#200E04"/>
+      </radialGradient>
+      <radialGradient id="Vamber" cx="65%" cy="70%" r="38%">
+        <stop offset="0%" stop-color="rgba(255,195,55,.32)"/><stop offset="100%" stop-color="rgba(250,175,40,0)"/>
+      </radialGradient>
+      <radialGradient id="Vrim" cx="50%" cy="50%" r="50%">
+        <stop offset="65%" stop-color="rgba(0,0,0,0)"/><stop offset="90%" stop-color="rgba(0,0,0,.32)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.52)"/>
+      </radialGradient>
+      <radialGradient id="Vspec" cx="26%" cy="16%" r="44%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.88)"/><stop offset="22%" stop-color="rgba(255,255,255,.44)"/>
+        <stop offset="58%" stop-color="rgba(255,255,255,.07)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <linearGradient id="Vband1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(255,242,100,.0)"/><stop offset="30%" stop-color="rgba(255,242,100,.64)"/>
+        <stop offset="60%" stop-color="rgba(255,235,80,.48)"/><stop offset="100%" stop-color="rgba(255,242,100,.0)"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="55" cy="62" rx="32" ry="44" fill="url(#Vbase)"/>
+    <ellipse cx="55" cy="62" rx="32" ry="44" fill="url(#Vamber)"/>
+    <ellipse cx="55" cy="62" rx="32" ry="44" fill="url(#Vrim)"/>
+    <path d="M33 48 Q55 42 77 48" fill="none" stroke="url(#Vband1)" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M32 64 Q55 58 78 64" fill="none" stroke="rgba(255,238,80,.56)" stroke-width="2.0" stroke-linecap="round"/>
+    <path d="M34 80 Q55 75 76 80" fill="none" stroke="rgba(252,225,60,.32)" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M38 94 Q55 90 72 94" fill="none" stroke="rgba(248,208,44,.16)" stroke-width=".9" stroke-linecap="round"/>
+    <ellipse cx="40" cy="37" rx="15" ry="9.5" fill="url(#Vspec)" transform="rotate(-18 40 37)"/>
+    <ellipse cx="37" cy="33" rx="5" ry="3.2" fill="rgba(255,255,255,.82)" transform="rotate(-20 37 33)"/>
+    <circle cx="35.5" cy="31.5" r="2.4" fill="rgba(255,255,255,.97)"/>
+    <circle cx="34.2" cy="30.2" r="1.1" fill="#fff"/>
+    <circle cx="78" cy="54" r="1.3" fill="rgba(255,235,80,.52)"/>
+    <circle cx="80" cy="68" r=".9" fill="rgba(252,228,68,.42)"/>
+    <!-- Tiny gold fragment at shoulder — unique position -->
+    <path d="M71 38 Q76 32 80 36 Q78 41 73 40Z" fill="rgba(252,228,80,.86)"/>
+    <path d="M71 38 Q76 33 80 36" fill="none" stroke="rgba(255,248,148,.44)" stroke-width=".7"/>
+  </svg>
+  <div class="p-lbl" data-t="c5_lbl">Mobility</div>
+</div>
+
+<!-- ══ COURSE VI — Dark Hexagonal Gem · Green cocoa-butter · Triple gold fragments ══ -->
+<div class="pastry" style="left:16%;top:24%" onclick="openCourse(5)">
+  <div class="p-glow"></div><div class="p-course" data-t="cvi">Course VI</div>
+  <div class="bonbon-shadow" style="width:70px;height:11px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 122 122" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="VIbase" cx="33%" cy="18%" r="76%">
+        <stop offset="0%" stop-color="#522A18"/><stop offset="24%" stop-color="#2A1008"/>
+        <stop offset="52%" stop-color="#140604"/><stop offset="100%" stop-color="#030101"/>
+      </radialGradient>
+      <radialGradient id="VIenv" cx="66%" cy="72%" r="34%">
+        <stop offset="0%" stop-color="rgba(190,140,46,.28)"/><stop offset="100%" stop-color="rgba(190,140,46,0)"/>
+      </radialGradient>
+      <radialGradient id="VIrim" cx="50%" cy="50%" r="50%">
+        <stop offset="68%" stop-color="rgba(0,0,0,0)"/><stop offset="92%" stop-color="rgba(0,0,0,.42)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.62)"/>
+      </radialGradient>
+      <radialGradient id="VIspec" cx="29%" cy="14%" r="44%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.92)"/><stop offset="20%" stop-color="rgba(255,255,255,.50)"/>
+        <stop offset="55%" stop-color="rgba(255,255,255,.08)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <radialGradient id="VIgreen" cx="60%" cy="58%" r="38%">
+        <stop offset="0%" stop-color="rgba(55,172,45,.26)"/><stop offset="100%" stop-color="rgba(38,138,28,0)"/>
+      </radialGradient>
+      <linearGradient id="VIl1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(252,228,60,.97)"/><stop offset="48%" stop-color="rgba(228,188,44,.84)"/>
+        <stop offset="100%" stop-color="rgba(182,142,28,.62)"/>
+      </linearGradient>
+      <linearGradient id="VIl2" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(248,222,72,.90)"/><stop offset="100%" stop-color="rgba(198,152,32,.66)"/>
+      </linearGradient>
+      <linearGradient id="VIl3" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(210,165,38,.78)"/><stop offset="100%" stop-color="rgba(255,238,100,.92)"/>
+      </linearGradient>
+    </defs>
+    <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIbase)"/>
+    <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIenv)"/>
+    <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIgreen)"/>
+    <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIrim)"/>
+    <line x1="61" y1="18" x2="22" y2="54" stroke="rgba(255,228,90,.12)" stroke-width="1.0"/>
+    <line x1="61" y1="18" x2="100" y2="54" stroke="rgba(255,228,90,.12)" stroke-width="1.0"/>
+    <line x1="61" y1="18" x2="61" y2="98" stroke="rgba(255,228,90,.09)" stroke-width=".8"/>
+    <line x1="22" y1="54" x2="100" y2="54" stroke="rgba(255,228,90,.08)" stroke-width=".7"/>
+    <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="none" stroke="rgba(0,0,0,.24)" stroke-width="1.8"/>
+    <ellipse cx="37" cy="29" rx="18" ry="11" fill="url(#VIspec)" transform="rotate(-22 37 29)"/>
+    <ellipse cx="34" cy="25" rx="6" ry="3.8" fill="rgba(255,255,255,.84)" transform="rotate(-24 34 25)"/>
+    <circle cx="32" cy="23" r="2.8" fill="rgba(255,255,255,.97)"/>
+    <circle cx="30.5" cy="21.5" r="1.3" fill="#fff"/>
+    <circle cx="84" cy="36" r="1.4" fill="rgba(255,255,255,.26)"/>
+    <!-- Green cocoa-butter droplets -->
+    <circle cx="76" cy="66" r="1.3" fill="rgba(60,172,46,.48)"/>
+    <circle cx="78" cy="56" r="1.0" fill="rgba(56,165,40,.42)"/>
+    <circle cx="36" cy="70" r="1.0" fill="rgba(58,168,43,.38)"/>
+    <circle cx="86" cy="70" r=".8" fill="rgba(54,162,38,.32)"/>
+    <!-- Main gold leaf — center teardrop -->
+    <path d="M49 63 Q61 50 73 63 Q69 78 61 80 Q53 78 49 63Z" fill="url(#VIl1)"/>
+    <path d="M49 63 Q61 52 73 63" fill="none" stroke="rgba(255,248,148,.62)" stroke-width="1.1"/>
+    <path d="M53 70 L55 78 M63 70 L62 77 M59 61 L61 54" fill="none" stroke="rgba(178,132,18,.46)" stroke-width=".7"/>
+    <!-- Second fragment — upper left facet -->
+    <path d="M34 40 Q40 33 46 38 Q44 44 38 44Z" fill="url(#VIl2)"/>
+    <path d="M34 40 Q40 34 46 38" fill="none" stroke="rgba(255,248,148,.44)" stroke-width=".8"/>
+    <!-- Third fragment — right mid -->
+    <path d="M82 46 Q88 40 93 44 Q91 50 85 50Z" fill="url(#VIl3)"/>
+    <path d="M82 46 Q88 41 93 44" fill="none" stroke="rgba(255,248,148,.38)" stroke-width=".7"/>
+  </svg>
+  <div class="p-lbl" data-t="c6_lbl">Contact</div>
+</div>
+
+        </div>
+        <div class="plate-hl"></div><div class="plate-hl2"></div>
+      </div>
+    </div>
   </div>
   <p class="platter-hint" data-t="platter_hint">Select a course to explore</p>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="port-hd rv">
     <div class="stag"><span data-t="port_tag">La Galerie · Real Creations</span></div>
@@ -464,7 +737,6 @@ footer{background:var(--dk);padding:50px 56px 32px}
   <div class="grid" id="grid"></div>
 </section>
 
-<!-- CRAFT -->
 <section id="craft">
   <div class="craft-band">
     <div class="stag rv" style="margin-bottom:.9rem"><span data-t="craft_tag">Les Disciplines · The Art</span></div>
@@ -480,7 +752,6 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
 <section id="phil">
   <div class="phil-glow"></div>
   <div class="phil-q rv" data-t="phil_q">Pastry is not only about taste — it is about emotion.</div>
@@ -493,7 +764,6 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="con-wrap">
     <div class="con-intro rv">
@@ -526,7 +796,7 @@ footer{background:var(--dk);padding:50px 56px 32px}
           <div class="ir-tot-l" data-t="inv_tot_l">What You Get</div>
           <div class="ir-tot-v" data-t="inv_tot_v">A Chef Who Lives for the Craft</div>
         </div>
-        <a class="ir-btn" href="mailto:redaelghalbzouri003@gmail.com?subject=Hiring%20Inquiry%20%E2%80%94%20Reda%20El%20Ghalbzouri&body=Bonjour%20Reda%2C%0A%0A" data-t="inv_btn">Hire Reda — Contact Reda</a>
+        <a class="ir-btn" href="mailto:redaelghalbzouri003@gmail.com?subject=Hiring%20Inquiry" data-t="inv_btn">Hire Reda — Contact Reda</a>
       </div>
     </div>
   </div>
@@ -548,11 +818,10 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
   <div class="ft-bot">
     <span class="ft-copy">2025 Reda El Ghalbzouri · Al Hoceima, Morocco</span>
-    <span class="ft-copy" style="font-style:italic;font-family:'Cormorant Garamond',serif;opacity:.28;font-size:.68rem" data-t="phil_q">Pastry is not only about taste — it is about emotion</span>
+    <span class="ft-copy" style="font-style:italic;font-family:'Cormorant Garamond',serif;opacity:.4;font-size:.68rem" data-t="phil_q">Pastry is not only about taste — it is about emotion</span>
   </div>
 </footer>
 
-<!-- COURSE MODAL -->
 <div class="c-overlay" id="cOv" onclick="if(event.target===this)closeCourse()">
   <div class="c-box">
     <div class="c-top"></div>
@@ -563,13 +832,12 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </div>
 
-<!-- PHOTO LIGHTBOX -->
 <div class="p-overlay" id="pOv" onclick="if(event.target===this)closePhoto()">
   <div class="p-box">
     <button class="p-close" onclick="closePhoto()">&#x2715;</button>
     <div class="p-img-wrap"><img id="pImg" src="" alt="" loading="lazy"></div>
     <div class="p-foot">
-      <div><div class="pf-cat" id="pCat"></div><div class="pf-name" id="pName"></div><div class="pf-langs" id="pLangs"></div></div>
+      <div><div class="pf-cat" id="pCat"></div><div class="pf-name" id="pName"></div></div>
       <div class="p-nav">
         <button onclick="navPhoto(-1)">&#8592;</button>
         <span class="p-counter" id="pCtr"></span>
@@ -579,10 +847,7 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
 </div>
 
-<!-- ASK REDA -->
-<button id="askBtn" onclick="toggleAsk()" aria-label="Ask Reda">
-  <span class="ab-r">R</span><span class="ab-l" data-t="ask_btn">Ask Reda</span>
-</button>
+<button id="askBtn" onclick="toggleAsk()"><span class="ab-r">R</span><span class="ab-l" data-t="ask_btn">Ask Reda</span></button>
 <div id="askPanel">
   <div class="ap-top"></div>
   <div class="ap-head">
@@ -595,247 +860,85 @@ footer{background:var(--dk);padding:50px 56px 32px}
   </div>
   <div class="chips-wrap" id="chipsWrap">
     <span class="chips-lbl" data-t="ask_q_lbl">Select a question</span>
-    <div class="chips-list" id="chipsList"></div>
+    <div id="chipsList"></div>
   </div>
   <div class="ap-inp">
-    <input id="askIn" type="text" data-t-ph="ask_ph" onkeydown="if(event.key==='Enter')sendMsg()">
+    <input id="askIn" type="text" data-t-ph="ask_ph" placeholder="Ask your own question..." onkeydown="if(event.key==='Enter')sendMsg()">
     <button id="askSend" onclick="sendMsg()"><svg viewBox="0 0 16 16"><path d="M1 8L15 1L8 15L7 9L1 8Z"/></svg></button>
   </div>
 </div>
 
 <script>
-/* ── TRANSLATIONS ─────────────────────────────────────────────── */
 const T={
-en:{
-  logo:'Reda El Ghalbzouri',nav_story:'Story',nav_menu:'Menu',nav_portfolio:'Portfolio',nav_skills:'Skills',nav_contact:'Contact',
-  hero_act:'The Degustation Menu · 2026',hero_sub:'Commis Pastry Chef · Chocolate & Modern Desserts · Morocco',
-  about_tag:'The Story · Born from Passion',about_h:'Trained by<br><em>Excellence</em>',
-  about_p1:"My journey began in Morocco, where I discovered that pastry was not just food — it was art. Driven by curiosity and a deep love for flavor and form, I dedicated myself to mastering the craft.",
-  about_p2:'Trained across Radisson Blu and Mercure/Accor Group kitchens, I refined my technique in viennoiserie, chocolate art, and artistic desserts — building a vision rooted in emotion and precision.',
-  stat_disc:'Disciplines',stat_hotels:'Hotel Groups',stat_passion:'Passion',
-  platter_tag:'La Carte · Six Courses',platter_h:'The Tasting Menu',platter_sub:'Six courses · Six stories · One vision',platter_hint:'Select a course to explore',
-  ci:'Course I',cii:'Course II',ciii:'Course III',civ:'Course IV',cv:'Course V',cvi:'Course VI',
-  c1_lbl:'Why Reda',c2_lbl:'Unique',c3_lbl:'Specialties',c4_lbl:'Training',c5_lbl:'Mobility',c6_lbl:'Contact',
-  port_tag:'La Galerie · Real Creations',port_h_em:'Portfolio',port_sub:'Arranged lightest to darkest · Radisson Blu & Mercure Accor',
-  tone_l:'Lightest',tone_d:'Darkest',flt_all:'All',flt_tarts:'Tarts',flt_pf:'Petit Fours',flt_choc:'Chocolate',
-  craft_tag:'Les Disciplines · The Art',craft_h_em:'Specialties',
-  d01:'Discipline 01',d01n:'Viennoiserie',d01d:'Croissants, pain au chocolat, Danish pastries — laminated dough mastered to perfection.',
-  d02:'Discipline 02',d02n:'Chocolate Art',d02d:'Ganaches, tempering, sculpted couverture showpieces with bold flavors.',
-  d03:'Discipline 03',d03n:'Pastry Creations',d03d:'Tarts, fondants, Paris-Brest — classics elevated with creative expression.',
-  d04:'Discipline 04',d04n:'Entremets',d04d:'Multi-layered mousse cakes with mirror glazes — precision meets sensory narrative.',
-  d05:'Discipline 05',d05n:'Petit Fours',d05d:'Delicate bite-sized confections crafted for elegance and celebration.',
-  d06:'Discipline 06',d06n:'Artistic Desserts',d06d:'Plated desserts that blur the line between culinary art and fine dining.',
-  phil_q:'Pastry is not only about taste — it is about emotion.',phil_attr:'Reda El Ghalbzouri · Commis Pastry Chef, Morocco',
-  p1t:'Passion',p1d:'Every creation begins with a deep love for flavor and form.',
-  p2t:'Technique',p2d:'Classical French foundations with a modern, bold artistic approach.',
-  p3t:'Boldness',p3d:'An innovative mindset that pushes classical traditions into new territory.',
-  p4t:'Excellence',p4d:'Trained in 5-star kitchens where standards are absolute.',
-  con_tag:"L'Addition · Let's Connect",con_h:'Ready to Learn,<br>Ready to <em>Give Everything</em>',
-  con_p:"I am a young pastry chef at the start of my journey — freshly graduated and actively seeking my first professional opportunity. Open to internships, training positions, or any role where I can grow and give everything I have.",
-  con_reach:'Reach Out',con_phone:'Phone',con_li_lbl:'View Profile',con_loc:'Location',
-  inv_title:'What I Bring',inv_sub:'An offer from the heart',
-  inv_r1:'Passion',inv_v1:'Priceless',inv_r2:'Creativity',inv_v2:'Boundless',inv_r3:'Dedication',inv_v3:'Every Single Day',inv_r4:'Eagerness to Learn',inv_v4:'Unlimited',inv_r5:'Team Spirit',inv_v5:'Always Present',
-  inv_tot_l:'What You Get',inv_tot_v:'A Chef Who Lives for the Craft',inv_btn:'Hire Reda — Contact Reda',
-  ft_sub:'Commis Pastry Chef · Chocolate & Artistic Desserts · Morocco',
-  ask_btn:'Ask Reda',ask_status:'Commis Pastry Chef · Morocco',ask_intro:'Bonjour. I am Reda, a young pastry chef from Morocco, trained in 5-star kitchens, seeking my first professional opportunity. Choose a question or ask me anything.',ask_q_lbl:'Select a question',ask_ph:'Ask your own question...',
-  chips:['Why should we hire Reda?','What makes Reda stand out?','Where was Reda trained?','What are Reda\'s specialties?','Is Reda open to relocating?','What is Reda\'s philosophy?','How to contact Reda?'],
-  soon_tag:'Coming Soon',soon_main:'The finest is yet to come.',soon_sub:'The next creation is already taking shape — stay close.',
-  chip_ans:["Because I pour genuine passion into every creation. My experience in 5-star hotel kitchens taught me precision, consistency, and professionalism from day one. I am looking for a place where I can grow and give everything I have.","I combine a classical French foundation with a bold modern vision. I care deeply about how a dessert looks and how it makes the guest feel — I do not settle for good enough, I aim for memorable.","I trained in professional hotel kitchens: Radisson Blu (5-star luxury) and Mercure under the Accor Group (4-star international). These were real, demanding kitchens — not classrooms.","My focus areas: chocolate work and tempering, viennoiserie such as croissants and pain au chocolat, entremets with mirror glazes, petit fours, artistic plated desserts, and a variety of tarts.","Absolutely. I am fully open to moving anywhere in the world for the right opportunity — internship, training role, or full position. I adapt quickly and I am ready to start.","I believe that pastry is not only about taste — it is about emotion. Every dessert should make the person who eats it feel something. That belief guides every decision I make in the kitchen.","Email: redaelghalbzouri003@gmail.com · Phone: +212 666 310 794 · LinkedIn profile available. I respond quickly and I am always happy to speak."],
-  courses:[
-    {lbl:'Course I · Why Reda?',title:'Why Reda?',flavor:'Consistent · Passionate · Hotel-kitchen precision',body:"<p>I do not just make pastries — I pour genuine passion into every creation. My experience in 5-star hotel kitchens taught me precision, consistency, and professionalism from day one.</p><p>I am not looking for an easy role. I am looking for a place where I can grow and give everything I have.</p>"},
-    {lbl:'Course II · What Makes Me Unique?',title:"What's Unique",flavor:'Classical roots · Modern vision · Unmistakably signed',body:"<p>I combine a solid classical French foundation with a bold modern artistic approach — strong visual presentation and balanced flavors, always.</p><p>My style is precise and bold. Every plate carries an unmistakable signature because I believe every dessert should tell a story.</p>"},
-    {lbl:'Course III · Specialties',title:'My Specialties',flavor:'Broad · Deep · Technically absolute',body:"<p>Built on solid classical foundations:</p><ul><li>Chocolate work — ganaches, tempering, sculpted showpieces</li><li>Viennoiserie — croissants, pain au chocolat, Danish pastries</li><li>Entremets — multi-layered mousse cakes with mirror glazes</li><li>Petit fours — delicate bite-sized confections</li><li>Artistic plated desserts</li><li>Tarts — frangipane, custard, fruit, and more</li></ul>"},
-    {lbl:'Course IV · Training',title:'Where I Trained',flavor:'5-star standard · International · Earned, not given',body:"<p>Professional hotel kitchens in Morocco:</p><ul><li>Radisson Blu — 5-Star Luxury Hotel</li><li>Mercure / Accor Group — 4-Star International</li></ul><p>These environments demanded absolute consistency, speed, and artistry — shaping not just my technique but my entire work ethic.</p>"},
-    {lbl:'Course V · Mobility',title:'Open to Relocate',flavor:'International · Adaptable · Ready',body:"<p>Fully open to international opportunities worldwide.</p><p>Whether an internship, a training position, or a full role — I bring the same passion and precision wherever I go. I am ready to start.</p>"},
-    {lbl:'Course VI · Contact',title:'Reach Reda',flavor:'Direct · Warm · Ready for opportunity',body:`<p>I respond promptly to all inquiries:</p><ul><li>Email: redaelghalbzouri003@gmail.com</li><li>Phone: +212 666 310 794</li><li>LinkedIn: linkedin.com/in/reda-el-ghalbzouri-818395345</li></ul><a href="mailto:redaelghalbzouri003@gmail.com?subject=Hiring%20Inquiry" style="display:inline-block;margin-top:1rem;padding:10px 20px;background:transparent;border:1px solid rgba(201,160,106,.3);color:var(--ch);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;font-family:'Inter',sans-serif">Hire Reda — Contact Reda</a>`}
-  ]
-},
-fr:{
-  logo:'Reda El Ghalbzouri',nav_story:'Histoire',nav_menu:'Menu',nav_portfolio:'Portfolio',nav_skills:'Compétences',nav_contact:'Contact',
-  hero_act:'Le Menu Dégustation · 2026',hero_sub:'Commis Pâtissier · Chocolat & Desserts Modernes · Maroc',
-  about_tag:'L\'Histoire · Née de la Passion',about_h:'Formé par<br><em>l\'Excellence</em>',
-  about_p1:"Mon parcours a commencé au Maroc, où j'ai découvert que la pâtisserie n'était pas seulement de la nourriture — c'était de l'art. Poussé par la curiosité et un profond amour pour les saveurs et les formes, je me suis consacré à maîtriser ce métier.",
-  about_p2:"Formé dans les cuisines du Radisson Blu et du groupe Mercure/Accor, j'ai perfectionné ma technique en viennoiserie, chocolaterie et desserts artistiques — construisant une vision ancrée dans l'émotion et la précision.",
-  stat_disc:'Disciplines',stat_hotels:'Groupes Hôteliers',stat_passion:'Passion',
-  platter_tag:'La Carte · Six Plats',platter_h:'Le Menu Dégustation',platter_sub:'Six plats · Six histoires · Une vision',platter_hint:'Choisissez un plat pour explorer',
-  ci:'Plat I',cii:'Plat II',ciii:'Plat III',civ:'Plat IV',cv:'Plat V',cvi:'Plat VI',
-  c1_lbl:'Pourquoi Reda',c2_lbl:'Singularité',c3_lbl:'Spécialités',c4_lbl:'Formation',c5_lbl:'Mobilité',c6_lbl:'Contact',
-  port_tag:'La Galerie · Créations Réelles',port_h_em:'Portfolio',port_sub:'Du plus clair au plus sombre · Radisson Blu & Mercure Accor',
-  tone_l:'Plus clair',tone_d:'Plus sombre',flt_all:'Tout',flt_tarts:'Tartes',flt_pf:'Petits Fours',flt_choc:'Chocolat',
-  craft_tag:'Les Disciplines · L\'Art',craft_h_em:'Spécialités',
-  d01:'Discipline 01',d01n:'Viennoiserie',d01d:'Croissants, pains au chocolat, viennoiseries danoises — pâte feuilletée maîtrisée à la perfection.',
-  d02:'Discipline 02',d02n:'Art du Chocolat',d02d:'Ganaches, tempérage, pièces en couverture sculptées aux saveurs audacieuses.',
-  d03:'Discipline 03',d03n:'Créations Pâtissières',d03d:'Tartes, fondants, Paris-Brest — classiques élevés par une expression créative.',
-  d04:'Discipline 04',d04n:'Entremets',d04d:'Gâteaux mousse multicouches avec glaçages miroir — précision et narration sensorielle.',
-  d05:'Discipline 05',d05n:'Petits Fours',d05d:'Délicates bouchées confectionnées pour l\'élégance et la célébration.',
-  d06:'Discipline 06',d06n:'Desserts Artistiques',d06d:'Desserts dressés qui effacent la frontière entre art culinaire et gastronomie.',
-  phil_q:'La pâtisserie n\'est pas seulement une question de goût — c\'est une question d\'émotion.',phil_attr:'Reda El Ghalbzouri · Commis Pâtissier, Maroc',
-  p1t:'Passion',p1d:'Chaque création commence par un profond amour pour la saveur et la forme.',
-  p2t:'Technique',p2d:'Bases classiques françaises avec une approche artistique moderne et audacieuse.',
-  p3t:'Audace',p3d:'Un état d\'esprit innovant qui pousse les traditions classiques vers de nouveaux territoires.',
-  p4t:'Excellence',p4d:'Formé dans des cuisines 5 étoiles où les standards sont absolus.',
-  con_tag:"L'Addition · Prenons Contact",con_h:'Prêt à Apprendre,<br>Prêt à <em>Tout Donner</em>',
-  con_p:"Je suis un jeune pâtissier au début de son parcours — fraîchement diplômé et activement à la recherche de ma première opportunité professionnelle. Ouvert aux stages, formations ou tout rôle où je peux grandir.",
-  con_reach:'Contactez-moi',con_phone:'Téléphone',con_li_lbl:'Voir le profil',con_loc:'Localisation',
-  inv_title:'Ce que j\'apporte',inv_sub:'Une offre venue du cœur',
-  inv_r1:'Passion',inv_v1:'Inestimable',inv_r2:'Créativité',inv_v2:'Sans limites',inv_r3:'Dévouement',inv_v3:'Chaque jour',inv_r4:'Envie d\'apprendre',inv_v4:'Illimitée',inv_r5:'Esprit d\'équipe',inv_v5:'Toujours présent',
-  inv_tot_l:'Ce que vous obtenez',inv_tot_v:'Un chef qui vit pour son art',inv_btn:'Recruter Reda — Contacter Reda',
-  ft_sub:'Commis Pâtissier · Chocolat & Desserts Artistiques · Maroc',
-  ask_btn:'Demander',ask_status:'Commis Pâtissier · Maroc',ask_intro:"Bonjour. Je suis Reda, jeune pâtissier marocain formé dans des cuisines 5 étoiles, à la recherche de ma première opportunité. Choisissez une question ou posez la vôtre.",ask_q_lbl:'Choisissez une question',ask_ph:'Posez votre propre question...',
-  chips:['Pourquoi recruter Reda ?','Qu\'est-ce qui distingue Reda ?','Où Reda a-t-il été formé ?','Quelles sont les spécialités de Reda ?','Reda est-il mobile à l\'international ?','Quelle est la philosophie de Reda ?','Comment contacter Reda ?'],
-  soon_tag:'À venir',soon_main:'Le meilleur reste à venir.',soon_sub:'La prochaine création prend déjà forme — restez proches.',
-  chip_ans:["Je verse une passion sincère dans chaque création. Mon expérience dans des cuisines 5 étoiles m'a appris la précision et le professionnalisme dès le premier jour.","Je combine une base classique française avec une vision artistique moderne et audacieuse — je vise toujours le mémorable, jamais le suffisant.","J'ai été formé dans des cuisines d'hôtels au Maroc : Radisson Blu (5 étoiles) et Mercure du groupe Accor (4 étoiles). De vraies cuisines professionnelles, pas des salles de classe.","Mes domaines : chocolat et tempérage, viennoiserie, entremets avec glaçages miroir, petits fours, desserts dressés et tartes variées.","Absolument. Je suis ouvert à m'installer n'importe où dans le monde pour la bonne opportunité. Je m'adapte vite et je suis prêt à commencer.","La pâtisserie n'est pas seulement une question de goût — c'est une question d'émotion. Chaque dessert doit faire ressentir quelque chose.","Email : redaelghalbzouri003@gmail.com · Tél : +212 666 310 794 · Profil LinkedIn disponible."],
-  courses:[
-    {lbl:'Plat I · Pourquoi Reda ?',title:'Pourquoi Reda ?',flavor:'Constant · Passionné · Précision hôtelière',body:"<p>Je ne fais pas que des pâtisseries — je verse une passion sincère dans chaque création. Mon expérience dans des cuisines 5 étoiles m'a appris précision, constance et professionnalisme.</p><p>Je cherche un endroit où grandir et me donner entièrement.</p>"},
-    {lbl:'Plat II · Singularité',title:'Ma Singularité',flavor:'Racines classiques · Vision moderne',body:"<p>Je combine une base classique française avec une approche artistique moderne — présentation visuelle forte et saveurs équilibrées, toujours.</p>"},
-    {lbl:'Plat III · Spécialités',title:'Mes Spécialités',flavor:'Large · Profond · Techniquement absolu',body:"<p>Construit sur des bases classiques solides :</p><ul><li>Chocolaterie — ganaches, tempérage, pièces sculptées</li><li>Viennoiserie — croissants, pains au chocolat</li><li>Entremets — gâteaux mousse multicouches</li><li>Petits fours délicats</li><li>Desserts dressés gastronomiques</li><li>Tartes — frangipane, crème, fruits</li></ul>"},
-    {lbl:'Plat IV · Formation',title:'Ma Formation',flavor:'Standard 5 étoiles · International',body:"<p>Cuisines d'hôtels professionnelles au Maroc :</p><ul><li>Radisson Blu — Hôtel de Luxe 5 étoiles</li><li>Mercure / Groupe Accor — 4 étoiles International</li></ul>"},
-    {lbl:'Plat V · Mobilité',title:'Mobilité Internationale',flavor:'International · Adaptable · Prêt',body:"<p>Totalement ouvert aux opportunités internationales — stage, formation ou poste à temps plein. Je suis prêt à commencer.</p>"},
-    {lbl:'Plat VI · Contact',title:'Contacter Reda',flavor:'Direct · Chaleureux · Prêt',body:`<p>Je réponds rapidement :</p><ul><li>Email : redaelghalbzouri003@gmail.com</li><li>Tél : +212 666 310 794</li><li>LinkedIn : linkedin.com/in/reda-el-ghalbzouri-818395345</li></ul><a href="mailto:redaelghalbzouri003@gmail.com?subject=Offre%20d'emploi" style="display:inline-block;margin-top:1rem;padding:10px 20px;background:transparent;border:1px solid rgba(201,160,106,.3);color:var(--ch);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;font-family:'Inter',sans-serif">Recruter Reda — Contacter Reda</a>`}
-  ]
-},
-es:{
-  logo:'Reda El Ghalbzouri',nav_story:'Historia',nav_menu:'Menú',nav_portfolio:'Portfolio',nav_skills:'Habilidades',nav_contact:'Contacto',
-  hero_act:'El Menú Degustación · 2026',hero_sub:'Commis Pastelero · Chocolate y Postres Modernos · Marruecos',
-  about_tag:'La Historia · Nacida de la Pasión',about_h:'Formado por<br><em>la Excelencia</em>',
-  about_p1:"Mi trayectoria comenzó en Marruecos, donde descubrí que la repostería no era solo comida — era arte. Impulsado por la curiosidad y un profundo amor por los sabores y las formas, me dediqué a dominar el oficio.",
-  about_p2:"Formado en las cocinas del Radisson Blu y el grupo Mercure/Accor, perfeccioné mi técnica en viennoiserie, arte del chocolate y postres artísticos — construyendo una visión basada en la emoción y la precisión.",
-  stat_disc:'Disciplinas',stat_hotels:'Grupos Hoteleros',stat_passion:'Pasión',
-  platter_tag:'La Carta · Seis Platos',platter_h:'El Menú Degustación',platter_sub:'Seis platos · Seis historias · Una visión',platter_hint:'Selecciona un plato para explorar',
-  ci:'Plato I',cii:'Plato II',ciii:'Plato III',civ:'Plato IV',cv:'Plato V',cvi:'Plato VI',
-  c1_lbl:'Por qué Reda',c2_lbl:'Lo único',c3_lbl:'Especialidades',c4_lbl:'Formación',c5_lbl:'Movilidad',c6_lbl:'Contacto',
-  port_tag:'La Galería · Creaciones Reales',port_h_em:'Portfolio',port_sub:'Del más claro al más oscuro · Radisson Blu y Mercure Accor',
-  tone_l:'Más claro',tone_d:'Más oscuro',flt_all:'Todo',flt_tarts:'Tartas',flt_pf:'Petit Fours',flt_choc:'Chocolate',
-  craft_tag:'Las Disciplinas · El Arte',craft_h_em:'Especialidades',
-  d01:'Disciplina 01',d01n:'Viennoiserie',d01d:'Croissants, panes de chocolate, pasteles daneses — masa laminada dominada a la perfección.',
-  d02:'Disciplina 02',d02n:'Arte del Chocolate',d02d:'Ganaches, templado, piezas esculpidas de cobertura con sabores atrevidos.',
-  d03:'Disciplina 03',d03n:'Creaciones de Pastelería',d03d:'Tartas, fondants, Paris-Brest — clásicos elevados con expresión creativa.',
-  d04:'Disciplina 04',d04n:'Entremets',d04d:'Tartas mousse multicapa con glasados espejo — precisión y narrativa sensorial.',
-  d05:'Disciplina 05',d05n:'Petit Fours',d05d:'Delicados bocados elaborados para la elegancia y la celebración.',
-  d06:'Disciplina 06',d06n:'Postres Artísticos',d06d:'Postres emplatados que difuminan la línea entre el arte culinario y la alta cocina.',
-  phil_q:'La repostería no es solo cuestión de sabor — es cuestión de emoción.',phil_attr:'Reda El Ghalbzouri · Commis Pastelero, Marruecos',
-  p1t:'Pasión',p1d:'Cada creación comienza con un profundo amor por el sabor y la forma.',
-  p2t:'Técnica',p2d:'Bases clásicas francesas con un enfoque artístico moderno y audaz.',
-  p3t:'Audacia',p3d:'Una mentalidad innovadora que lleva las tradiciones clásicas a nuevos territorios.',
-  p4t:'Excelencia',p4d:'Formado en cocinas de 5 estrellas donde los estándares son absolutos.',
-  con_tag:"La Cuenta · Conectemos",con_h:'Listo para Aprender,<br>Listo para <em>Darlo Todo</em>',
-  con_p:"Soy un joven pastelero al inicio de mi carrera — recién graduado y buscando activamente mi primera oportunidad profesional. Abierto a prácticas, formaciones o cualquier rol donde pueda crecer.",
-  con_reach:'Contactar',con_phone:'Teléfono',con_li_lbl:'Ver perfil',con_loc:'Ubicación',
-  inv_title:'Lo que ofrezco',inv_sub:'Una oferta de corazón',
-  inv_r1:'Pasión',inv_v1:'Invaluable',inv_r2:'Creatividad',inv_v2:'Sin límites',inv_r3:'Dedicación',inv_v3:'Cada día',inv_r4:'Ganas de aprender',inv_v4:'Ilimitadas',inv_r5:'Espíritu de equipo',inv_v5:'Siempre presente',
-  inv_tot_l:'Lo que obtienes',inv_tot_v:'Un chef que vive para su arte',inv_btn:'Contratar a Reda — Contactar a Reda',
-  ft_sub:'Commis Pastelero · Chocolate y Postres Artísticos · Marruecos',
-  ask_btn:'Preguntar',ask_status:'Commis Pastelero · Marruecos',ask_intro:'Bonjour. Soy Reda, un joven pastelero de Marruecos formado en cocinas de 5 estrellas, buscando mi primera oportunidad. Elige una pregunta o escríbeme la tuya.',ask_q_lbl:'Elige una pregunta',ask_ph:'Escribe tu propia pregunta...',
-  chips:['¿Por qué contratar a Reda?','¿Qué distingue a Reda?','¿Dónde se formó Reda?','¿Cuáles son las especialidades de Reda?','¿Reda está abierto a mudarse?','¿Cuál es la filosofía de Reda?','¿Cómo contactar a Reda?'],
-  soon_tag:'Próximamente',soon_main:'Lo mejor está por llegar.',soon_sub:'La próxima creación ya está tomando forma — permanece cerca.',
-  chip_ans:["Porque pongo pasión genuina en cada creación. Mi experiencia en cocinas de 5 estrellas me enseñó precisión y profesionalismo desde el primer día.","Combino una base clásica francesa con una visión artística moderna y audaz — siempre busco lo memorable, nunca lo suficiente.","Me formé en cocinas de hoteles en Marruecos: Radisson Blu (5 estrellas) y Mercure del grupo Accor (4 estrellas). Cocinas reales y exigentes.","Mis áreas: chocolate y templado, viennoiserie, entremets con glasados espejo, petit fours, postres emplatados y tartas variadas.","Absolutamente. Estoy abierto a mudarme a cualquier parte del mundo para la oportunidad correcta. Me adapto rápido y estoy listo para empezar.","La repostería no es solo sabor — es emoción. Cada postre debe hacer sentir algo a quien lo come.","Email: redaelghalbzouri003@gmail.com · Tel: +212 666 310 794 · Perfil LinkedIn disponible."],
-  courses:[
-    {lbl:'Plato I · ¿Por qué Reda?',title:'¿Por qué Reda?',flavor:'Constante · Apasionado · Precisión hotelera',body:"<p>No solo hago pasteles — pongo pasión genuina en cada creación. Mi experiencia en cocinas de 5 estrellas me dio precisión, constancia y profesionalismo.</p>"},
-    {lbl:'Plato II · Singularidad',title:'Lo que me distingue',flavor:'Raíces clásicas · Visión moderna',body:"<p>Combino una base clásica francesa con un enfoque artístico moderno — presentación visual fuerte y sabores equilibrados, siempre.</p>"},
-    {lbl:'Plato III · Especialidades',title:'Mis Especialidades',flavor:'Amplio · Profundo · Técnicamente absoluto',body:"<p>Sobre bases clásicas sólidas:</p><ul><li>Chocolatería — ganaches, templado, piezas esculpidas</li><li>Viennoiserie — croissants, panes de chocolate</li><li>Entremets — tartas mousse multicapa</li><li>Petit fours delicados</li><li>Postres emplatados de alta cocina</li><li>Tartas — frangipane, crema, frutas</li></ul>"},
-    {lbl:'Plato IV · Formación',title:'Dónde me Formé',flavor:'Estándar 5 estrellas · Internacional',body:"<p>Cocinas de hoteles profesionales en Marruecos:</p><ul><li>Radisson Blu — Hotel de Lujo 5 Estrellas</li><li>Mercure / Grupo Accor — 4 Estrellas Internacional</li></ul>"},
-    {lbl:'Plato V · Movilidad',title:'Movilidad Internacional',flavor:'Internacional · Adaptable · Listo',body:"<p>Totalmente abierto a oportunidades internacionales. Ya sea prácticas, formación o puesto completo — listo para empezar.</p>"},
-    {lbl:'Plato VI · Contacto',title:'Contactar a Reda',flavor:'Directo · Cálido · Listo',body:`<p>Respondo rápidamente a todas las consultas:</p><ul><li>Email: redaelghalbzouri003@gmail.com</li><li>Tel: +212 666 310 794</li><li>LinkedIn: linkedin.com/in/reda-el-ghalbzouri-818395345</li></ul><a href="mailto:redaelghalbzouri003@gmail.com?subject=Oferta%20de%20Trabajo" style="display:inline-block;margin-top:1rem;padding:10px 20px;background:transparent;border:1px solid rgba(201,160,106,.3);color:var(--ch);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;font-family:'Inter',sans-serif">Contratar a Reda — Contactar a Reda</a>`}
-  ]
-},
-de:{
-  logo:'Reda El Ghalbzouri',nav_story:'Geschichte',nav_menu:'Menü',nav_portfolio:'Portfolio',nav_skills:'Fähigkeiten',nav_contact:'Kontakt',
-  hero_act:'Das Degustationsmenü · 2026',hero_sub:'Commis Konditor · Schokolade & Moderne Desserts · Marokko',
-  about_tag:'Die Geschichte · Aus Leidenschaft geboren',about_h:'Ausgebildet durch<br><em>Exzellenz</em>',
-  about_p1:"Meine Reise begann in Marokko, wo ich entdeckte, dass Patisserie nicht nur Essen ist — es ist Kunst. Angetrieben von Neugier und tiefer Liebe für Aromen und Formen widmete ich mich der Meisterschaft dieses Handwerks.",
-  about_p2:"Ausgebildet in den Küchen des Radisson Blu und der Mercure/Accor Gruppe verfeinerte ich meine Technik in Viennoiserie, Schokoladenkunst und künstlerischen Desserts.",
-  stat_disc:'Disziplinen',stat_hotels:'Hotelgruppen',stat_passion:'Leidenschaft',
-  platter_tag:'Die Karte · Sechs Gänge',platter_h:'Das Degustationsmenü',platter_sub:'Sechs Gänge · Sechs Geschichten · Eine Vision',platter_hint:'Wählen Sie einen Gang',
-  ci:'Gang I',cii:'Gang II',ciii:'Gang III',civ:'Gang IV',cv:'Gang V',cvi:'Gang VI',
-  c1_lbl:'Warum Reda',c2_lbl:'Einzigartigkeit',c3_lbl:'Spezialitäten',c4_lbl:'Ausbildung',c5_lbl:'Mobilität',c6_lbl:'Kontakt',
-  port_tag:'Die Galerie · Echte Kreationen',port_h_em:'Portfolio',port_sub:'Von hell nach dunkel · Radisson Blu & Mercure Accor',
-  tone_l:'Hellstes',tone_d:'Dunkelstes',flt_all:'Alle',flt_tarts:'Tartes',flt_pf:'Petits Fours',flt_choc:'Schokolade',
-  craft_tag:'Die Disziplinen · Die Kunst',craft_h_em:'Spezialitäten',
-  d01:'Disziplin 01',d01n:'Viennoiserie',d01d:'Croissants, Schmerzen au chocolat, dänisches Gebäck — laminierter Teig perfekt beherrscht.',
-  d02:'Disziplin 02',d02n:'Schokoladenkunst',d02d:'Ganaches, Temperieren, skulptierte Couverture-Schaustücke.',
-  d03:'Disziplin 03',d03n:'Pâtisserie-Kreationen',d03d:'Tartes, Fondants, Paris-Brest — Klassiker mit kreativer Ausdruckskraft.',
-  d04:'Disziplin 04',d04n:'Entremets',d04d:'Mehrschichtige Mousse-Torten mit Spiegelglasur — Präzision trifft sensorische Erzählung.',
-  d05:'Disziplin 05',d05n:'Petits Fours',d05d:'Zarte Häppchen für Eleganz und Feier — die Kunst des bleibenden Eindrucks.',
-  d06:'Disziplin 06',d06n:'Künstlerische Desserts',d06d:'Angerichtete Desserts an der Grenze zwischen kulinarischer Kunst und Fine Dining.',
-  phil_q:'Patisserie handelt nicht nur von Geschmack — sie handelt von Emotion.',phil_attr:'Reda El Ghalbzouri · Commis Konditor, Marokko',
-  p1t:'Leidenschaft',p1d:'Jede Kreation beginnt mit tiefer Liebe für Aromen und Formen.',
-  p2t:'Technik',p2d:'Klassische französische Grundlagen mit modernem, kühnem künstlerischen Ansatz.',
-  p3t:'Kühnheit',p3d:'Eine innovative Denkweise, die klassische Traditionen in neues Terrain treibt.',
-  p4t:'Exzellenz',p4d:'Ausgebildet in 5-Sterne-Küchen, wo Standards absolut sind.',
-  con_tag:'Die Rechnung · Kontakt aufnehmen',con_h:'Bereit zu Lernen,<br>Bereit <em>Alles zu Geben</em>',
-  con_p:"Ich bin ein junger Konditor am Anfang meines Weges — frisch graduiert und aktiv auf der Suche nach meiner ersten professionellen Chance. Offen für Praktika, Ausbildungsstellen oder jede Rolle, bei der ich wachsen kann.",
-  con_reach:'Kontaktieren',con_phone:'Telefon',con_li_lbl:'Profil ansehen',con_loc:'Standort',
-  inv_title:'Was ich mitbringe',inv_sub:'Ein Angebot aus dem Herzen',
-  inv_r1:'Leidenschaft',inv_v1:'Unbezahlbar',inv_r2:'Kreativität',inv_v2:'Grenzenlos',inv_r3:'Hingabe',inv_v3:'Jeden Tag',inv_r4:'Lernbereitschaft',inv_v4:'Unbegrenzt',inv_r5:'Teamgeist',inv_v5:'Immer vorhanden',
-  inv_tot_l:'Was Sie bekommen',inv_tot_v:'Ein Koch, der für sein Handwerk lebt',inv_btn:'Reda einstellen — Reda kontaktieren',
-  ft_sub:'Commis Konditor · Schokolade & Künstlerische Desserts · Marokko',
-  ask_btn:'Fragen',ask_status:'Commis Konditor · Marokko',ask_intro:'Bonjour. Ich bin Reda, ein junger Konditor aus Marokko, ausgebildet in 5-Sterne-Küchen, auf der Suche nach meiner ersten Chance. Wählen Sie eine Frage oder stellen Sie Ihre eigene.',ask_q_lbl:'Frage auswählen',ask_ph:'Eigene Frage stellen...',
-  chips:['Warum Reda einstellen?','Was unterscheidet Reda?','Wo wurde Reda ausgebildet?','Was sind Redas Spezialitäten?','Ist Reda bereit umzuziehen?','Was ist Redas Philosophie?','Wie Reda kontaktieren?'],
-  soon_tag:'Demnächst',soon_main:'Das Beste kommt noch.',soon_sub:'Die nächste Kreation nimmt bereits Gestalt an — bleib dabei.',
-  chip_ans:["Weil ich echte Leidenschaft in jede Kreation stecke. Meine Erfahrung in 5-Sterne-Küchen lehrte mich Präzision und Professionalität vom ersten Tag an.","Ich kombiniere ein klassisches französisches Fundament mit einer modernen, kühnen Vision — ich strebe immer nach Unvergesslichem, nie nach Ausreichend.","Ich wurde in professionellen Hotelküchen in Marokko ausgebildet: Radisson Blu (5 Sterne) und Mercure der Accor Gruppe (4 Sterne). Echte, anspruchsvolle Küchen.","Meine Bereiche: Schokolade und Temperieren, Viennoiserie, Entremets mit Spiegelglasur, Petits Fours, angerichtete Desserts und verschiedene Tartes.","Absolut. Ich bin bereit überall auf der Welt hinzuziehen — Praktikum, Ausbildung oder Vollzeitstelle. Ich passe mich schnell an.","Patisserie handelt nicht nur von Geschmack — sie handelt von Emotion. Jedes Dessert soll etwas fühlen lassen.","E-Mail: redaelghalbzouri003@gmail.com · Tel: +212 666 310 794 · LinkedIn-Profil verfügbar."],
-  courses:[
-    {lbl:'Gang I · Warum Reda?',title:'Warum Reda?',flavor:'Konstant · Leidenschaftlich · Hotelküchen-Präzision',body:"<p>Ich mache nicht nur Gebäck — ich bringe echte Leidenschaft in jede Kreation. Meine Erfahrung in 5-Sterne-Küchen lehrte mich Präzision und Konstanz.</p>"},
-    {lbl:'Gang II · Einzigartigkeit',title:'Meine Einzigartigkeit',flavor:'Klassische Wurzeln · Moderne Vision',body:"<p>Ich kombiniere ein klassisches französisches Fundament mit einem modernen künstlerischen Ansatz — starke visuelle Präsentation und ausgewogene Aromen.</p>"},
-    {lbl:'Gang III · Spezialitäten',title:'Meine Spezialitäten',flavor:'Breit · Tief · Technisch absolut',body:"<p>Auf soliden klassischen Grundlagen:</p><ul><li>Schokoladenarbeit — Ganaches, Temperieren, skulptierte Stücke</li><li>Viennoiserie — Croissants, Schmerzen au chocolat</li><li>Entremets — mehrschichtige Mousse-Torten</li><li>Zarte Petits Fours</li><li>Angerichtete Desserts</li><li>Tartes — Frangipane, Creme, Obst</li></ul>"},
-    {lbl:'Gang IV · Ausbildung',title:'Meine Ausbildung',flavor:'5-Sterne-Standard · International',body:"<p>Professionelle Hotelküchen in Marokko:</p><ul><li>Radisson Blu — 5-Sterne-Luxushotel</li><li>Mercure / Accor Gruppe — 4-Sterne International</li></ul>"},
-    {lbl:'Gang V · Mobilität',title:'Internationale Mobilität',flavor:'International · Anpassungsfähig · Bereit',body:"<p>Vollständig offen für internationale Möglichkeiten. Ob Praktikum, Ausbildung oder Vollzeitstelle — bereit zu starten.</p>"},
-    {lbl:'Gang VI · Kontakt',title:'Reda kontaktieren',flavor:'Direkt · Warm · Bereit',body:`<p>Ich antworte schnell auf alle Anfragen:</p><ul><li>E-Mail: redaelghalbzouri003@gmail.com</li><li>Tel: +212 666 310 794</li><li>LinkedIn: linkedin.com/in/reda-el-ghalbzouri-818395345</li></ul><a href="mailto:redaelghalbzouri003@gmail.com?subject=Stellenangebot" style="display:inline-block;margin-top:1rem;padding:10px 20px;background:transparent;border:1px solid rgba(201,160,106,.3);color:var(--ch);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;font-family:'Inter',sans-serif">Reda einstellen — Reda kontaktieren</a>`}
-  ]
-}};
+en:{nav_story:'Story',nav_menu:'Menu',nav_portfolio:'Portfolio',nav_skills:'Skills',nav_contact:'Contact',hero_act:'The Degustation Menu · 2026',hero_sub:'Commis Pastry Chef · Chocolate & Modern Desserts · Morocco',about_tag:'The Story · Born from Passion',about_h:'Trained by<br><em>Excellence</em>',about_p1:"My journey began in Morocco, where I discovered that pastry was not just food — it was art. Driven by curiosity and a deep love for flavor and form, I dedicated myself to mastering the craft.",about_p2:'Trained across Radisson Blu and Mercure/Accor Group kitchens, I refined my technique in viennoiserie, chocolate art, and artistic desserts — building a vision rooted in emotion and precision.',stat_disc:'Disciplines',stat_hotels:'Hotel Groups',stat_passion:'Passion',platter_tag:'La Carte · Six Courses',platter_h:'The Tasting Menu',platter_sub:'Six courses · Six stories · One vision',platter_hint:'Select a course to explore',ci:'Course I',cii:'Course II',ciii:'Course III',civ:'Course IV',cv:'Course V',cvi:'Course VI',c1_lbl:'Why Reda',c2_lbl:'Unique',c3_lbl:'Specialties',c4_lbl:'Training',c5_lbl:'Mobility',c6_lbl:'Contact',port_tag:'La Galerie · Real Creations',port_h_em:'Portfolio',port_sub:'Arranged lightest to darkest · Radisson Blu & Mercure Accor',tone_l:'Lightest',tone_d:'Darkest',flt_all:'All',flt_tarts:'Tarts',flt_pf:'Petit Fours',flt_choc:'Chocolate',craft_tag:'Les Disciplines · The Art',craft_h_em:'Specialties',d01:'Discipline 01',d01n:'Viennoiserie',d01d:'Croissants, pain au chocolat, Danish pastries — laminated dough mastered to perfection.',d02:'Discipline 02',d02n:'Chocolate Art',d02d:'Ganaches, tempering, sculpted couverture showpieces with bold flavors.',d03:'Discipline 03',d03n:'Pastry Creations',d03d:'Tarts, fondants, Paris-Brest — classics elevated with creative expression.',d04:'Discipline 04',d04n:'Entremets',d04d:'Multi-layered mousse cakes with mirror glazes — precision meets sensory narrative.',d05:'Discipline 05',d05n:'Petit Fours',d05d:'Delicate bite-sized confections crafted for elegance and celebration.',d06:'Discipline 06',d06n:'Artistic Desserts',d06d:'Plated desserts that blur the line between culinary art and fine dining.',phil_q:'Pastry is not only about taste — it is about emotion.',phil_attr:'Reda El Ghalbzouri · Commis Pastry Chef, Morocco',p1t:'Passion',p1d:'Every creation begins with a deep love for flavor and form.',p2t:'Technique',p2d:'Classical French foundations with a modern, bold artistic approach.',p3t:'Boldness',p3d:'An innovative mindset that pushes classical traditions into new territory.',p4t:'Excellence',p4d:'Trained in 5-star kitchens where standards are absolute.',con_tag:"L'Addition · Let's Connect",con_h:'Ready to Learn,<br>Ready to <em>Give Everything</em>',con_p:"I am a young pastry chef at the start of my journey — freshly graduated and actively seeking my first professional opportunity. Open to internships, training positions, or any role where I can grow and give everything I have.",con_reach:'Reach Out',con_phone:'Phone',con_li_lbl:'View Profile',con_loc:'Location',inv_title:'What I Bring',inv_sub:'An offer from the heart',inv_r1:'Passion',inv_v1:'Priceless',inv_r2:'Creativity',inv_v2:'Boundless',inv_r3:'Dedication',inv_v3:'Every Single Day',inv_r4:'Eagerness to Learn',inv_v4:'Unlimited',inv_r5:'Team Spirit',inv_v5:'Always Present',inv_tot_l:'What You Get',inv_tot_v:'A Chef Who Lives for the Craft',inv_btn:'Hire Reda — Contact Reda',ft_sub:'Commis Pastry Chef · Chocolate & Artistic Desserts · Morocco',ask_btn:'Ask Reda',ask_status:'Commis Pastry Chef · Morocco',ask_intro:'Bonjour. I am Reda, a young pastry chef from Morocco, trained in 5-star kitchens, seeking my first professional opportunity. Choose a question or ask me anything.',ask_q_lbl:'Suggested questions',ask_ph:'Ask your own question...',
+chips:['Why should we hire Reda?','What makes Reda stand out?','Where was Reda trained?','What are Reda\'s specialties?','Is Reda open to relocating?','What is Reda\'s philosophy?','How can I contact Reda?'],
+chip_ans:["Because I pour genuine passion into every creation. My experience in 5-star hotel kitchens taught me precision, consistency, and professionalism from day one.","I combine a classical French foundation with a bold modern vision — I do not settle for good enough, I aim for memorable.","Radisson Blu (5-star luxury) and Mercure/Accor Group (4-star international) in Morocco — real, demanding kitchens.","Chocolate work and tempering, viennoiserie, entremets with mirror glazes, petit fours, artistic plated desserts, and tarts.","Absolutely. I am fully open to moving anywhere in the world for the right opportunity. I am ready to start.","Pastry is not only about taste — it is about emotion. Every dessert should make the person who eats it feel something.","Email: redaelghalbzouri003@gmail.com · Phone: +212 666 310 794"],
+courses:[
+{lbl:'Course I · Why Reda?',title:'Why Reda?',flavor:'Consistent · Passionate · Hotel-kitchen precision',body:"<p>I do not just make pastries — I pour genuine passion into every creation. My experience in 5-star hotel kitchens taught me precision, consistency, and professionalism from day one.</p><p>I am looking for a place where I can grow and give everything I have.</p>"},
+{lbl:'Course II · What Makes Me Unique?',title:"What's Unique",flavor:'Classical roots · Modern vision · Unmistakably signed',body:"<p>I combine a solid classical French foundation with a bold modern artistic approach. Every plate carries an unmistakable signature because I believe every dessert should tell a story.</p>"},
+{lbl:'Course III · Specialties',title:'My Specialties',flavor:'Broad · Deep · Technically absolute',body:"<ul><li>Chocolate work — ganaches, tempering, sculpted showpieces</li><li>Viennoiserie — croissants, pain au chocolat, Danish pastries</li><li>Entremets — multi-layered mousse cakes with mirror glazes</li><li>Petit fours — delicate bite-sized confections</li><li>Artistic plated desserts</li><li>Tarts — frangipane, custard, fruit, and more</li></ul>"},
+{lbl:'Course IV · Training',title:'Where I Trained',flavor:'5-star standard · International · Earned, not given',body:"<ul><li>Radisson Blu — 5-Star Luxury Hotel</li><li>Mercure / Accor Group — 4-Star International</li></ul><p>These environments demanded absolute consistency, speed, and artistry.</p>"},
+{lbl:'Course V · Mobility',title:'Open to Relocate',flavor:'International · Adaptable · Ready',body:"<p>Fully open to international opportunities worldwide — internship, training position, or full role. I bring the same passion and precision wherever I go.</p>"},
+{lbl:'Course VI · Contact',title:'Reach Reda',flavor:'Direct · Warm · Ready for opportunity',body:`<ul><li>Email: redaelghalbzouri003@gmail.com</li><li>Phone: +212 666 310 794</li><li>LinkedIn: linkedin.com/in/reda-el-ghalbzouri-818395345</li></ul><a href="mailto:redaelghalbzouri003@gmail.com?subject=Hiring%20Inquiry" style="display:inline-block;margin-top:1rem;padding:10px 20px;background:transparent;border:1px solid rgba(154,112,48,.3);color:var(--ch);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;font-family:'Inter',sans-serif">Hire Reda — Contact Reda</a>`}
+]},
+fr:{nav_story:'Histoire',nav_menu:'Menu',nav_portfolio:'Portfolio',nav_skills:'Compétences',nav_contact:'Contact',hero_act:'Le Menu Dégustation · 2026',hero_sub:'Commis Pâtissier · Chocolat & Desserts Modernes · Maroc',about_tag:"L'Histoire · Née de la Passion",about_h:"Formé par<br><em>l'Excellence</em>",about_p1:"Mon parcours a commencé au Maroc.",about_p2:"Formé dans les cuisines du Radisson Blu et du groupe Mercure/Accor.",stat_disc:'Disciplines',stat_hotels:'Groupes Hôteliers',stat_passion:'Passion',platter_tag:'La Carte · Six Plats',platter_h:'Le Menu Dégustation',platter_sub:'Six plats · Six histoires · Une vision',platter_hint:'Choisissez un plat à explorer',ci:'Plat I',cii:'Plat II',ciii:'Plat III',civ:'Plat IV',cv:'Plat V',cvi:'Plat VI',c1_lbl:'Pourquoi Reda',c2_lbl:'Singularité',c3_lbl:'Spécialités',c4_lbl:'Formation',c5_lbl:'Mobilité',c6_lbl:'Contact',port_tag:'La Galerie · Créations Réelles',port_h_em:'Portfolio',port_sub:'Du plus clair au plus sombre',tone_l:'Plus clair',tone_d:'Plus sombre',flt_all:'Tout',flt_tarts:'Tartes',flt_pf:'Petits Fours',flt_choc:'Chocolat',craft_tag:"Les Disciplines · L'Art",craft_h_em:'Spécialités',d01:'Discipline 01',d01n:'Viennoiserie',d01d:'Croissants, pains au chocolat.',d02:'Discipline 02',d02n:'Art du Chocolat',d02d:'Ganaches, tempérage.',d03:'Discipline 03',d03n:'Créations Pâtissières',d03d:'Tartes, fondants.',d04:'Discipline 04',d04n:'Entremets',d04d:'Gâteaux mousse multicouches.',d05:'Discipline 05',d05n:'Petits Fours',d05d:"Délicates bouchées.",d06:'Discipline 06',d06n:'Desserts Artistiques',d06d:'Desserts dressés.',phil_q:"La pâtisserie n'est pas seulement une question de goût — c'est une question d'émotion.",phil_attr:'Reda El Ghalbzouri · Commis Pâtissier, Maroc',p1t:'Passion',p1d:'Chaque création commence par un amour.',p2t:'Technique',p2d:'Bases classiques françaises.',p3t:'Audace',p3d:"Mentalité innovante.",p4t:'Excellence',p4d:'Formé dans des cuisines 5 étoiles.',con_tag:"L'Addition · Prenons Contact",con_h:'Prêt à Apprendre,<br>Prêt à <em>Tout Donner</em>',con_p:"Jeune pâtissier en début de parcours.",con_reach:'Contactez-moi',con_phone:'Téléphone',con_li_lbl:'Voir le profil',con_loc:'Localisation',inv_title:"Ce que j'apporte",inv_sub:'Une offre venue du cœur',inv_r1:'Passion',inv_v1:'Inestimable',inv_r2:'Créativité',inv_v2:'Sans limites',inv_r3:'Dévouement',inv_v3:'Chaque jour',inv_r4:"Envie d'apprendre",inv_v4:'Illimitée',inv_r5:"Esprit d'équipe",inv_v5:'Toujours présent',inv_tot_l:'Ce que vous obtenez',inv_tot_v:'Un chef qui vit pour son art',inv_btn:'Recruter Reda',ft_sub:'Commis Pâtissier · Chocolat & Desserts Artistiques · Maroc',ask_btn:'Demander',ask_status:'Commis Pâtissier · Maroc',ask_intro:"Bonjour. Je suis Reda, jeune pâtissier marocain.",ask_q_lbl:'Questions suggérées',ask_ph:'Posez votre question...',
+chips:['Pourquoi recruter Reda ?','Ce qui distingue Reda ?','Où a été formé Reda ?','Spécialités de Reda ?','Reda est-il mobile ?','Philosophie de Reda ?','Contacter Reda ?'],
+chip_ans:["Je verse une passion sincère dans chaque création.","Base classique française avec une vision artistique moderne.","Radisson Blu (5 étoiles) et Mercure/Accor (4 étoiles) au Maroc.","Chocolat, viennoiserie, entremets, petits fours, desserts dressés, tartes.","Ouvert à m'installer partout dans le monde.","La pâtisserie, c'est l'émotion.","Email: redaelghalbzouri003@gmail.com · +212 666 310 794"],
+courses:[{lbl:'Plat I · Pourquoi Reda ?',title:'Pourquoi Reda ?',flavor:'Constant · Passionné',body:"<p>Je verse une passion sincère dans chaque création.</p>"},{lbl:'Plat II · Singularité',title:'Ma Singularité',flavor:'Racines classiques · Vision moderne',body:"<p>Base classique française avec approche artistique moderne.</p>"},{lbl:'Plat III · Spécialités',title:'Mes Spécialités',flavor:'Large · Profond',body:"<ul><li>Chocolaterie</li><li>Viennoiserie</li><li>Entremets</li><li>Petits fours</li><li>Desserts dressés</li><li>Tartes</li></ul>"},{lbl:'Plat IV · Formation',title:'Ma Formation',flavor:'5 étoiles · International',body:"<ul><li>Radisson Blu — 5 étoiles</li><li>Mercure / Accor — 4 étoiles</li></ul>"},{lbl:'Plat V · Mobilité',title:'Mobilité',flavor:'International · Prêt',body:"<p>Ouvert aux opportunités internationales.</p>"},{lbl:'Plat VI · Contact',title:'Contacter Reda',flavor:'Direct · Prêt',body:"<ul><li>Email: redaelghalbzouri003@gmail.com</li><li>+212 666 310 794</li></ul>"}]},
+es:{nav_story:'Historia',nav_menu:'Menú',nav_portfolio:'Portfolio',nav_skills:'Habilidades',nav_contact:'Contacto',hero_act:'El Menú Degustación · 2026',hero_sub:'Commis Pastelero · Chocolate y Postres Modernos · Marruecos',about_tag:'La Historia · Nacida de la Pasión',about_h:'Formado por<br><em>la Excelencia</em>',about_p1:"Mi trayectoria comenzó en Marruecos.",about_p2:"Formado en las cocinas del Radisson Blu y Mercure/Accor.",stat_disc:'Disciplinas',stat_hotels:'Grupos Hoteleros',stat_passion:'Pasión',platter_tag:'La Carta · Seis Platos',platter_h:'El Menú Degustación',platter_sub:'Seis platos · Seis historias · Una visión',platter_hint:'Selecciona un plato para explorar',ci:'Plato I',cii:'Plato II',ciii:'Plato III',civ:'Plato IV',cv:'Plato V',cvi:'Plato VI',c1_lbl:'Por qué Reda',c2_lbl:'Lo único',c3_lbl:'Especialidades',c4_lbl:'Formación',c5_lbl:'Movilidad',c6_lbl:'Contacto',port_tag:'La Galería · Creaciones Reales',port_h_em:'Portfolio',port_sub:'Del más claro al más oscuro',tone_l:'Más claro',tone_d:'Más oscuro',flt_all:'Todo',flt_tarts:'Tartas',flt_pf:'Petit Fours',flt_choc:'Chocolate',craft_tag:'Las Disciplinas · El Arte',craft_h_em:'Especialidades',d01:'Disciplina 01',d01n:'Viennoiserie',d01d:'Croissants, panes de chocolate.',d02:'Disciplina 02',d02n:'Arte del Chocolate',d02d:'Ganaches, templado.',d03:'Disciplina 03',d03n:'Creaciones de Pastelería',d03d:'Tartas, fondants.',d04:'Disciplina 04',d04n:'Entremets',d04d:'Tartas mousse multicapa.',d05:'Disciplina 05',d05n:'Petit Fours',d05d:'Delicados bocados.',d06:'Disciplina 06',d06n:'Postres Artísticos',d06d:'Postres emplatados.',phil_q:'La repostería no es solo sabor — es emoción.',phil_attr:'Reda El Ghalbzouri · Commis Pastelero, Marruecos',p1t:'Pasión',p1d:'Cada creación nace del amor.',p2t:'Técnica',p2d:'Bases clásicas francesas.',p3t:'Audacia',p3d:'Mentalidad innovadora.',p4t:'Excelencia',p4d:'Formado en cocinas de 5 estrellas.',con_tag:'La Cuenta · Conectemos',con_h:'Listo para Aprender,<br>Listo para <em>Darlo Todo</em>',con_p:"Joven pastelero buscando mi primera oportunidad.",con_reach:'Contactar',con_phone:'Teléfono',con_li_lbl:'Ver perfil',con_loc:'Ubicación',inv_title:'Lo que ofrezco',inv_sub:'Una oferta de corazón',inv_r1:'Pasión',inv_v1:'Invaluable',inv_r2:'Creatividad',inv_v2:'Sin límites',inv_r3:'Dedicación',inv_v3:'Cada día',inv_r4:'Ganas de aprender',inv_v4:'Ilimitadas',inv_r5:'Espíritu de equipo',inv_v5:'Siempre presente',inv_tot_l:'Lo que obtienes',inv_tot_v:'Un chef que vive para su arte',inv_btn:'Contratar a Reda',ft_sub:'Commis Pastelero · Chocolate y Postres Artísticos · Marruecos',ask_btn:'Preguntar',ask_status:'Commis Pastelero · Marruecos',ask_intro:'Soy Reda, pastelero marroquí.',ask_q_lbl:'Preguntas sugeridas',ask_ph:'Escribe tu pregunta...',
+chips:['¿Por qué contratar a Reda?','¿Qué distingue a Reda?','¿Dónde se formó Reda?','¿Especialidades de Reda?','¿Reda está abierto a mudarse?','¿Filosofía de Reda?','¿Cómo contactar a Reda?'],
+chip_ans:["Pongo pasión genuina en cada creación.","Base clásica francesa con visión artística moderna.","Radisson Blu y Mercure/Accor en Marruecos.","Chocolate, viennoiserie, entremets, petit fours, postres, tartas.","Abierto a mudarme a cualquier parte del mundo.","La repostería no es solo sabor — es emoción.","Email: redaelghalbzouri003@gmail.com · +212 666 310 794"],
+courses:[{lbl:'Plato I · ¿Por qué Reda?',title:'¿Por qué Reda?',flavor:'Constante · Apasionado',body:"<p>Pongo pasión genuina en cada creación.</p>"},{lbl:'Plato II · Singularidad',title:'Lo que me distingue',flavor:'Raíces clásicas · Visión moderna',body:"<p>Base clásica francesa con enfoque artístico moderno.</p>"},{lbl:'Plato III · Especialidades',title:'Mis Especialidades',flavor:'Amplio · Profundo',body:"<ul><li>Chocolatería</li><li>Viennoiserie</li><li>Entremets</li><li>Petit fours</li><li>Postres emplatados</li><li>Tartas</li></ul>"},{lbl:'Plato IV · Formación',title:'Dónde me Formé',flavor:'5 estrellas · Internacional',body:"<ul><li>Radisson Blu — 5 Estrellas</li><li>Mercure / Accor — 4 Estrellas</li></ul>"},{lbl:'Plato V · Movilidad',title:'Movilidad',flavor:'Internacional · Listo',body:"<p>Abierto a oportunidades internacionales.</p>"},{lbl:'Plato VI · Contacto',title:'Contactar a Reda',flavor:'Directo · Listo',body:"<ul><li>Email: redaelghalbzouri003@gmail.com</li><li>+212 666 310 794</li></ul>"}]},
+de:{nav_story:'Geschichte',nav_menu:'Menü',nav_portfolio:'Portfolio',nav_skills:'Fähigkeiten',nav_contact:'Kontakt',hero_act:'Das Degustationsmenü · 2026',hero_sub:'Commis Konditor · Schokolade & Moderne Desserts · Marokko',about_tag:'Die Geschichte · Aus Leidenschaft geboren',about_h:'Ausgebildet durch<br><em>Exzellenz</em>',about_p1:"Meine Reise begann in Marokko.",about_p2:"Ausgebildet in den Küchen des Radisson Blu und der Mercure/Accor Gruppe.",stat_disc:'Disziplinen',stat_hotels:'Hotelgruppen',stat_passion:'Leidenschaft',platter_tag:'Die Karte · Sechs Gänge',platter_h:'Das Degustationsmenü',platter_sub:'Sechs Gänge · Sechs Geschichten · Eine Vision',platter_hint:'Gang auswählen',ci:'Gang I',cii:'Gang II',ciii:'Gang III',civ:'Gang IV',cv:'Gang V',cvi:'Gang VI',c1_lbl:'Warum Reda',c2_lbl:'Einzigartigkeit',c3_lbl:'Spezialitäten',c4_lbl:'Ausbildung',c5_lbl:'Mobilität',c6_lbl:'Kontakt',port_tag:'Die Galerie · Echte Kreationen',port_h_em:'Portfolio',port_sub:'Von hell nach dunkel',tone_l:'Hellstes',tone_d:'Dunkelstes',flt_all:'Alle',flt_tarts:'Tartes',flt_pf:'Petits Fours',flt_choc:'Schokolade',craft_tag:'Die Disziplinen · Die Kunst',craft_h_em:'Spezialitäten',d01:'Disziplin 01',d01n:'Viennoiserie',d01d:'Croissants, Pains au chocolat.',d02:'Disziplin 02',d02n:'Schokoladenkunst',d02d:'Ganaches, Temperieren.',d03:'Disziplin 03',d03n:'Pâtisserie-Kreationen',d03d:'Tartes, Fondants.',d04:'Disziplin 04',d04n:'Entremets',d04d:'Mousse-Torten mit Spiegelglasur.',d05:'Disziplin 05',d05n:'Petits Fours',d05d:'Zarte Häppchen.',d06:'Disziplin 06',d06n:'Künstlerische Desserts',d06d:'Angerichtete Desserts.',phil_q:'Patisserie handelt nicht nur von Geschmack — sie handelt von Emotion.',phil_attr:'Reda El Ghalbzouri · Commis Konditor, Marokko',p1t:'Leidenschaft',p1d:'Jede Kreation beginnt mit Liebe.',p2t:'Technik',p2d:'Klassische Grundlagen.',p3t:'Kühnheit',p3d:'Innovative Denkweise.',p4t:'Exzellenz',p4d:'Ausgebildet in 5-Sterne-Küchen.',con_tag:'Die Rechnung · Kontakt aufnehmen',con_h:'Bereit zu Lernen,<br>Bereit <em>Alles zu Geben</em>',con_p:"Ich bin ein junger Konditor auf der Suche nach meiner ersten Chance.",con_reach:'Kontaktieren',con_phone:'Telefon',con_li_lbl:'Profil ansehen',con_loc:'Standort',inv_title:'Was ich mitbringe',inv_sub:'Ein Angebot aus dem Herzen',inv_r1:'Leidenschaft',inv_v1:'Unbezahlbar',inv_r2:'Kreativität',inv_v2:'Grenzenlos',inv_r3:'Hingabe',inv_v3:'Jeden Tag',inv_r4:'Lernbereitschaft',inv_v4:'Unbegrenzt',inv_r5:'Teamgeist',inv_v5:'Immer vorhanden',inv_tot_l:'Was Sie bekommen',inv_tot_v:'Ein Koch, der für sein Handwerk lebt',inv_btn:'Reda einstellen',ft_sub:'Commis Konditor · Schokolade & Künstlerische Desserts · Marokko',ask_btn:'Fragen',ask_status:'Commis Konditor · Marokko',ask_intro:'Ich bin Reda, ein junger Konditor aus Marokko.',ask_q_lbl:'Vorgeschlagene Fragen',ask_ph:'Eigene Frage stellen...',
+chips:['Warum Reda einstellen?','Was unterscheidet Reda?','Wo wurde Reda ausgebildet?','Redas Spezialitäten?','Bereit umzuziehen?','Redas Philosophie?','Wie Reda kontaktieren?'],
+chip_ans:["Ich stecke echte Leidenschaft in jede Kreation.","Klassisches Fundament mit moderner künstlerischer Vision.","Radisson Blu und Mercure/Accor in Marokko.","Schokolade, Viennoiserie, Entremets, Petits Fours, Desserts, Tartes.","Bereit überall hinzuziehen.","Patisserie handelt von Emotion.","E-Mail: redaelghalbzouri003@gmail.com · +212 666 310 794"],
+courses:[{lbl:'Gang I · Warum Reda?',title:'Warum Reda?',flavor:'Konstant · Leidenschaftlich',body:"<p>Ich bringe echte Leidenschaft in jede Kreation.</p>"},{lbl:'Gang II · Einzigartigkeit',title:'Meine Einzigartigkeit',flavor:'Klassische Wurzeln · Moderne Vision',body:"<p>Klassisches Fundament mit moderner Vision.</p>"},{lbl:'Gang III · Spezialitäten',title:'Meine Spezialitäten',flavor:'Breit · Tief',body:"<ul><li>Schokoladenarbeit</li><li>Viennoiserie</li><li>Entremets</li><li>Petits Fours</li><li>Angerichtete Desserts</li><li>Tartes</li></ul>"},{lbl:'Gang IV · Ausbildung',title:'Meine Ausbildung',flavor:'5-Sterne-Standard',body:"<ul><li>Radisson Blu — 5-Sterne</li><li>Mercure / Accor — 4-Sterne</li></ul>"},{lbl:'Gang V · Mobilität',title:'Internationale Mobilität',flavor:'International · Bereit',body:"<p>Vollständig offen für internationale Möglichkeiten.</p>"},{lbl:'Gang VI · Kontakt',title:'Reda kontaktieren',flavor:'Direkt · Warm',body:"<ul><li>E-Mail: redaelghalbzouri003@gmail.com</li><li>+212 666 310 794</li></ul>"}]}
+};
 
 let lang='en';
 function setLang(l){
   lang=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('on',b.textContent===l.toUpperCase()));
   const tr=T[l];
-  document.querySelectorAll('[data-t]').forEach(el=>{
-    const k=el.dataset.t;if(!tr[k])return;
-    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')return;
-    el.innerHTML=tr[k];
-  });
+  document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(!tr[k])return;if(el.tagName==='INPUT')return;el.innerHTML=tr[k];});
   document.querySelectorAll('[data-t-ph]').forEach(el=>{const k=el.dataset.tPh;if(tr[k])el.placeholder=tr[k];});
   buildChips();
-  // re-init ask intro message
-  const introEl=document.querySelector('#msgs .msg.a .mb2');
-  if(introEl)introEl.textContent=tr.ask_intro;
+  const introEl=document.querySelector('#msgs .msg.a .mb2');if(introEl)introEl.textContent=tr.ask_intro;
 }
-
-/* NAV */
 function toggleNav(){document.getElementById('navMob').classList.toggle('open')}
 function closeNav(){document.getElementById('navMob').classList.remove('open')}
 
-/* ITEMS */
 const ITEMS=[
-  {cat:'viennoiserie',lum:8, img:'v1775914535/20250418_205726_tpgp68.jpg',     en:'Croissants',              fr:'Croissants',              de:'Croissants',                  es:'Cruasanes'},
-  {cat:'viennoiserie',lum:12,img:'v1775914688/IMG-20241129-WA0012_vjodk3.jpg', en:'Viennoiserie Assortment', fr:'Assortiment Viennoiserie', de:'Viennoiserie-Sortiment',      es:'Surtido de Viennoiserie'},
-  {cat:'viennoiserie',lum:15,img:'v1776180905/20250420_123112_av2u2a.jpg',     en:'Choux Pastry',            fr:'Pate a Choux',            de:'Brandteiggebäck',             es:'Pasta Choux'},
-  {cat:'tarts',       lum:18,img:'v1776130288/20250129_135132_dfcode.jpg',     en:'Apple Tart',              fr:'Tarte aux Pommes',        de:'Apfeltarte',                  es:'Tarta de Manzana'},
-  {cat:'tarts',       lum:20,img:'v1776180381/20250129_135118_dvs157.jpg',     en:'Apple Tart II',           fr:'Tarte aux Pommes II',     de:'Apfeltarte II',               es:'Tarta de Manzana II'},
-  {cat:'tarts',       lum:22,img:'v1776129982/20241107_154346_av9hfy.jpg',     en:'Frangipane',              fr:'Frangipane',              de:'Frangipane',                  es:'Frangipane'},
-  {cat:'tarts',       lum:25,img:'v1776130425/20250420_123345_g9ihs9.jpg',     en:'Custard Tart',            fr:'Tarte Custard',           de:'Puddingtarte',                es:'Tarta de Natillas'},
-  {cat:'viennoiserie',lum:28,img:'v1776180359/IMG-20251101-WA0019_nunejl.jpg', en:'Eclair',                  fr:'Eclair',                  de:'Eclair',                      es:'Eclair'},
-  {cat:'viennoiserie',lum:30,img:'v1776130031/20250420_125120_rfgnu8.jpg',     en:'Paris-Brest',             fr:'Paris-Brest',             de:'Paris-Brest',                 es:'Paris-Brest'},
-  {cat:'tarts',       lum:32,img:'v1776180392/20251110_140638_exmmht.jpg',     en:'Tarte Tatin Revisitee',   fr:'Tarte Tatin Revisitee',   de:'Überarbeitete Tarte Tatin',   es:'Tarta Tatin Revisitada'},
-  {cat:'tarts',       lum:35,img:'v1776180389/20251110_122828_ntttua.jpg',     en:'Mini Lemon Tarts',        fr:'Mini Tartes Citron',      de:'Mini-Zitronentörtchen',       es:'Mini Tartas de Limon'},
-  {cat:'tarts',       lum:38,img:'v1776180359/IMG-20251101-WA0018_xcch1z.jpg', en:'Mango Tart',              fr:'Tarte Mangue',            de:'Mangotarte',                  es:'Tarta de Mango'},
-  {cat:'petitfour',   lum:40,img:'v1776180376/20241112_155203_gbfotl.jpg',     en:'Madeleine',               fr:'Madeleine',               de:'Madeleine',                   es:'Madeleine'},
-  {cat:'petitfour',   lum:42,img:'v1776180379/20241112_155547_k4nwgy.jpg',     en:'Cookies',                 fr:'Cookies',                 de:'Cookies',                     es:'Cookies'},
-  {cat:'petitfour',   lum:44,img:'v1776180444/20241112_155136_lowgva.jpg',     en:'Financiers',              fr:'Financiers',              de:'Financiers',                  es:'Financiers'},
-  {cat:'petitfour',   lum:46,img:'v1776180420/20251110_122937_gkuodk.jpg',     en:'Tiger Financiers',        fr:'Financiers Tigres',       de:'Tiger-Financiers',            es:'Financiers Tigre'},
-  {cat:'petitfour',   lum:48,img:'v1776180424/20251111_124210_b5uvq1.jpg',     en:'Petit Fours',             fr:'Petits Fours',            de:'Petits Fours',                es:'Petit Fours'},
-  {cat:'petitfour',   lum:50,img:'v1776130171/20251108_123811_h6gywa.jpg',     en:'Chocolate Petit Fours',   fr:'Petits Fours Chocolat',   de:'Schokoladen-Petits-Fours',    es:'Petit Fours de Chocolate'},
-  {cat:'petitfour',   lum:52,img:'v1776130058/IMG-20241231-WA0009_xen01g.jpg', en:'Swiss Roll',              fr:'Roule Suisse',            de:'Biskuitrolle',                es:'Brazo de Gitano'},
-  {cat:'petitfour',   lum:54,img:'v1776129861/20250417_150238_cluvrz.jpg',     en:'Petit Fours Collection',  fr:'Collection Petits Fours', de:'Petits-Fours-Kollektion',     es:'Coleccion de Petit Fours'},
-  {cat:'entremets',   lum:45,img:'v1776129908/20250417_150149_ed5vpr.jpg',     en:'Rose Entremet',           fr:'Entremet Rose',           de:'Rosen-Entremet',              es:'Entremet de Rosa'},
-  {cat:'entremets',   lum:55,img:'v1776129914/20250417_150138_ns80zk.jpg',     en:'Vanilla Entremet',        fr:'Entremet Vanille',        de:'Vanille-Entremet',            es:'Entremet de Vainilla'},
-  {cat:'entremets',   lum:58,img:'v1776180451/20240130_154108_pllmqx.jpg',     en:'Strawberry Cheesecake',   fr:'Cheesecake Fraise',       de:'Erdbeer-Käsekuchen',          es:'Tarta de Queso Fresa'},
-  {cat:'entremets',   lum:60,img:'v1776180451/20240130_154151_op1l4t.jpg',     en:'Lemon Cheesecake',        fr:'Cheesecake Citron',       de:'Zitronen-Käsekuchen',         es:'Tarta de Queso Limon'},
-  {cat:'chocolate',   lum:62,img:'v1776180568/20250420_123022_wztptc.jpg',     en:'White Choc Snickers',     fr:'Snickers Chocolat Blanc', de:'Weisse Schokolade Snickers',  es:'Snickers Chocolate Blanco'},
-  {cat:'chocolate',   lum:68,img:'v1776129778/20250417_150218_yyhali.jpg',     en:'Chocolate Tart',          fr:'Tarte Chocolat',          de:'Schokoladentarte',            es:'Tarta de Chocolate'},
-  {cat:'chocolate',   lum:72,img:'v1775915501/20250625_224551_a1rvaw.jpg',     en:'Chocolate Fondant',       fr:'Fondant Chocolat',        de:'Schokoladenfondant',          es:'Fondant de Chocolate'},
-  {cat:'chocolate',   lum:76,img:'v1776130545/20251114_111504_x5nd0j.jpg',     en:'Chocolate Brownie',       fr:'Brownie Chocolat',        de:'Schokoladen-Brownie',         es:'Brownie de Chocolate'},
-  {cat:'chocolate',   lum:82,img:'v1776180352/IMG-20241217-WA0005_zgrxqd.jpg', en:'Chocolate Ganache Brownies',fr:'Brownies Ganache',      de:'Schokoladen-Ganache-Brownies',es:'Brownies de Ganache'},
-  {cat:'chocolate',   lum:90,img:'v1775915350/IMG-20250225-WA0008_y0dvt6.jpg', en:'Ferroche Cake',           fr:'Gateau Ferroche',         de:'Ferroche-Torte',              es:'Pastel Ferroche'},
+  {cat:'viennoiserie',lum:8,img:'v1775914535/20250418_205726_tpgp68.jpg',en:'Croissants',fr:'Croissants',de:'Croissants',es:'Cruasanes'},
+  {cat:'viennoiserie',lum:12,img:'v1775914688/IMG-20241129-WA0012_vjodk3.jpg',en:'Viennoiserie Assortment',fr:'Assortiment Viennoiserie',de:'Viennoiserie-Sortiment',es:'Surtido de Viennoiserie'},
+  {cat:'viennoiserie',lum:15,img:'v1776180905/20250420_123112_av2u2a.jpg',en:'Choux Pastry',fr:'Pate a Choux',de:'Brandteiggebäck',es:'Pasta Choux'},
+  {cat:'tarts',lum:18,img:'v1776130288/20250129_135132_dfcode.jpg',en:'Apple Tart',fr:'Tarte aux Pommes',de:'Apfeltarte',es:'Tarta de Manzana'},
+  {cat:'tarts',lum:20,img:'v1776180381/20250129_135118_dvs157.jpg',en:'Apple Tart II',fr:'Tarte aux Pommes II',de:'Apfeltarte II',es:'Tarta de Manzana II'},
+  {cat:'tarts',lum:22,img:'v1776129982/20241107_154346_av9hfy.jpg',en:'Frangipane',fr:'Frangipane',de:'Frangipane',es:'Frangipane'},
+  {cat:'tarts',lum:25,img:'v1776130425/20250420_123345_g9ihs9.jpg',en:'Custard Tart',fr:'Tarte Custard',de:'Puddingtarte',es:'Tarta de Natillas'},
+  {cat:'viennoiserie',lum:28,img:'v1776180359/IMG-20251101-WA0019_nunejl.jpg',en:'Eclair',fr:'Eclair',de:'Eclair',es:'Eclair'},
+  {cat:'viennoiserie',lum:30,img:'v1776130031/20250420_125120_rfgnu8.jpg',en:'Paris-Brest',fr:'Paris-Brest',de:'Paris-Brest',es:'Paris-Brest'},
+  {cat:'tarts',lum:32,img:'v1776180392/20251110_140638_exmmht.jpg',en:'Tarte Tatin Revisitee',fr:'Tarte Tatin Revisitee',de:'Überarbeitete Tarte Tatin',es:'Tarta Tatin Revisitada'},
+  {cat:'tarts',lum:35,img:'v1776180389/20251110_122828_ntttua.jpg',en:'Mini Lemon Tarts',fr:'Mini Tartes Citron',de:'Mini-Zitronentörtchen',es:'Mini Tartas de Limon'},
+  {cat:'tarts',lum:38,img:'v1776180359/IMG-20251101-WA0018_xcch1z.jpg',en:'Mango Tart',fr:'Tarte Mangue',de:'Mangotarte',es:'Tarta de Mango'},
+  {cat:'petitfour',lum:40,img:'v1776180376/20241112_155203_gbfotl.jpg',en:'Madeleine',fr:'Madeleine',de:'Madeleine',es:'Madeleine'},
+  {cat:'petitfour',lum:42,img:'v1776180379/20241112_155547_k4nwgy.jpg',en:'Cookies',fr:'Cookies',de:'Cookies',es:'Cookies'},
+  {cat:'petitfour',lum:44,img:'v1776180444/20241112_155136_lowgva.jpg',en:'Financiers',fr:'Financiers',de:'Financiers',es:'Financiers'},
+  {cat:'petitfour',lum:46,img:'v1776180420/20251110_122937_gkuodk.jpg',en:'Tiger Financiers',fr:'Financiers Tigres',de:'Tiger-Financiers',es:'Financiers Tigre'},
+  {cat:'petitfour',lum:48,img:'v1776180424/20251111_124210_b5uvq1.jpg',en:'Petit Fours',fr:'Petits Fours',de:'Petits Fours',es:'Petit Fours'},
+  {cat:'petitfour',lum:50,img:'v1776130171/20251108_123811_h6gywa.jpg',en:'Chocolate Petit Fours',fr:'Petits Fours Chocolat',de:'Schokoladen-Petits-Fours',es:'Petit Fours de Chocolate'},
+  {cat:'petitfour',lum:52,img:'v1776130058/IMG-20241231-WA0009_xen01g.jpg',en:'Swiss Roll',fr:'Roule Suisse',de:'Biskuitrolle',es:'Brazo de Gitano'},
+  {cat:'petitfour',lum:54,img:'v1776129861/20250417_150238_cluvrz.jpg',en:'Petit Fours Collection',fr:'Collection Petits Fours',de:'Petits-Fours-Kollektion',es:'Coleccion de Petit Fours'},
+  {cat:'entremets',lum:45,img:'v1776129908/20250417_150149_ed5vpr.jpg',en:'Rose Entremet',fr:'Entremet Rose',de:'Rosen-Entremet',es:'Entremet de Rosa'},
+  {cat:'entremets',lum:55,img:'v1776129914/20250417_150138_ns80zk.jpg',en:'Vanilla Entremet',fr:'Entremet Vanille',de:'Vanille-Entremet',es:'Entremet de Vainilla'},
+  {cat:'entremets',lum:58,img:'v1776180451/20240130_154108_pllmqx.jpg',en:'Strawberry Cheesecake',fr:'Cheesecake Fraise',de:'Erdbeer-Käsekuchen',es:'Tarta de Queso Fresa'},
+  {cat:'entremets',lum:60,img:'v1776180451/20240130_154151_op1l4t.jpg',en:'Lemon Cheesecake',fr:'Cheesecake Citron',de:'Zitronen-Käsekuchen',es:'Tarta de Queso Limon'},
+  {cat:'chocolate',lum:62,img:'v1776180568/20250420_123022_wztptc.jpg',en:'White Choc Snickers',fr:'Snickers Chocolat Blanc',de:'Weisse Schokolade Snickers',es:'Snickers Chocolate Blanco'},
+  {cat:'chocolate',lum:68,img:'v1776129778/20250417_150218_yyhali.jpg',en:'Chocolate Tart',fr:'Tarte Chocolat',de:'Schokoladentarte',es:'Tarta de Chocolate'},
+  {cat:'chocolate',lum:72,img:'v1775915501/20250625_224551_a1rvaw.jpg',en:'Chocolate Fondant',fr:'Fondant Chocolat',de:'Schokoladenfondant',es:'Fondant de Chocolate'},
+  {cat:'chocolate',lum:76,img:'v1776130545/20251114_111504_x5nd0j.jpg',en:'Chocolate Brownie',fr:'Brownie Chocolat',de:'Schokoladen-Brownie',es:'Brownie de Chocolate'},
+  {cat:'chocolate',lum:82,img:'v1776180352/IMG-20241217-WA0005_zgrxqd.jpg',en:'Chocolate Ganache Brownies',fr:'Brownies Ganache',de:'Ganache-Brownies',es:'Brownies de Ganache'},
+  {cat:'chocolate',lum:90,img:'v1775915350/IMG-20250225-WA0008_y0dvt6.jpg',en:'Ferroche Cake',fr:'Gateau Ferroche',de:'Ferroche-Torte',es:'Pastel Ferroche'},
 ];
 ITEMS.sort((a,b)=>a.lum-b.lum);
 const BASE='https://res.cloudinary.com/dq88xwhfz/image/upload/';
@@ -846,47 +949,18 @@ function dotColor(l){
   for(let i=1;i<s.length;i++){if(l<=s[i][0]){const t=(l-s[i-1][0])/(s[i][0]-s[i-1][0]),h=n=>n.toString(16).padStart(2,'0'),r=(c,j)=>parseInt(c.slice(j,j+2),16),a=s[i-1][1],b=s[i][1];return'#'+[0,2,4].map(j=>h(Math.round(r(a,j)*(1-t)+r(b,j)*t))).join('')}}return'#130D08';
 }
 
-/* GRID */
 const gridEl=document.getElementById('grid');
 let vis=[],curIdx=0;
 function buildGrid(cat){
   gridEl.innerHTML='';
-  const regular=cat==='all'?ITEMS.filter(d=>d.cat!=='all_end'):ITEMS.filter(d=>d.cat===cat);
-  const soonCard=ITEMS.find(d=>d.cat==='all_end');
-  vis=[...regular];
-  if(cat==='all'&&soonCard)vis.push(soonCard);
+  vis=cat==='all'?[...ITEMS]:ITEMS.filter(d=>d.cat===cat);
+  const isMob=window.innerWidth<=480,w=isMob?240:440,h=isMob?185:340;
   vis.forEach((d,i)=>{
     const c=document.createElement('div');c.className='card';
     const name=d[lang]||d.en;
-    const tr=T[lang];
-    if(d.special==='soon'){
-      c.style.cursor='default';
-      c.innerHTML=`
-        <div class="c-dot" style="background:#1A0808"></div>
-        <div class="c-num">${String(i+1).padStart(2,'0')}</div>
-        <div class="soon-wrap">
-          <div class="soon-inner">
-            <div class="soon-sparkle">✦</div>
-            <div class="soon-text">
-              <div class="soon-tag">${tr.soon_tag}</div>
-              <div class="soon-main">${tr.soon_main}</div>
-              <div class="soon-line"></div>
-              <div class="soon-sub">${tr.soon_sub}</div>
-            </div>
-          </div>
-        </div>
-        <div class="card-info" style="opacity:1;transform:none">
-          <div class="c-cat">Dessert</div>
-          <div class="c-name">${name}</div>
-        </div>`;
-    } else {
-      const isMob=window.innerWidth<=480;
-      const w=isMob?240:440,h=isMob?185:340;
-      const src=`${BASE}w_${w},h_${h},c_fill,q_auto,f_auto/${d.img}`;
-      const src2x=`${BASE}w_${w*2},h_${h*2},c_fill,q_auto,f_auto/${d.img}`;
-      c.innerHTML=`<div class="c-dot" style="background:${dotColor(d.lum)}"></div><div class="c-num">${String(i+1).padStart(2,'0')}</div><img src="${src}" srcset="${src} 1x,${src2x} 2x" alt="${name}" loading="lazy" decoding="async" width="${w}" height="${h}"><div class="card-info"><div class="c-cat">${CATS[d.cat]||d.cat}</div><div class="c-name">${name}</div></div>`;
-      c.addEventListener('click',()=>openPhoto(i));
-    }
+    const src=`${BASE}w_${w},h_${h},c_fill,q_auto,f_auto/${d.img}`;
+    c.innerHTML=`<div class="c-dot" style="background:${dotColor(d.lum)}"></div><div class="c-num">${String(i+1).padStart(2,'0')}</div><img src="${src}" alt="${name}" loading="lazy" decoding="async" width="${w}" height="${h}"><div class="card-info"><div class="c-cat">${CATS[d.cat]||d.cat}</div><div class="c-name">${name}</div></div>`;
+    c.addEventListener('click',()=>openPhoto(i));
     gridEl.appendChild(c);
   });
 }
@@ -896,21 +970,18 @@ document.getElementById('filters').addEventListener('click',e=>{
   document.querySelectorAll('.flt').forEach(x=>x.classList.remove('on'));b.classList.add('on');buildGrid(b.dataset.cat);
 });
 
-/* PHOTO LIGHTBOX */
 function openPhoto(i){
   curIdx=i;const d=vis[i];const name=d[lang]||d.en;
   document.getElementById('pImg').src=BASE+'w_860,q_auto,f_auto/'+d.img;
   document.getElementById('pImg').alt=name;
   document.getElementById('pCat').textContent=CATS[d.cat]||d.cat;
   document.getElementById('pName').textContent=name;
-  document.getElementById('pLangs').innerHTML=[['EN',d.en],['FR',d.fr],['DE',d.de],['ES',d.es]].map(([l,v])=>`<div class="pf-lang">${l}: ${v}</div>`).join('');
   document.getElementById('pCtr').textContent=`${i+1} / ${vis.length}`;
   document.getElementById('pOv').classList.add('open');document.body.style.overflow='hidden';
 }
 function closePhoto(){document.getElementById('pOv').classList.remove('open');document.body.style.overflow='';}
 function navPhoto(d){curIdx=(curIdx+d+vis.length)%vis.length;openPhoto(curIdx);}
 
-/* COURSE MODAL */
 function openCourse(i){
   const c=T[lang].courses[i];
   document.getElementById('cLbl').textContent=c.lbl;
@@ -921,7 +992,6 @@ function openCourse(i){
 }
 function closeCourse(){document.getElementById('cOv').classList.remove('open');document.body.style.overflow='';}
 
-/* KEYBOARD */
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){closePhoto();closeCourse();}
   if(document.getElementById('pOv').classList.contains('open')){
@@ -930,24 +1000,22 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-/* SCROLL REVEAL — batch with requestAnimationFrame */
 const io=new IntersectionObserver(ents=>{
-  const toShow=ents.filter(e=>e.isIntersecting).map(e=>e.target);
-  if(toShow.length){requestAnimationFrame(()=>{toShow.forEach(el=>{el.classList.add('vis');io.unobserve(el)})});}
+  const show=ents.filter(e=>e.isIntersecting).map(e=>e.target);
+  if(show.length)requestAnimationFrame(()=>show.forEach(el=>{el.classList.add('vis');io.unobserve(el)}));
 },{threshold:.07,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.plate-scene').forEach(el=>io.observe(el));
 
-/* ASK REDA */
 let panelOpen=false,hist=[];
 function toggleAsk(){panelOpen=!panelOpen;document.getElementById('askPanel').classList.toggle('open',panelOpen);}
 
 function buildChips(){
-  const cl=document.getElementById('chipsList');
-  cl.innerHTML='';
+  const cl=document.getElementById('chipsList');cl.innerHTML='';
   const tr=T[lang];
   tr.chips.forEach((q,i)=>{
-    const b=document.createElement('button');b.className='chip';b.textContent=q;
-    b.addEventListener('click',()=>chip(q,tr.chip_ans[i]));
+    const b=document.createElement('button');b.className='chip';
+    b.innerHTML=`<span class="chip-num">${String(i+1).padStart(2,'0')}</span><span class="chip-text">${q}</span><span class="chip-arrow">→</span>`;
+    b.addEventListener('click',()=>{addMsg('u',q);setTimeout(()=>addMsg('a',tr.chip_ans[i]),300);});
     cl.appendChild(b);
   });
 }
@@ -959,23 +1027,22 @@ function addMsg(role,txt){
   d.innerHTML=(role==='a'?'<div class="mn">Reda</div>':'')+`<div class="mb2">${txt}</div>`;
   c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
-function chip(q,a){addMsg('u',q);setTimeout(()=>addMsg('a',a),260);}
 function showTyping(){
-  const c=document.getElementById('msgs');
-  const d=document.createElement('div');d.className='msg a';d.id='typ';
+  const c=document.getElementById('msgs'),d=document.createElement('div');
+  d.className='msg a';d.id='typ';
   d.innerHTML='<div class="mn">Reda</div><div class="mb2"><span class="td"></span><span class="td"></span><span class="td"></span></div>';
   c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
 function rmTyping(){const t=document.getElementById('typ');if(t)t.remove();}
 
-const SYS_BASE=`You are Reda El Ghalbzouri, a young Moroccan Commis Pastry Chef, freshly graduated and seeking his first professional job or internship. Answer in first person, warmly and concisely (2-4 sentences). Key facts: trained at Radisson Blu (5-star) and Mercure/Accor Group (4-star) in Morocco. Specialties: viennoiserie, chocolate art, entremets, petit fours, plated desserts, tarts. Philosophy: pastry is about emotion. Open to international relocation. Contact: redaelghalbzouri003@gmail.com / +212 666 310 794. Never say you are an AI. Always respond in the same language as the user.`;
+const SYS=`You are Reda El Ghalbzouri, a young Moroccan Commis Pastry Chef seeking his first professional job. Answer in first person, warmly and concisely (2-4 sentences). Trained at Radisson Blu (5-star) and Mercure/Accor Group (4-star) in Morocco. Specialties: viennoiserie, chocolate art, entremets, petit fours, plated desserts, tarts. Philosophy: pastry is about emotion. Open to international relocation. Contact: redaelghalbzouri003@gmail.com / +212 666 310 794. Never say you are an AI. Always reply in the same language as the user.`;
 
 async function sendMsg(){
-  const inp=document.getElementById('askIn');const q=inp.value.trim();if(!q)return;
+  const inp=document.getElementById('askIn'),q=inp.value.trim();if(!q)return;
   inp.value='';addMsg('u',q);hist.push({role:'user',content:q});showTyping();
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,system:SYS_BASE,messages:hist})});
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,system:SYS,messages:hist})});
     const data=await res.json();rmTyping();
     const reply=data.content?.map(b=>b.text||'').join('')||'redaelghalbzouri003@gmail.com';
     hist.push({role:'assistant',content:reply});if(hist.length>12)hist=hist.slice(-12);
