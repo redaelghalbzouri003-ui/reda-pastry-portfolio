@@ -60,9 +60,9 @@ nav{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:cen
 .platter-hd{text-align:center;margin-bottom:4rem;z-index:2}
 .platter-hd h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.6rem);font-weight:300;color:var(--ch)}
 .platter-hd p{margin-top:.55rem;font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ca);opacity:.65}
-.plate-scene{position:relative;z-index:2;opacity:0;transform:scale(.9) translateZ(0);transition:opacity 1s,transform 1s cubic-bezier(.34,1.1,.64,1);contain:layout style}
-.plate-scene.vis{opacity:1;transform:scale(1) translateZ(0)}
-.plate-outer{width:min(520px,90vw);height:min(520px,90vw);border-radius:50%;position:relative;transform:translateZ(0)}
+.plate-scene{position:relative;z-index:2;opacity:0;transform:scale(.9);transition:opacity 1s,transform 1s cubic-bezier(.34,1.1,.64,1)}
+.plate-scene.vis{opacity:1;transform:scale(1)}
+.plate-outer{width:min(520px,90vw);height:min(520px,90vw);border-radius:50%;position:relative}
 .plate-outer::before{content:'';position:absolute;inset:-10px;border-radius:50%;box-shadow:0 50px 100px rgba(80,45,8,.28),0 20px 50px rgba(154,112,48,.14);pointer-events:none;z-index:-1}
 .plate{width:100%;height:100%;border-radius:50%;position:relative;
   background:conic-gradient(from 210deg,rgba(255,255,255,.60) 0deg,rgba(255,255,255,.05) 50deg,transparent 100deg,rgba(110,70,15,.22) 180deg,rgba(75,42,8,.32) 240deg,rgba(140,96,30,.16) 300deg,rgba(255,255,255,.42) 340deg,rgba(255,255,255,.60) 360deg),
@@ -73,8 +73,8 @@ nav{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:cen
 .plate-well{position:absolute;inset:13%;border-radius:50%;background:radial-gradient(circle at 32% 26%,#fff 0%,#fefef9 6%,#faf7ec 20%,#f5eedc 42%,#ede0c4 68%,#e2d0aa 100%);box-shadow:0 0 0 1px rgba(195,158,82,.16),inset 0 6px 24px rgba(0,0,0,.06)}
 .plate-hl{position:absolute;top:4%;left:14%;width:38%;height:22%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.72) 0%,rgba(255,255,255,.22) 40%,transparent 70%);transform:rotate(-24deg);pointer-events:none;z-index:5}
 .plate-hl2{position:absolute;top:8%;right:18%;width:14%;height:9%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.5) 0%,transparent 70%);pointer-events:none;z-index:5}
-.pastry{position:absolute;width:96px;height:96px;transform:translate(-50%,-55%) translateZ(0);cursor:pointer;z-index:10;transition:transform .5s cubic-bezier(.34,1.6,.64,1);will-change:transform;contain:layout style}
-.pastry:hover{transform:translate(-50%,-74%) scale(1.15) translateZ(0)}
+.pastry{position:absolute;width:96px;height:96px;transform:translate(-50%,-55%);cursor:pointer;z-index:10;transition:transform .5s cubic-bezier(.34,1.6,.64,1)}
+.pastry:hover{transform:translate(-50%,-74%) scale(1.15)}
 .pastry:hover .bonbon-shadow{opacity:.75;transform:translateX(-50%) scaleX(1.08)}
 .pastry:hover .p-glow{opacity:1}
 .bonbon-shadow{position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);width:70px;height:13px;border-radius:50%;background:radial-gradient(ellipse,rgba(50,22,4,.52) 0%,rgba(50,22,4,.18) 55%,transparent 100%);filter:blur(5px);transition:opacity .38s,transform .38s;pointer-events:none;z-index:1}
@@ -247,20 +247,31 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
 @keyframes fUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fIn{from{opacity:0}to{opacity:1}}
 @keyframes spk{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}15%{opacity:1;transform:scale(1.1) rotate(15deg)}45%{opacity:.7;transform:scale(.8)}65%{opacity:0;transform:scale(0)}}
-@keyframes shimmer{0%,100%{opacity:.55}50%{opacity:1}}
 @media(max-width:860px){
   nav{padding:0 18px}.nav-links,.lang-sel{display:none}.nav-ham{display:flex}
-  #about{grid-template-columns:1fr}.about-r{min-height:380px;padding:40px 20px}.about-l{padding:56px 24px}
+  #about{grid-template-columns:1fr}.about-r{min-height:320px;padding:36px 20px}.about-l{padding:48px 24px}
   .craft-grid{grid-template-columns:1fr 1fr}.craft-band{padding:44px 24px 36px}
   .con-grid{grid-template-columns:1fr}
   footer{padding:38px 20px 28px}.ft{flex-direction:column;align-items:flex-start;gap:1rem}
   .pillars{flex-direction:column}
   #portfolio{padding:56px 12px}.grid{columns:2}
-  #platter{padding:72px 16px 60px}
+  #platter{padding:60px 12px 48px}
+  .plate-outer{width:min(420px,92vw);height:min(420px,92vw)}
+  .pastry{width:74px;height:74px}
+  .platter-hint{font-size:.72rem;padding:8px 14px;gap:.7rem}
 }
 @media(max-width:480px){
-  .grid{columns:2}.craft-grid{grid-template-columns:1fr}
-  .plate-outer{width:min(360px,92vw);height:min(360px,92vw)}.pastry{width:74px;height:74px}
+  .grid{columns:2}
+  .craft-grid{grid-template-columns:1fr}
+  .plate-outer{width:min(340px,94vw);height:min(340px,94vw)}
+  .pastry{width:62px;height:62px}
+  .pastry .p-course{font-size:.55rem}
+  .pastry .p-lbl{font-size:.44rem;bottom:-24px}
+  #phil{padding:60px 20px}
+  .pillars{border:none}
+  .pillar{border-right:none;border-bottom:1px solid rgba(154,112,48,.1)}
+  footer{padding:32px 18px 24px}
+  .con-wrap{padding:0 4px}
 }
 </style>
 </head>
@@ -347,8 +358,8 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
         <div class="plate-rim"></div><div class="plate-rim2"></div>
         <div class="plate-well">
 
-<!-- ══ COURSE I — Dark Obsidian Sphere · Gold leaf center · Animated sparkles ══ -->
-<div class="pastry" style="left:50%;top:9%" onclick="openCourse(0)">
+<!-- ══ COURSE I — 12 o'clock ══ -->
+<div class="pastry" style="left:50%;top:12%" onclick="openCourse(0)">
   <div class="p-glow"></div><div class="p-course" data-t="ci">Course I</div>
   <div class="bonbon-shadow" style="width:74px"></div>
   <svg class="bonbon-svg" viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
@@ -369,9 +380,12 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
         <stop offset="0%" stop-color="rgba(255,255,255,.72)"/><stop offset="22%" stop-color="rgba(255,255,255,.38)"/>
         <stop offset="55%" stop-color="rgba(255,255,255,.06)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
       </radialGradient>
-      <linearGradient id="Ig1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#F9E44A"/><stop offset="30%" stop-color="#E8C832"/>
-        <stop offset="60%" stop-color="#C8A01C"/><stop offset="100%" stop-color="#9A7410"/>
+      <linearGradient id="Ig1" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(175,125,38,.0)"/>
+        <stop offset="20%" stop-color="#E8C832"/>
+        <stop offset="55%" stop-color="#F9E44A"/>
+        <stop offset="80%" stop-color="#C8A01C"/>
+        <stop offset="100%" stop-color="rgba(154,116,16,.0)"/>
       </linearGradient>
       <clipPath id="Ic2"><circle cx="60" cy="62" r="40"/></clipPath>
       <style>
@@ -389,16 +403,10 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
     <ellipse cx="38" cy="38" rx="7" ry="4.5" fill="rgba(255,255,255,.82)" transform="rotate(-22 38 38)" clip-path="url(#Ic2)"/>
     <circle cx="36" cy="36" r="3.2" fill="rgba(255,255,255,.96)" clip-path="url(#Ic2)"/>
     <circle cx="34" cy="34" r="1.4" fill="#fff" clip-path="url(#Ic2)"/>
-    <circle cx="80" cy="46" r="1.4" fill="rgba(255,255,255,.20)" clip-path="url(#Ic2)"/>
-    <circle cx="72" cy="44" r="1.0" fill="rgba(190,100,30,.28)" clip-path="url(#Ic2)"/>
-    <circle cx="48" cy="78" r=".9" fill="rgba(180,88,22,.22)" clip-path="url(#Ic2)"/>
-    <circle cx="32" cy="60" r=".8" fill="rgba(175,82,18,.18)" clip-path="url(#Ic2)"/>
-    <!-- Gold leaf — large crinkled teardrop center -->
-    <path d="M50 64 Q60 51 70 64 Q67 76 60 79 Q53 76 50 64Z" fill="url(#Ig1)" clip-path="url(#Ic2)"/>
-    <path d="M50 64 Q60 53 70 64" fill="none" stroke="rgba(255,248,160,.72)" stroke-width="1.1" clip-path="url(#Ic2)"/>
-    <path d="M53 71 L55 78 M61 70 L60 77 M57 62 L59 56" fill="none" stroke="rgba(175,128,16,.45)" stroke-width=".7" clip-path="url(#Ic2)"/>
-    <!-- Second fragment top-right -->
-    <path class="gl_I" d="M70 50 Q76 44 80 48 Q78 54 73 53Z" fill="rgba(252,228,80,.88)" clip-path="url(#Ic2)"/>
+    <path d="M27 82 Q46 56 88 50" fill="none" stroke="url(#Ig1)" stroke-width="4.2" stroke-linecap="round" clip-path="url(#Ic2)"/>
+    <path d="M29 86 Q48 60 90 54" fill="none" stroke="rgba(255,248,160,.28)" stroke-width="1.6" stroke-linecap="round" clip-path="url(#Ic2)"/>
+    <circle cx="82" cy="51" r="3.2" fill="rgba(252,228,80,.88)" clip-path="url(#Ic2)"/>
+    <circle cx="82" cy="51" r="1.4" fill="rgba(255,248,160,.96)" clip-path="url(#Ic2)"/>
     <g class="sI1"><path d="M92 11L93.5 17L99 18L93.5 19L92 25L90.5 19L85 18L90.5 17Z" fill="rgba(255,242,160,1)"/><circle cx="92" cy="18" r="1.4" fill="white"/></g>
     <g class="sI2"><path d="M16 45L17.2 51L23 52L17.2 53L16 59L14.8 53L9 52L14.8 51Z" fill="rgba(255,242,160,1)"/><circle cx="16" cy="52" r="1.2" fill="white"/></g>
     <g class="sI3"><path d="M98 71L99 77L105 78L99 79L98 85L97 79L91 78L97 77Z" fill="rgba(255,242,160,1)"/><circle cx="98" cy="78" r="1.1" fill="white"/></g>
@@ -407,143 +415,101 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
   <div class="p-lbl" data-t="c1_lbl">Why Reda</div>
 </div>
 
-<!-- ══ COURSE II — Ruby Glossy Rounded Square · Diagonal gold stripe ══ -->
-<div class="pastry" style="left:84%;top:24%" onclick="openCourse(1)">
+<!-- ══ COURSE II — 2 o'clock ══ -->
+<div class="pastry" style="left:83%;top:31%" onclick="openCourse(1)">
   <div class="p-glow"></div><div class="p-course" data-t="cii">Course II</div>
-  <div class="bonbon-shadow" style="width:78px;border-radius:6px;height:11px"></div>
-  <svg class="bonbon-svg" viewBox="0 0 122 114" width="100" height="94" xmlns="http://www.w3.org/2000/svg">
+  <div class="bonbon-shadow" style="width:76px;height:11px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="IIa" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#7A1412"/><stop offset="25%" stop-color="#420909"/>
-        <stop offset="55%" stop-color="#200505"/><stop offset="100%" stop-color="#040101"/>
-      </linearGradient>
-      <radialGradient id="IIb" cx="35%" cy="28%" r="60%">
-        <stop offset="0%" stop-color="rgba(210,42,20,.40)"/><stop offset="100%" stop-color="rgba(140,10,5,0)"/>
+      <radialGradient id="IIa" cx="32%" cy="24%" r="78%">
+        <stop offset="0%" stop-color="#5C1212"/><stop offset="20%" stop-color="#300606"/>
+        <stop offset="48%" stop-color="#160303"/><stop offset="100%" stop-color="#030000"/>
       </radialGradient>
-      <radialGradient id="IIspec" cx="26%" cy="18%" r="44%">
-        <stop offset="0%" stop-color="rgba(255,255,255,.82)"/><stop offset="20%" stop-color="rgba(255,255,255,.42)"/>
-        <stop offset="55%" stop-color="rgba(255,255,255,.07)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      <radialGradient id="IIb" cx="62%" cy="68%" r="40%">
+        <stop offset="0%" stop-color="rgba(180,24,12,.30)"/><stop offset="100%" stop-color="rgba(120,10,4,0)"/>
       </radialGradient>
-      <linearGradient id="IIwin" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="rgba(255,255,255,0)"/><stop offset="35%" stop-color="rgba(255,255,255,.55)"/>
-        <stop offset="50%" stop-color="rgba(255,255,255,.70)"/><stop offset="65%" stop-color="rgba(255,255,255,.55)"/>
-        <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      <radialGradient id="IIc" cx="50%" cy="50%" r="50%">
+        <stop offset="62%" stop-color="rgba(0,0,0,0)"/><stop offset="88%" stop-color="rgba(0,0,0,.38)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.60)"/>
+      </radialGradient>
+      <radialGradient id="IId" cx="28%" cy="18%" r="46%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.78)"/><stop offset="22%" stop-color="rgba(255,255,255,.40)"/>
+        <stop offset="55%" stop-color="rgba(255,255,255,.06)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <linearGradient id="IIg1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F9E44A"/><stop offset="40%" stop-color="#D8A818"/>
+        <stop offset="100%" stop-color="#9A7410"/>
       </linearGradient>
-      <linearGradient id="IIirid" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="rgba(80,160,220,0)"/><stop offset="40%" stop-color="rgba(80,160,220,.10)"/>
-        <stop offset="60%" stop-color="rgba(55,200,180,.14)"/><stop offset="100%" stop-color="rgba(80,160,220,0)"/>
-      </linearGradient>
-      <!-- Diagonal gold band — unique to this bonbon -->
-      <linearGradient id="IIgoldStripe" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="rgba(250,220,60,.0)"/><stop offset="30%" stop-color="rgba(255,235,80,.88)"/>
-        <stop offset="50%" stop-color="rgba(255,248,140,.95)"/><stop offset="70%" stop-color="rgba(250,220,60,.88)"/>
-        <stop offset="100%" stop-color="rgba(250,220,60,.0)"/>
-      </linearGradient>
-      <linearGradient id="IIsideR" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#1C0505"/><stop offset="100%" stop-color="#0A0202"/>
-      </linearGradient>
-      <linearGradient id="IIsideB" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#2E0808"/><stop offset="100%" stop-color="#0E0303"/>
-      </linearGradient>
-      <clipPath id="IIclip"><rect x="14" y="16" width="80" height="72" rx="10"/></clipPath>
+      <clipPath id="IIclip"><circle cx="60" cy="62" r="40"/></clipPath>
     </defs>
-    <path d="M94 16 L104 27 L104 88 L94 88Z" fill="url(#IIsideR)"/>
-    <path d="M14 88 L94 88 L104 94 L14 94Z" fill="url(#IIsideB)"/>
-    <rect x="14" y="16" width="80" height="72" rx="10" fill="url(#IIa)"/>
-    <rect x="14" y="16" width="80" height="72" rx="10" fill="url(#IIb)"/>
-    <rect x="14" y="16" width="80" height="72" rx="10" fill="url(#IIirid)"/>
-    <rect x="14" y="16" width="80" height="72" rx="10" fill="none" stroke="rgba(0,0,0,.22)" stroke-width="1.5"/>
-    <!-- Left shadow -->
-    <rect x="14" y="16" width="7" height="72" rx="4" fill="rgba(0,0,0,.20)" clip-path="url(#IIclip)"/>
-    <!-- Specular lobe -->
-    <ellipse cx="32" cy="28" rx="22" ry="13" fill="url(#IIspec)" transform="rotate(-20 32 28)" clip-path="url(#IIclip)"/>
-    <!-- Window strip -->
-    <rect x="20" y="18" width="5.5" height="38" rx="2.7" fill="url(#IIwin)" transform="rotate(-8 20 18)" clip-path="url(#IIclip)" opacity=".88"/>
-    <!-- Hot-spot nucleus -->
-    <ellipse cx="27" cy="24" rx="7" ry="4.2" fill="rgba(255,255,255,.88)" transform="rotate(-20 27 24)" clip-path="url(#IIclip)"/>
-    <circle cx="25" cy="22" r="3.0" fill="rgba(255,255,255,.98)" clip-path="url(#IIclip)"/>
-    <circle cx="23" cy="20" r="1.4" fill="#fff" clip-path="url(#IIclip)"/>
-    <!-- Diagonal gold band instead of leaf — unique treatment -->
-    <path d="M14 58 L58 16 L78 16 L14 78Z" fill="url(#IIgoldStripe)" clip-path="url(#IIclip)" opacity=".72"/>
-    <path d="M14 62 L62 16" fill="none" stroke="rgba(255,252,200,.48)" stroke-width=".9" clip-path="url(#IIclip)"/>
-    <path d="M14 72 L72 16" fill="none" stroke="rgba(255,252,200,.22)" stroke-width=".6" clip-path="url(#IIclip)"/>
-    <!-- Dot matrix -->
-    <g clip-path="url(#IIclip)" opacity=".48">
-      <circle cx="40" cy="52" r=".9" fill="rgba(255,110,70,.42)"/><circle cx="48" cy="52" r=".9" fill="rgba(255,110,70,.40)"/>
-      <circle cx="56" cy="52" r=".9" fill="rgba(255,110,70,.38)"/><circle cx="64" cy="52" r=".9" fill="rgba(255,110,70,.36)"/>
-      <circle cx="72" cy="52" r=".9" fill="rgba(255,110,70,.38)"/><circle cx="80" cy="52" r=".9" fill="rgba(255,110,70,.40)"/>
-      <circle cx="38" cy="61" r=".9" fill="rgba(245,90,55,.34)"/><circle cx="46" cy="61" r=".9" fill="rgba(245,90,55,.32)"/>
-      <circle cx="54" cy="61" r=".9" fill="rgba(245,90,55,.30)"/><circle cx="62" cy="61" r=".9" fill="rgba(245,90,55,.28)"/>
-      <circle cx="70" cy="61" r=".9" fill="rgba(245,90,55,.30)"/><circle cx="78" cy="61" r=".9" fill="rgba(245,90,55,.32)"/>
-      <circle cx="42" cy="70" r=".8" fill="rgba(232,72,42,.22)"/><circle cx="50" cy="70" r=".8" fill="rgba(232,72,42,.20)"/>
-      <circle cx="58" cy="70" r=".8" fill="rgba(232,72,42,.18)"/><circle cx="66" cy="70" r=".8" fill="rgba(232,72,42,.18)"/>
-      <circle cx="74" cy="70" r=".8" fill="rgba(232,72,42,.20)"/><circle cx="82" cy="70" r=".8" fill="rgba(232,72,42,.22)"/>
-    </g>
-    <circle cx="84" cy="30" r="1.3" fill="rgba(255,165,120,.28)" clip-path="url(#IIclip)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#IIa)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#IIb)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#IIc)"/>
+    <circle cx="60" cy="62" r="40" fill="none" stroke="rgba(0,0,0,.16)" stroke-width="1.2"/>
+    <ellipse cx="44" cy="44" rx="18" ry="12" fill="url(#IId)" transform="rotate(-24 44 44)" clip-path="url(#IIclip)"/>
+    <ellipse cx="38" cy="38" rx="7" ry="4.5" fill="rgba(255,255,255,.82)" transform="rotate(-22 38 38)" clip-path="url(#IIclip)"/>
+    <circle cx="36" cy="36" r="3.2" fill="rgba(255,255,255,.96)" clip-path="url(#IIclip)"/>
+    <circle cx="34" cy="34" r="1.4" fill="#fff" clip-path="url(#IIclip)"/>
+    <path d="M60 48 L78 64 L60 80 L42 64 Z" fill="none" stroke="url(#IIg1)" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#IIclip)"/>
+    <path d="M60 53 L74 64 L60 75 L46 64 Z" fill="none" stroke="rgba(255,248,160,.30)" stroke-width="1.1" stroke-linejoin="round" clip-path="url(#IIclip)"/>
+    <circle cx="60" cy="48" r="2.0" fill="rgba(252,228,80,.90)" clip-path="url(#IIclip)"/>
+    <circle cx="78" cy="64" r="1.5" fill="rgba(248,218,70,.72)" clip-path="url(#IIclip)"/>
+    <circle cx="42" cy="64" r="1.5" fill="rgba(248,218,70,.72)" clip-path="url(#IIclip)"/>
+    <circle cx="74" cy="56" r="1.0" fill="rgba(220,38,24,.38)" clip-path="url(#IIclip)"/>
+    <circle cx="46" cy="72" r=".8" fill="rgba(210,30,16,.30)" clip-path="url(#IIclip)"/>
+    <circle cx="80" cy="58" r=".9" fill="rgba(200,28,14,.26)" clip-path="url(#IIclip)"/>
   </svg>
   <div class="p-lbl" data-t="c2_lbl">Unique</div>
 </div>
 
-<!-- ══ COURSE III — Milk Chocolate Bar · Caramel drizzle · Hazelnuts ══ -->
-<div class="pastry" style="left:84%;top:71%" onclick="openCourse(2)">
+<!-- ══ COURSE III — 4 o'clock ══ -->
+<div class="pastry" style="left:83%;top:69%" onclick="openCourse(2)">
   <div class="p-glow"></div><div class="p-course" data-t="ciii">Course III</div>
-  <div class="bonbon-shadow" style="width:84px;border-radius:6px;height:11px"></div>
-  <svg class="bonbon-svg" viewBox="0 0 124 110" width="104" height="92" xmlns="http://www.w3.org/2000/svg">
+  <div class="bonbon-shadow" style="width:74px;height:11px"></div>
+  <svg class="bonbon-svg" viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="IIItop" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#D08A48"/><stop offset="28%" stop-color="#9E5E28"/>
-        <stop offset="62%" stop-color="#663014"/><stop offset="100%" stop-color="#3A1808"/>
-      </linearGradient>
-      <radialGradient id="IIIspec" cx="24%" cy="18%" r="50%">
-        <stop offset="0%" stop-color="rgba(255,255,255,.74)"/><stop offset="30%" stop-color="rgba(255,255,255,.28)"/>
-        <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      <radialGradient id="IIIa" cx="32%" cy="24%" r="78%">
+        <stop offset="0%" stop-color="#C87228"/><stop offset="18%" stop-color="#8A4210"/>
+        <stop offset="40%" stop-color="#4A1E06"/><stop offset="70%" stop-color="#210C02"/>
+        <stop offset="100%" stop-color="#080200"/>
       </radialGradient>
-      <radialGradient id="IIIhz" cx="32%" cy="24%" r="68%">
-        <stop offset="0%" stop-color="#8A4A22"/><stop offset="48%" stop-color="#4A2010"/><stop offset="100%" stop-color="#200C04"/>
+      <radialGradient id="IIIb" cx="64%" cy="66%" r="38%">
+        <stop offset="0%" stop-color="rgba(220,140,40,.34)"/><stop offset="100%" stop-color="rgba(180,90,20,0)"/>
       </radialGradient>
-      <radialGradient id="IIIhzs" cx="30%" cy="22%" r="55%">
-        <stop offset="0%" stop-color="rgba(200,138,60,.72)"/><stop offset="100%" stop-color="rgba(130,72,22,0)"/>
+      <radialGradient id="IIIc" cx="50%" cy="50%" r="50%">
+        <stop offset="62%" stop-color="rgba(0,0,0,0)"/><stop offset="88%" stop-color="rgba(0,0,0,.32)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,.54)"/>
       </radialGradient>
-      <linearGradient id="IIIside" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#3C1C0A"/><stop offset="100%" stop-color="#200E04"/>
+      <radialGradient id="IIId" cx="28%" cy="18%" r="46%">
+        <stop offset="0%" stop-color="rgba(255,255,255,.75)"/><stop offset="22%" stop-color="rgba(255,255,255,.38)"/>
+        <stop offset="55%" stop-color="rgba(255,255,255,.06)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+      </radialGradient>
+      <linearGradient id="IIIg1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(249,228,74,.0)"/>
+        <stop offset="15%" stop-color="#F9E44A"/>
+        <stop offset="50%" stop-color="#E8C832"/>
+        <stop offset="85%" stop-color="#C8A01C"/>
+        <stop offset="100%" stop-color="rgba(154,116,16,.0)"/>
       </linearGradient>
-      <linearGradient id="IIIcar" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="rgba(248,200,52,.95)"/><stop offset="45%" stop-color="rgba(255,222,88,.85)"/>
-        <stop offset="100%" stop-color="rgba(238,185,44,.78)"/>
-      </linearGradient>
+      <clipPath id="IIIclip"><circle cx="60" cy="62" r="40"/></clipPath>
     </defs>
-    <path d="M88 18 L100 30 L100 80 L88 74Z" fill="url(#IIIside)"/>
-    <path d="M22 74 L88 74 L100 80 L100 86 L88 80 L22 80Z" fill="#160802"/>
-    <rect x="22" y="18" width="66" height="56" rx="4" fill="url(#IIItop)"/>
-    <rect x="22" y="18" width="66" height="56" rx="4" fill="rgba(200,135,45,.10)"/>
-    <rect x="22" y="18" width="5" height="56" rx="2" fill="rgba(0,0,0,.20)"/>
-    <ellipse cx="40" cy="30" rx="28" ry="10" fill="url(#IIIspec)"/>
-    <!-- Dividing line -->
-    <line x1="55" y1="20" x2="55" y2="72" stroke="rgba(22,10,3,.45)" stroke-width="1.6"/>
-    <line x1="56" y1="20" x2="56" y2="72" stroke="rgba(225,165,65,.16)" stroke-width=".8"/>
-    <!-- Caramel drizzle + gloss -->
-    <path d="M26 34 Q33 29 40 33 Q47 37 56 33 Q65 29 73 33 Q80 30 86 31" fill="none" stroke="url(#IIIcar)" stroke-width="2.6" stroke-linecap="round"/>
-    <path d="M26 32 Q33 27.5 40 31 Q47 35 56 31 Q65 27.5 73 31 Q80 28 86 29" fill="none" stroke="rgba(255,248,200,.60)" stroke-width="1.0" stroke-linecap="round"/>
-    <path d="M24 47 Q32 43 41 46 Q50 49 59 46 Q67 43 78 46" fill="none" stroke="rgba(248,200,52,.68)" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M28 59 Q38 55 50 58 Q62 61 74 58" fill="none" stroke="rgba(242,186,40,.42)" stroke-width="1.2" stroke-linecap="round"/>
-    <!-- Hazelnuts -->
-    <ellipse cx="34" cy="63" rx="5.5" ry="4.5" fill="url(#IIIhz)" transform="rotate(-8 34 63)"/>
-    <ellipse cx="32.5" cy="61" rx="2.5" ry="1.8" fill="url(#IIIhzs)" transform="rotate(-10 32.5 61)"/>
-    <circle cx="32" cy="60.5" r="1.0" fill="rgba(190,120,48,.55)"/>
-    <ellipse cx="51" cy="64" rx="4.8" ry="3.8" fill="url(#IIIhz)" transform="rotate(5 51 64)"/>
-    <ellipse cx="49.5" cy="62" rx="2.1" ry="1.5" fill="url(#IIIhzs)"/>
-    <circle cx="49" cy="61.5" r=".85" fill="rgba(188,118,45,.52)"/>
-    <ellipse cx="68" cy="63" rx="5.2" ry="4.2" fill="url(#IIIhz)" transform="rotate(-4 68 63)"/>
-    <ellipse cx="66.5" cy="61" rx="2.2" ry="1.6" fill="url(#IIIhzs)"/>
-    <circle cx="66" cy="60.5" r=".9" fill="rgba(186,116,43,.50)"/>
-    <circle cx="80" cy="38" r="1.1" fill="rgba(220,150,36,.50)"/>
-    <circle cx="26" cy="44" r=".9" fill="rgba(215,142,30,.42)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#IIIa)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#IIIb)"/>
+    <circle cx="60" cy="62" r="40" fill="url(#IIIc)"/>
+    <circle cx="60" cy="62" r="40" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.2"/>
+    <ellipse cx="44" cy="44" rx="18" ry="12" fill="url(#IIId)" transform="rotate(-24 44 44)" clip-path="url(#IIIclip)"/>
+    <ellipse cx="38" cy="38" rx="7" ry="4.5" fill="rgba(255,255,255,.82)" transform="rotate(-22 38 38)" clip-path="url(#IIIclip)"/>
+    <circle cx="36" cy="36" r="3.2" fill="rgba(255,255,255,.96)" clip-path="url(#IIIclip)"/>
+    <circle cx="34" cy="34" r="1.4" fill="#fff" clip-path="url(#IIIclip)"/>
+    <path d="M23 53 Q60 48 97 53" fill="none" stroke="url(#IIIg1)" stroke-width="3.2" stroke-linecap="round" clip-path="url(#IIIclip)"/>
+    <path d="M21 63 Q60 58 99 63" fill="none" stroke="rgba(232,200,50,.80)" stroke-width="2.4" stroke-linecap="round" clip-path="url(#IIIclip)"/>
+    <path d="M23 73 Q60 68 97 73" fill="none" stroke="rgba(198,156,36,.52)" stroke-width="1.7" stroke-linecap="round" clip-path="url(#IIIclip)"/>
   </svg>
   <div class="p-lbl" data-t="c3_lbl">Specialties</div>
 </div>
 
-<!-- ══ COURSE IV — Dark Dome · Gold equator band · Velvet surface ══ -->
-<div class="pastry" style="left:50%;top:84%" onclick="openCourse(3)">
+<!-- ══ COURSE IV — 6 o'clock ══ -->
+<div class="pastry" style="left:50%;top:88%" onclick="openCourse(3)">
   <div class="p-glow"></div><div class="p-course" data-t="civ">Course IV</div>
   <div class="bonbon-shadow" style="width:86px;height:11px;border-radius:40%"></div>
   <svg class="bonbon-svg" viewBox="0 0 122 112" width="102" height="94" xmlns="http://www.w3.org/2000/svg">
@@ -571,6 +537,12 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
       <linearGradient id="IVbase" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stop-color="#0C0402"/><stop offset="50%" stop-color="#1E0E06"/><stop offset="100%" stop-color="#0C0402"/>
       </linearGradient>
+      <linearGradient id="IVdrip" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(255,245,130,.96)"/>
+        <stop offset="50%" stop-color="rgba(232,200,50,.82)"/>
+        <stop offset="100%" stop-color="rgba(200,156,36,.0)"/>
+      </linearGradient>
+      <clipPath id="IVdclip"><path d="M19 86 Q19 18 61 16 Q103 18 103 86Z"/></clipPath>
     </defs>
     <ellipse cx="61" cy="86" rx="42" ry="7.5" fill="url(#IVbase)"/>
     <path d="M19 86 Q19 18 61 16 Q103 18 103 86Z" fill="url(#IVdome)"/>
@@ -579,25 +551,21 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
     <path d="M19 86 Q19 18 61 16 Q103 18 103 86Z" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2.5"/>
     <path d="M26 72 Q61 66 96 72" fill="none" stroke="rgba(58,30,10,.28)" stroke-width="1.0"/>
     <path d="M22 58 Q61 52 100 58" fill="none" stroke="rgba(52,26,8,.20)" stroke-width=".8"/>
-    <path d="M22 44 Q61 38 100 44" fill="none" stroke="rgba(48,22,6,.14)" stroke-width=".7"/>
-    <path d="M24 30 Q61 24 98 30" fill="none" stroke="rgba(44,18,5,.10)" stroke-width=".6"/>
     <ellipse cx="38" cy="32" rx="20" ry="13" fill="url(#IVspec)" transform="rotate(-20 38 32)"/>
     <ellipse cx="34" cy="27" rx="6" ry="3.8" fill="rgba(255,255,255,.82)" transform="rotate(-22 34 27)"/>
     <circle cx="32" cy="25" r="2.8" fill="rgba(255,255,255,.96)"/>
     <circle cx="30.5" cy="23.5" r="1.3" fill="#fff"/>
-    <circle cx="84" cy="40" r="1.4" fill="rgba(255,255,255,.24)"/>
+    <path d="M61 24 Q64 44 61 62 Q59 72 61 82" fill="none" stroke="url(#IVdrip)" stroke-width="2.6" stroke-linecap="round" clip-path="url(#IVdclip)"/>
+    <circle cx="61" cy="22" r="4.0" fill="rgba(255,245,130,.92)" clip-path="url(#IVdclip)"/>
+    <circle cx="61" cy="22" r="2.0" fill="rgba(255,252,200,.98)" clip-path="url(#IVdclip)"/>
     <path d="M19 86 Q21 96 61 99 Q101 96 103 86" fill="url(#IVband)"/>
     <path d="M24 84 Q61 92 98 84" fill="none" stroke="rgba(255,252,200,.50)" stroke-width="1.1"/>
-    <!-- Gold fragment top-right of dome — offset from band -->
-    <path d="M84 30 Q90 24 95 28 Q93 34 87 33Z" fill="rgba(252,228,80,.82)" opacity=".9"/>
-    <path d="M84 30 Q90 25 95 28" fill="none" stroke="rgba(255,248,148,.44)" stroke-width=".8"/>
-    <circle cx="68" cy="26" r="1.1" fill="rgba(215,140,36,.44)"/>
   </svg>
   <div class="p-lbl" data-t="c4_lbl">Training</div>
 </div>
 
-<!-- ══ COURSE V — Amber Caramel Egg · Banded refraction · Warm glow ══ -->
-<div class="pastry" style="left:16%;top:71%" onclick="openCourse(4)">
+<!-- ══ COURSE V — 8 o'clock ══ -->
+<div class="pastry" style="left:17%;top:69%" onclick="openCourse(4)">
   <div class="p-glow"></div><div class="p-course" data-t="cv">Course V</div>
   <div class="bonbon-shadow" style="width:62px;height:11px"></div>
   <svg class="bonbon-svg" viewBox="0 0 110 122" width="92" height="102" xmlns="http://www.w3.org/2000/svg">
@@ -618,33 +586,39 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
         <stop offset="0%" stop-color="rgba(255,255,255,.88)"/><stop offset="22%" stop-color="rgba(255,255,255,.44)"/>
         <stop offset="58%" stop-color="rgba(255,255,255,.07)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
       </radialGradient>
-      <linearGradient id="Vband1" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="rgba(255,242,100,.0)"/><stop offset="30%" stop-color="rgba(255,242,100,.64)"/>
-        <stop offset="60%" stop-color="rgba(255,235,80,.48)"/><stop offset="100%" stop-color="rgba(255,242,100,.0)"/>
+      <linearGradient id="Varc1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(252,228,80,.0)"/>
+        <stop offset="30%" stop-color="rgba(252,228,80,.90)"/>
+        <stop offset="50%" stop-color="rgba(255,242,100,.96)"/>
+        <stop offset="70%" stop-color="rgba(232,190,50,.82)"/>
+        <stop offset="100%" stop-color="rgba(210,165,38,.0)"/>
       </linearGradient>
+      <linearGradient id="Varc2" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(248,215,70,.0)"/>
+        <stop offset="30%" stop-color="rgba(232,190,50,.78)"/>
+        <stop offset="50%" stop-color="rgba(255,235,80,.88)"/>
+        <stop offset="70%" stop-color="rgba(200,155,32,.70)"/>
+        <stop offset="100%" stop-color="rgba(180,135,24,.0)"/>
+      </linearGradient>
+      <clipPath id="Veggclip"><ellipse cx="55" cy="62" rx="32" ry="44"/></clipPath>
     </defs>
     <ellipse cx="55" cy="62" rx="32" ry="44" fill="url(#Vbase)"/>
     <ellipse cx="55" cy="62" rx="32" ry="44" fill="url(#Vamber)"/>
     <ellipse cx="55" cy="62" rx="32" ry="44" fill="url(#Vrim)"/>
-    <path d="M33 48 Q55 42 77 48" fill="none" stroke="url(#Vband1)" stroke-width="2.8" stroke-linecap="round"/>
-    <path d="M32 64 Q55 58 78 64" fill="none" stroke="rgba(255,238,80,.56)" stroke-width="2.0" stroke-linecap="round"/>
-    <path d="M34 80 Q55 75 76 80" fill="none" stroke="rgba(252,225,60,.32)" stroke-width="1.4" stroke-linecap="round"/>
-    <path d="M38 94 Q55 90 72 94" fill="none" stroke="rgba(248,208,44,.16)" stroke-width=".9" stroke-linecap="round"/>
     <ellipse cx="40" cy="37" rx="15" ry="9.5" fill="url(#Vspec)" transform="rotate(-18 40 37)"/>
     <ellipse cx="37" cy="33" rx="5" ry="3.2" fill="rgba(255,255,255,.82)" transform="rotate(-20 37 33)"/>
     <circle cx="35.5" cy="31.5" r="2.4" fill="rgba(255,255,255,.97)"/>
     <circle cx="34.2" cy="30.2" r="1.1" fill="#fff"/>
-    <circle cx="78" cy="54" r="1.3" fill="rgba(255,235,80,.52)"/>
-    <circle cx="80" cy="68" r=".9" fill="rgba(252,228,68,.42)"/>
-    <!-- Tiny gold fragment at shoulder — unique position -->
-    <path d="M71 38 Q76 32 80 36 Q78 41 73 40Z" fill="rgba(252,228,80,.86)"/>
-    <path d="M71 38 Q76 33 80 36" fill="none" stroke="rgba(255,248,148,.44)" stroke-width=".7"/>
+    <path d="M30 38 Q55 60 80 84" fill="none" stroke="url(#Varc1)" stroke-width="3.4" stroke-linecap="round" clip-path="url(#Veggclip)"/>
+    <path d="M80 38 Q55 60 30 84" fill="none" stroke="url(#Varc2)" stroke-width="2.4" stroke-linecap="round" clip-path="url(#Veggclip)"/>
+    <circle cx="55" cy="62" r="3.8" fill="rgba(255,248,160,.82)" clip-path="url(#Veggclip)"/>
+    <circle cx="55" cy="62" r="1.8" fill="rgba(255,252,200,.96)" clip-path="url(#Veggclip)"/>
   </svg>
   <div class="p-lbl" data-t="c5_lbl">Mobility</div>
 </div>
 
-<!-- ══ COURSE VI — Dark Hexagonal Gem · Green cocoa-butter · Triple gold fragments ══ -->
-<div class="pastry" style="left:16%;top:24%" onclick="openCourse(5)">
+<!-- ══ COURSE VI — 10 o'clock ══ -->
+<div class="pastry" style="left:17%;top:31%" onclick="openCourse(5)">
   <div class="p-glow"></div><div class="p-course" data-t="cvi">Course VI</div>
   <div class="bonbon-shadow" style="width:70px;height:11px"></div>
   <svg class="bonbon-svg" viewBox="0 0 122 122" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -667,46 +641,34 @@ footer{background:var(--dk);padding:50px 56px 32px;border-top:1px solid rgba(154
       <radialGradient id="VIgreen" cx="60%" cy="58%" r="38%">
         <stop offset="0%" stop-color="rgba(55,172,45,.26)"/><stop offset="100%" stop-color="rgba(38,138,28,0)"/>
       </radialGradient>
-      <linearGradient id="VIl1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="rgba(252,228,60,.97)"/><stop offset="48%" stop-color="rgba(228,188,44,.84)"/>
-        <stop offset="100%" stop-color="rgba(182,142,28,.62)"/>
+      <linearGradient id="VItri" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="rgba(255,248,148,.96)"/>
+        <stop offset="40%" stop-color="rgba(248,218,68,.92)"/>
+        <stop offset="100%" stop-color="rgba(198,152,32,.68)"/>
       </linearGradient>
-      <linearGradient id="VIl2" x1="100%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="rgba(248,222,72,.90)"/><stop offset="100%" stop-color="rgba(198,152,32,.66)"/>
-      </linearGradient>
-      <linearGradient id="VIl3" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="rgba(210,165,38,.78)"/><stop offset="100%" stop-color="rgba(255,238,100,.92)"/>
-      </linearGradient>
+      <clipPath id="VIhex"><path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z"/></clipPath>
     </defs>
     <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIbase)"/>
     <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIenv)"/>
     <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIgreen)"/>
     <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="url(#VIrim)"/>
-    <line x1="61" y1="18" x2="22" y2="54" stroke="rgba(255,228,90,.12)" stroke-width="1.0"/>
-    <line x1="61" y1="18" x2="100" y2="54" stroke="rgba(255,228,90,.12)" stroke-width="1.0"/>
-    <line x1="61" y1="18" x2="61" y2="98" stroke="rgba(255,228,90,.09)" stroke-width=".8"/>
-    <line x1="22" y1="54" x2="100" y2="54" stroke="rgba(255,228,90,.08)" stroke-width=".7"/>
+    <line x1="61" y1="18" x2="22" y2="54" stroke="rgba(255,228,90,.10)" stroke-width="1.0"/>
+    <line x1="61" y1="18" x2="100" y2="54" stroke="rgba(255,228,90,.10)" stroke-width="1.0"/>
+    <line x1="61" y1="18" x2="61" y2="98" stroke="rgba(255,228,90,.08)" stroke-width=".8"/>
+    <line x1="22" y1="54" x2="100" y2="54" stroke="rgba(255,228,90,.07)" stroke-width=".7"/>
     <path d="M40 18 L82 18 L100 54 L82 98 L40 98 L22 54Z" fill="none" stroke="rgba(0,0,0,.24)" stroke-width="1.8"/>
     <ellipse cx="37" cy="29" rx="18" ry="11" fill="url(#VIspec)" transform="rotate(-22 37 29)"/>
     <ellipse cx="34" cy="25" rx="6" ry="3.8" fill="rgba(255,255,255,.84)" transform="rotate(-24 34 25)"/>
     <circle cx="32" cy="23" r="2.8" fill="rgba(255,255,255,.97)"/>
     <circle cx="30.5" cy="21.5" r="1.3" fill="#fff"/>
-    <circle cx="84" cy="36" r="1.4" fill="rgba(255,255,255,.26)"/>
-    <!-- Green cocoa-butter droplets -->
-    <circle cx="76" cy="66" r="1.3" fill="rgba(60,172,46,.48)"/>
-    <circle cx="78" cy="56" r="1.0" fill="rgba(56,165,40,.42)"/>
-    <circle cx="36" cy="70" r="1.0" fill="rgba(58,168,43,.38)"/>
-    <circle cx="86" cy="70" r=".8" fill="rgba(54,162,38,.32)"/>
-    <!-- Main gold leaf — center teardrop -->
-    <path d="M49 63 Q61 50 73 63 Q69 78 61 80 Q53 78 49 63Z" fill="url(#VIl1)"/>
-    <path d="M49 63 Q61 52 73 63" fill="none" stroke="rgba(255,248,148,.62)" stroke-width="1.1"/>
-    <path d="M53 70 L55 78 M63 70 L62 77 M59 61 L61 54" fill="none" stroke="rgba(178,132,18,.46)" stroke-width=".7"/>
-    <!-- Second fragment — upper left facet -->
-    <path d="M34 40 Q40 33 46 38 Q44 44 38 44Z" fill="url(#VIl2)"/>
-    <path d="M34 40 Q40 34 46 38" fill="none" stroke="rgba(255,248,148,.44)" stroke-width=".8"/>
-    <!-- Third fragment — right mid -->
-    <path d="M82 46 Q88 40 93 44 Q91 50 85 50Z" fill="url(#VIl3)"/>
-    <path d="M82 46 Q88 41 93 44" fill="none" stroke="rgba(255,248,148,.38)" stroke-width=".7"/>
+    <path d="M61 37 L80 71 L42 71 Z" fill="none" stroke="url(#VItri)" stroke-width="2.6" stroke-linejoin="round" clip-path="url(#VIhex)"/>
+    <path d="M61 43 L76 69 L46 69 Z" fill="none" stroke="rgba(255,248,148,.28)" stroke-width="1.1" stroke-linejoin="round" clip-path="url(#VIhex)"/>
+    <circle cx="61" cy="37" r="2.4" fill="rgba(255,248,148,.94)" clip-path="url(#VIhex)"/>
+    <circle cx="80" cy="71" r="1.6" fill="rgba(248,218,68,.78)" clip-path="url(#VIhex)"/>
+    <circle cx="42" cy="71" r="1.6" fill="rgba(248,218,68,.78)" clip-path="url(#VIhex)"/>
+    <circle cx="76" cy="66" r="1.3" fill="rgba(60,172,46,.48)" clip-path="url(#VIhex)"/>
+    <circle cx="78" cy="48" r="1.0" fill="rgba(56,165,40,.42)" clip-path="url(#VIhex)"/>
+    <circle cx="36" cy="70" r="1.0" fill="rgba(58,168,43,.38)" clip-path="url(#VIhex)"/>
   </svg>
   <div class="p-lbl" data-t="c6_lbl">Contact</div>
 </div>
@@ -954,17 +916,19 @@ let vis=[],curIdx=0;
 function buildGrid(cat){
   gridEl.innerHTML='';
   vis=cat==='all'?[...ITEMS]:ITEMS.filter(d=>d.cat===cat);
-  const isMob=window.innerWidth<=480,w=isMob?240:440,h=isMob?185:340;
+  const mob=window.innerWidth<=480,w=mob?240:440,h=mob?185:340;
+  const frag=document.createDocumentFragment();
   vis.forEach((d,i)=>{
     const c=document.createElement('div');c.className='card';
     const name=d[lang]||d.en;
-    const src=`${BASE}w_${w},h_${h},c_fill,q_auto,f_auto/${d.img}`;
-    c.innerHTML=`<div class="c-dot" style="background:${dotColor(d.lum)}"></div><div class="c-num">${String(i+1).padStart(2,'0')}</div><img src="${src}" alt="${name}" loading="lazy" decoding="async" width="${w}" height="${h}"><div class="card-info"><div class="c-cat">${CATS[d.cat]||d.cat}</div><div class="c-name">${name}</div></div>`;
+    c.innerHTML=`<div class="c-dot" style="background:${dotColor(d.lum)}"></div><div class="c-num">${String(i+1).padStart(2,'0')}</div><img src="${BASE}w_${w},h_${h},c_fill,q_auto,f_auto/${d.img}" alt="${name}" loading="lazy" decoding="async" width="${w}" height="${h}"><div class="card-info"><div class="c-cat">${CATS[d.cat]||d.cat}</div><div class="c-name">${name}</div></div>`;
     c.addEventListener('click',()=>openPhoto(i));
-    gridEl.appendChild(c);
+    frag.appendChild(c);
   });
+  gridEl.appendChild(frag);
 }
 buildGrid('all');
+
 document.getElementById('filters').addEventListener('click',e=>{
   const b=e.target.closest('.flt');if(!b)return;
   document.querySelectorAll('.flt').forEach(x=>x.classList.remove('on'));b.classList.add('on');buildGrid(b.dataset.cat);
@@ -1001,8 +965,9 @@ document.addEventListener('keydown',e=>{
 });
 
 const io=new IntersectionObserver(ents=>{
-  const show=ents.filter(e=>e.isIntersecting).map(e=>e.target);
-  if(show.length)requestAnimationFrame(()=>show.forEach(el=>{el.classList.add('vis');io.unobserve(el)}));
+  const toShow=ents.filter(e=>e.isIntersecting).map(e=>e.target);
+  if(!toShow.length)return;
+  requestAnimationFrame(()=>toShow.forEach(el=>{el.classList.add('vis');io.unobserve(el)}));
 },{threshold:.07,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.plate-scene').forEach(el=>io.observe(el));
 
@@ -1012,12 +977,14 @@ function toggleAsk(){panelOpen=!panelOpen;document.getElementById('askPanel').cl
 function buildChips(){
   const cl=document.getElementById('chipsList');cl.innerHTML='';
   const tr=T[lang];
+  const frag=document.createDocumentFragment();
   tr.chips.forEach((q,i)=>{
     const b=document.createElement('button');b.className='chip';
     b.innerHTML=`<span class="chip-num">${String(i+1).padStart(2,'0')}</span><span class="chip-text">${q}</span><span class="chip-arrow">→</span>`;
     b.addEventListener('click',()=>{addMsg('u',q);setTimeout(()=>addMsg('a',tr.chip_ans[i]),300);});
-    cl.appendChild(b);
+    frag.appendChild(b);
   });
+  cl.appendChild(frag);
 }
 buildChips();
 
@@ -1028,8 +995,8 @@ function addMsg(role,txt){
   c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
 function showTyping(){
-  const c=document.getElementById('msgs'),d=document.createElement('div');
-  d.className='msg a';d.id='typ';
+  const c=document.getElementById('msgs');
+  const d=document.createElement('div');d.className='msg a';d.id='typ';
   d.innerHTML='<div class="mn">Reda</div><div class="mb2"><span class="td"></span><span class="td"></span><span class="td"></span></div>';
   c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
